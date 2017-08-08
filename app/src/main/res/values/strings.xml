@@ -1,0 +1,15 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Tábua de marés</string>
+    <string name="action_settings">Settings</string>
+    <string name="moon_phase">Fase da lua: %1$s (%2$.2f dias)</string>
+    <string name="low_water">Baixa-mar: %1$s</string>
+    <string name="hide_tide">Preamar: %1$s</string>
+    <string name="wind">Vento: %1$d graus, %2$.1f nós</string>
+    <string name="swell">Swell: %1$s</string>
+    <string name="doing">Swell: Doing</string>
+    <string name="refresh">Atualizar</string>
+    <string name="refreshing">Atualizando todos os dados</string>
+    <string name="sessionTitle"><xliff:g id="sessionTitle">Resumo das condições de hoje - %1$td/%1$tm/%1$tY</xliff:g></string>
+    <string name="waning">minguante</string>
+    <string name="waxing">crescente</string>
+</resources>
