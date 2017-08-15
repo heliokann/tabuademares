@@ -17,8 +17,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.novoideal.tabuademares.service.Request;
+import com.novoideal.tabuademares.controller.ExtremesController;
+import com.novoideal.tabuademares.controller.MoonController;
+import com.novoideal.tabuademares.controller.WindController;
+import com.novoideal.tabuademares.controller.base.AbstractController;
 
 import java.util.Date;
 
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private static MainActivity mainActivity;
+    public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Button refresh = (Button) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                refreshAll(true);
+                refreshAll(null);
             }
         });
 
@@ -83,19 +85,22 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void refreshAll(boolean clearCache) {
-        if (clearCache) {
-            Request.clearCache();
+    public void refreshAll(View rootView) {
+        if (rootView == null) {
+            AbstractController.clearCache();
             Toast.makeText(mainActivity, getString(R.string.refreshing), Toast.LENGTH_LONG).show();
         }
 
-        try {
-            Request.windRequest((AppCompatActivity) mainActivity);
-            Request.moonRequest((AppCompatActivity) mainActivity);
-            Request.extremesRequest((AppCompatActivity) mainActivity);
-        } catch (AuthFailureError authFailureError) {
-            authFailureError.printStackTrace();
-        }
+//        try {
+//            Request.windRequest((AppCompatActivity) mainActivity);
+//            Request.moonRequest((AppCompatActivity) mainActivity);
+//            Request.extremesRequest((AppCompatActivity) mainActivity);
+            new MoonController(rootView).request();
+            new WindController(rootView).request();;
+            new ExtremesController(rootView).request();;
+//        } catch (AuthFailureError authFailureError) {
+//            authFailureError.printStackTrace();
+//        }
     }
 
 
@@ -154,8 +159,7 @@ public class MainActivity extends AppCompatActivity {
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle, new Date()));
             System.out.println("Entrou no OnCreateView");
-            Request.rootView = rootView;
-            MainActivity.mainActivity.refreshAll(false);
+            MainActivity.mainActivity.refreshAll(rootView);
             return rootView;
         }
     }

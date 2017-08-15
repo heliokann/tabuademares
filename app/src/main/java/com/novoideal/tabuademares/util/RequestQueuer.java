@@ -1,4 +1,4 @@
-package com.novoideal.tabuademares.service;
+package com.novoideal.tabuademares.util;
 
 /**
  * Created by Helio on 03/08/2017.
@@ -14,19 +14,19 @@ import com.android.volley.toolbox.Volley;
 /**
  * Created by genji on 2/12/16 ... the same as android developers
  */
-public class RequestSender {
-    private static RequestSender mInstance;
+public class RequestQueuer {
+    private static RequestQueuer mInstance;
     private RequestQueue mRequestQueue;
     private static Context mCtx;
 
-    private RequestSender(Context context) {
+    private RequestQueuer(Context context) {
         mCtx = context;
         mRequestQueue = getRequestQueue();
     }
 
-    public static synchronized RequestSender getInstance(Context context) {
+    public static synchronized RequestQueuer getInstance(Context context) {
         if (mInstance == null) {
-            mInstance = new RequestSender(context);
+            mInstance = new RequestQueuer(context);
         }
         return mInstance;
     }
@@ -44,3 +44,20 @@ public class RequestSender {
         getRequestQueue().add(req);
     }
 }
+
+// class DownloadXmlTask extends AsyncTask<String, Void, String> {
+//    @Override
+//    protected String doInBackground(String... urls) {
+//        try {
+//            return loadXmlFromNetwork(urls[0]);
+//        } catch (IOException e) {
+//            return e.getMessage();
+//        } catch (XmlPullParserException e) {
+//            return e.getMessage();
+//        }
+//    }
+//
+//    @Override
+//    protected void onPostExecute(String result) {
+//    }
+//}

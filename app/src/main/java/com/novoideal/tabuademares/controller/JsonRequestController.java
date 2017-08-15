@@ -1,9 +1,7 @@
-package com.novoideal.tabuademares.service;
+package com.novoideal.tabuademares.controller;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Xml;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,23 +11,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.novoideal.tabuademares.R;
+import com.novoideal.tabuademares.util.RequestQueuer;
 
 import org.joda.time.DateTime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.android.volley.Request.Method;
@@ -39,7 +30,7 @@ import static com.android.volley.Request.Method;
  * Created by Helio on 13/07/2017.
  */
 
-public class Request {
+public class JsonRequestController {
 
     public static View rootView;
     private static Map<Integer, String> cache = new HashMap<>();
@@ -134,14 +125,14 @@ public class Request {
 //                       System.out.println("Deu bom: " + response);
                         switch (elementID) {
                             case R.id.moon_phase:
-                                Request.updateMoon(response);
+                                JsonRequestController.updateMoon(response);
                                 break;
                             case R.id.low_water:
                             case R.id.hide_tide:
-                                Request.updateExtremes(response);
+                                JsonRequestController.updateExtremes(response);
                                 break;
                             case R.id.wind:
-                                Request.updateWind(response);
+                                JsonRequestController.updateWind(response);
                                 break;
                             default:
                                 Toast.makeText(ctx, "Deu ruim no request: " + url, Toast.LENGTH_LONG).show();
@@ -168,7 +159,7 @@ public class Request {
             }
         };
 
-        RequestSender.getInstance(ctx).addToRequestQueue(jsObjRequest);
+        RequestQueuer.getInstance(ctx).addToRequestQueue(jsObjRequest);
     }
 
 //    new DownloadXmlTask().execute(URL);
