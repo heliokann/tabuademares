@@ -12,4 +12,5 @@
     <string name="sessionTitle"><xliff:g id="sessionTitle">Resumo das condições de hoje - %1$td/%1$tm/%1$tY</xliff:g></string>
     <string name="waning">minguante</string>
     <string name="waxing">crescente</string>
+    <string name="loading">carregando ...</string>
 </resources>

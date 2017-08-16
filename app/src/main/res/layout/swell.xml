@@ -1,0 +1,131 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <View
+        android:layout_height="2dip"
+        android:layout_marginTop="20px"
+        android:background="@color/colorPrimary" />
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+        <TextView
+            android:id="@+id/x"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/morning"
+            android:layout_marginRight="50px"
+            android:text="Manhã (12h)"
+            android:textSize="25px"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/afternoon"
+            android:layout_marginRight="50px"
+            android:text="Tarde (18h)"
+            android:textSize="25px"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/night"
+            android:layout_marginRight="40px"
+            android:text="Noite (21h)"
+            android:textSize="25px"
+            android:textStyle="bold"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+        <TextView
+            android:id="@+id/head_1"
+            android:layout_marginRight="20px"
+            android:text="Agitação"
+            android:textSize="25px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/a_m"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/a_t"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/a_n"
+            android:text="@string/loading"
+            android:textSize="25px" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+        <TextView
+            android:id="@+id/head_2"
+            android:layout_marginRight="20px"
+            android:text="Swell"
+            android:textSize="25px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/s_m"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/s_t"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/s_n"
+            android:text="@string/loading"
+            android:textSize="25px" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip">
+
+        <TextView
+            android:id="@+id/head_3"
+            android:layout_marginRight="20px"
+            android:text="Vento"
+            android:textSize="25px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/v_m"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/v_t"
+            android:text="@string/loading"
+            android:textSize="25px" />
+
+        <TextView
+            android:id="@+id/v_n"
+            android:text="@string/loading"
+            android:textSize="25px" />
+    </TableRow>
+
+
+</TableLayout>

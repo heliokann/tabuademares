@@ -46,10 +46,7 @@
         android:layout_marginBottom="15px"
         android:text="@string/wind" />
 
-    <TextView
-        android:id="@+id/swell"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/doing" />
+
+    <include layout="@layout/swell"/>
 
 </LinearLayout>
