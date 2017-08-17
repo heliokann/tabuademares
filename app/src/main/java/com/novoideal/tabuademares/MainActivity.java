@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
+import com.novoideal.tabuademares.controller.SwellController;
 import com.novoideal.tabuademares.controller.WindController;
 import com.novoideal.tabuademares.controller.base.AbstractController;
 
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public void refreshAll(View rootView) {
         if (rootView == null) {
             AbstractController.clearCache();
+            SwellController.clearCache();
             Toast.makeText(mainActivity, getString(R.string.refreshing), Toast.LENGTH_LONG).show();
         }
 
@@ -97,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
 //            Request.extremesRequest((AppCompatActivity) mainActivity);
             new MoonController(rootView).request();
             new WindController(rootView).request();;
-            new ExtremesController(rootView).request();;
+            new ExtremesController(rootView).request();
+            new SwellController(rootView).request();
 //        } catch (AuthFailureError authFailureError) {
 //            authFailureError.printStackTrace();
 //        }

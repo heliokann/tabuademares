@@ -21,7 +21,7 @@ import java.text.NumberFormat;
 
 public class ExtremesController extends AbstractController implements BaseController {
 
-    private String url = "https://www.worldtides.info/api?swell=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
+    private String url = "https://www.worldtides.info/api?extremes=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
 
     public ExtremesController(View view) {
         super(view);
@@ -30,7 +30,7 @@ public class ExtremesController extends AbstractController implements BaseContro
     @Override
     public void callback(int elementID, JSONObject response) {
         try {
-            JSONArray extremes = response.getJSONArray("swell");
+            JSONArray extremes = response.getJSONArray("extremes");
             String low = "";
             String high = "";
             DateTime now = DateTime.now();
@@ -49,7 +49,7 @@ public class ExtremesController extends AbstractController implements BaseContro
             updateLabel(R.id.low_water, getContext().getString(R.string.low_water, low));
             updateLabel(R.id.hide_tide, getContext().getString(R.string.hide_tide, high));
         } catch (JSONException e) {
-            Toast.makeText(getContext(), "Deu ruim no swell: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Deu ruim no extremos: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

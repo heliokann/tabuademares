@@ -41,7 +41,7 @@ public class XmlWeatherService {
         InputStream stream = null;
         try {
 
-            stream = downloadUrl("http://servicos.cptec.inpe.br/XML/cidade/1059/dia/0/ondas.xml");
+            stream = downloadUrl(xmlUrl);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(stream));
 
             SwelltHandler handler = new SwelltHandler();

@@ -57,7 +57,7 @@ public class JsonRequestController {
     }
 
     public static void extremesRequest(AppCompatActivity ctx) throws AuthFailureError {
-        String url = "https://www.worldtides.info/api?swell=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
+        String url = "https://www.worldtides.info/api?extremes=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
         doRequest(url, ctx, R.id.low_water);
         doRequest(url, ctx, R.id.hide_tide);
     }
@@ -87,7 +87,7 @@ public class JsonRequestController {
 
     public static void updateExtremes(JSONObject response) {
         try {
-            JSONArray extremes = response.getJSONArray("swell");
+            JSONArray extremes = response.getJSONArray("extremes");
             String low = "";
             String high = "";
             DateTime now = DateTime.now();
@@ -106,7 +106,7 @@ public class JsonRequestController {
             updateLabel(R.id.low_water, rootView.getContext().getString(R.string.low_water, low));
             updateLabel(R.id.hide_tide, rootView.getContext().getString(R.string.hide_tide, high));
         } catch (JSONException e) {
-            Toast.makeText(rootView.getContext(), "Deu ruim no swell: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(rootView.getContext(), "Deu ruim nos extremos: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

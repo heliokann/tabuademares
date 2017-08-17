@@ -22,21 +22,21 @@
             android:id="@+id/morning"
             android:layout_marginRight="50px"
             android:text="Manhã (12h)"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/afternoon"
             android:layout_marginRight="50px"
             android:text="Tarde (18h)"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/night"
             android:layout_marginRight="40px"
             android:text="Noite (21h)"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold"/>
     </TableRow>
 
@@ -50,23 +50,23 @@
             android:id="@+id/head_1"
             android:layout_marginRight="20px"
             android:text="Agitação"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/a_m"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
             android:id="@+id/a_t"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
             android:id="@+id/a_n"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
     </TableRow>
 
     <TableRow
@@ -79,23 +79,23 @@
             android:id="@+id/head_2"
             android:layout_marginRight="20px"
             android:text="Swell"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/s_m"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
             android:id="@+id/s_t"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
             android:id="@+id/s_n"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
     </TableRow>
 
     <TableRow
@@ -108,23 +108,23 @@
             android:id="@+id/head_3"
             android:layout_marginRight="20px"
             android:text="Vento"
-            android:textSize="25px"
+            android:textSize="30px"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/v_m"
+            android:id="@+id/w_m"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
-            android:id="@+id/v_t"
+            android:id="@+id/w_t"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
 
         <TextView
-            android:id="@+id/v_n"
+            android:id="@+id/w_n"
             android:text="@string/loading"
-            android:textSize="25px" />
+            android:textSize="30px" />
     </TableRow>
 
 

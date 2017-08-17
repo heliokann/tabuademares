@@ -22,13 +22,20 @@ public class WindController extends AbstractController implements BaseController
         super(view);
     }
 
+    private static String directions[] = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
+
+    private String getPrettyCardinal(Double x) {
+        return directions[(int) Math.round((((double) x % 360) / 45)) % 8];
+    }
+
     @Override
     public void callback(int elementID, JSONObject response) {
         int wind = 0;
         try {
             wind = response.getJSONObject("wind").optInt("deg");
             Double speed = response.getJSONObject("wind").optDouble("speed");
-            updateLabel(R.id.wind, getContext().getString(R.string.wind, wind, speed));
+            String cardinal = getPrettyCardinal((double)wind);
+            updateLabel(R.id.wind, getContext().getString(R.string.wind, cardinal, wind, speed));
         } catch (JSONException e) {
             Toast.makeText(getContext(), "Deu ruim no wind: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
