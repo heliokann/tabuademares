@@ -30,12 +30,12 @@ public class SwellController {
     private static Map<String, Weather> cacheWeater = new HashMap<>();
     public static View rootView = null;
 
-    public static void  clearCache(){
+    public static void clearCache() {
         cacheWeater.clear();
     }
 
     public SwellController(View view) {
-        if (rootView == null) {
+        if (view != null) {
             this.rootView = view;
         }
     }
@@ -47,7 +47,7 @@ public class SwellController {
     public void updateWeather(String period, int agitation, int swell, int wind) {
         Weather w = cacheWeater.get(period);
         updateLabel(agitation, w.getAgitation());
-        updateLabel(swell, w.getSewll() + ", " +w.getHeight() +"m");
+        updateLabel(swell, w.getSewll() + ", " + w.getHeight() + "m");
         updateLabel(wind, w.getWind_dir() + ", " + w.getWind() + " nós");
     }
 
@@ -69,11 +69,20 @@ public class SwellController {
     }
 
     public void request() {
+        if(hasCache()){
+            updateFromCache();
+            return;
+        }
+
         new DownloadXmlTask().execute(this);
     }
 
     public String getURL() {
         return url;
+    }
+
+    public boolean hasCache() {
+        return !cacheWeater.isEmpty();
     }
 
 }

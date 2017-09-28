@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
 //            Request.windRequest((AppCompatActivity) mainActivity);
 //            Request.moonRequest((AppCompatActivity) mainActivity);
 //            Request.extremesRequest((AppCompatActivity) mainActivity);
-            new MoonController(rootView).request();
-            new WindController(rootView).request();;
-            new ExtremesController(rootView).request();
-            new SwellController(rootView).request();
+        new MoonController(rootView).request();
+        new WindController(rootView).request();
+        new ExtremesController(rootView).request();
+        new SwellController(rootView).request();
 //        } catch (AuthFailureError authFailureError) {
 //            authFailureError.printStackTrace();
 //        }
@@ -144,9 +144,9 @@ public class MainActivity extends AppCompatActivity {
          * number.
          */
         public static PlaceholderFragment newInstance(int sectionNumber) {
-            if(cache != null){
-                return cache;
-            }
+//            if(cache != null){
+//                return cache;
+//            }
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -156,13 +156,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle, new Date()));
             System.out.println("Entrou no OnCreateView");
-            MainActivity.mainActivity.refreshAll(rootView);
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    MainActivity.mainActivity.refreshAll(rootView);
+                }
+            };
+
+            Thread thread = new Thread(runnable);
+            thread.start();
+
             return rootView;
         }
     }

@@ -29,7 +29,7 @@ public abstract class AbstractController implements BaseController {
     public static View rootView = null;
 
     public AbstractController(View view) {
-        if (rootView == null) {
+        if (view != null) {
             this.rootView = view;
         }
     }
