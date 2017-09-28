@@ -1,6 +1,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Tábua de marés</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurações</string>
     <string name="moon_phase">Fase da lua: %1$s (%2$.2f dias)</string>
     <string name="low_water">Baixa-mar: %1$s</string>
     <string name="hide_tide">Preamar: %1$s</string>
@@ -13,4 +13,6 @@
     <string name="waning">minguante</string>
     <string name="waxing">crescente</string>
     <string name="loading">carregando ...</string>
+    <string name="action_about">Sobre</string>
+    <string name="author">Desenvolvedor: Kann</string>
 </resources>

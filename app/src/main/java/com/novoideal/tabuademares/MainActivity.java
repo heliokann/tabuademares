@@ -116,10 +116,15 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Snackbar.make(mainActivity.mViewPager, "Ainda não implementado", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            return true;
+        }
+        if (id == R.id.action_about){
+            Toast.makeText(mainActivity.mViewPager.getContext(), getString(R.string.author), Toast.LENGTH_LONG).show();
             return true;
         }
 
-        Snackbar.make(item.getActionView(), "Replace with your own action", Snackbar.LENGTH_LONG)
+        Snackbar.make(mainActivity.mViewPager, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
 
         return super.onOptionsItemSelected(item);
