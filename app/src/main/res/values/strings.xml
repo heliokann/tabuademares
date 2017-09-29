@@ -15,4 +15,5 @@
     <string name="loading">carregando ...</string>
     <string name="action_about">Sobre</string>
     <string name="author">Desenvolvedor: Kann</string>
+    <string name="pick_time">Data</string>
 </resources>

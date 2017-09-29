@@ -16,6 +16,7 @@
         android:layout_marginBottom="30px"
         android:background="#00ff5f"
         android:textAlignment="center"
+        android:onClick="showTimePickerDialog"
         android:textColorHighlight="@android:color/holo_blue_light" />
 
     <TextView

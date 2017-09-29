@@ -2,6 +2,7 @@ package com.novoideal.tabuademares;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -78,6 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
