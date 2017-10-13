@@ -1,6 +1,7 @@
 package com.novoideal.tabuademares;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -14,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +23,9 @@ import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SwellController;
 import com.novoideal.tabuademares.controller.WindController;
 import com.novoideal.tabuademares.controller.base.AbstractController;
+
+import org.joda.time.LocalDate;
+import org.shredzone.commons.suncalc.MoonIllumination;
 
 import java.util.Date;
 
@@ -61,21 +64,13 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        Button refresh = (Button) findViewById(R.id.btn_refresh);
+        FloatingActionButton refresh = (FloatingActionButton) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                refreshAll(null);
-            }
+               @Override
+               public void onClick(View view) {
+                   refreshAll(null);
+               }
         });
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
     }
 
@@ -124,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(mainActivity.mViewPager, "Ainda não implementado", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return true;
         }
-        if (id == R.id.action_about){
+        if (id == R.id.action_about) {
             Toast.makeText(mainActivity.mViewPager.getContext(), getString(R.string.author), Toast.LENGTH_LONG).show();
             return true;
         }
@@ -170,6 +165,12 @@ public class MainActivity extends AppCompatActivity {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle, new Date()));
+
+            LocalDate dt = LocalDate.now();
+            Double age = MoonIllumination.of(dt.toDate()).getPhase() * 29.5308;
+            textView = (TextView) rootView.findViewById(R.id.moon_phase);
+            textView.setText(getString(R.string.moon_phase, "quarter", age));
+
             System.out.println("Entrou no OnCreateView");
             Runnable runnable = new Runnable() {
                 @Override

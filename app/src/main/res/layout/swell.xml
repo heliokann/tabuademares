@@ -3,11 +3,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <View
-        android:layout_height="2dip"
-        android:layout_marginTop="20px"
-        android:background="@color/colorPrimary" />
-
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"

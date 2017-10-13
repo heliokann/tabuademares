@@ -7,15 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    android:layout_gravity="center_horizontal"
     tools:context="com.novoideal.tabuademares.MainActivity$PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30px"
-        android:background="#00ff5f"
+        android:layout_marginBottom="50px"
         android:textAlignment="center"
+        android:text="@string/sessionTitle"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:drawableRight="@drawable/ic_48"
+        android:drawableLeft="@drawable/ic_48"
         android:onClick="showTimePickerDialog"
         android:textColorHighlight="@android:color/holo_blue_light" />
 
@@ -25,6 +32,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15px"
         android:text="@string/moon_phase" />
+
+    <TextView
+        android:id="@+id/moon_hold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15px"
+        android:text="@string/moon_hold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10px" />
 
     <TextView
         android:id="@+id/hide_tide"
@@ -40,6 +60,12 @@
         android:layout_marginBottom="15px"
         android:text="@string/low_water" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10px" />
+
     <TextView
         android:id="@+id/wind"
         android:layout_width="match_parent"
@@ -47,6 +73,11 @@
         android:layout_marginBottom="15px"
         android:text="@string/wind" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10px" />
 
     <include layout="@layout/swell"/>
 

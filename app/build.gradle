@@ -28,6 +28,7 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'com.android.volley:volley:+'
     compile 'joda-time:joda-time:2.9.+'
+    compile 'org.shredzone.commons:commons-suncalc:1.+'
 
 //    compile 'com.mashape.unirest:unirest-java:1.4.+'
     testCompile 'junit:junit:4.12'
