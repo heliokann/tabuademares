@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.controller.base.AbstractController;
 import com.novoideal.tabuademares.controller.base.BaseController;
+import com.novoideal.tabuademares.service.CityCondition;
 
 import org.joda.time.DateTime;
 import org.json.JSONArray;
@@ -21,7 +22,8 @@ import java.text.NumberFormat;
 
 public class ExtremesController extends AbstractController implements BaseController {
 
-    private String url = "https://www.worldtides.info/api?extremes=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
+    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
+    private String url = "https://www.worldtides.info/api?extremes=key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
 
     public ExtremesController(View view) {
         super(view);
@@ -55,6 +57,13 @@ public class ExtremesController extends AbstractController implements BaseContro
 
     @Override
     public void request() {
+        request(null);
+    }
+
+    public void request(CityCondition city) {
+        city = city != null ? city : CityCondition.defaultCity;
+        url = baseUrl + "&lat="+city.getLatitude() + "&lon=" + city.getLongetude();
+
         doRequest(url, R.id.low_water, this);
         doRequest(url, R.id.hide_tide, this);
     }

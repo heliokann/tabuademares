@@ -1,20 +1,16 @@
 package com.novoideal.tabuademares.controller;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.controller.base.AbstractController;
-import com.novoideal.tabuademares.controller.base.BaseController;
-import com.novoideal.tabuademares.model.Weather;
-import com.novoideal.tabuademares.service.XmlWeatherService;
+import com.novoideal.tabuademares.model.SeaCondition;
+import com.novoideal.tabuademares.service.CityCondition;
+import com.novoideal.tabuademares.service.SeaConditionService;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,18 +19,18 @@ import java.util.Map;
  * Created by Helio on 14/08/2017.
  */
 
-public class SwellController {
+public class SeaConditionController {
 
-    private String url = "http://servicos.cptec.inpe.br/XML/cidade/1059/dia/0/ondas.xml";
+    private CityCondition city;
 
-    private static Map<String, Weather> cacheWeater = new HashMap<>();
+    private static Map<String, SeaCondition> cacheWeater = new HashMap<>();
     public static View rootView = null;
 
     public static void clearCache() {
         cacheWeater.clear();
     }
 
-    public SwellController(View view) {
+    public SeaConditionController(View view) {
         if (view != null) {
             this.rootView = view;
         }
@@ -45,7 +41,7 @@ public class SwellController {
     }
 
     public void updateWeather(String period, int agitation, int swell, int wind) {
-        Weather w = cacheWeater.get(period);
+        SeaCondition w = cacheWeater.get(period);
         updateLabel(agitation, w.getAgitation());
         updateLabel(swell, w.getSewll() + ", " + w.getHeight() + "m");
         updateLabel(wind, w.getWind_dir() + ", " + w.getWind() + " nós");
@@ -58,9 +54,9 @@ public class SwellController {
     }
 
 
-    public void callback(List<Weather> result) {
+    public void callback(List<SeaCondition> result) {
         if (cacheWeater.isEmpty()) {
-            for (Weather weater : result) {
+            for (SeaCondition weater : result) {
                 cacheWeater.put(weater.getPeriod(), weater);
             }
         }
@@ -69,16 +65,25 @@ public class SwellController {
     }
 
     public void request() {
+        request(null);
+    }
+
+    public void request(CityCondition city) {
+        this.city = city != null ? city : CityCondition.defaultCity;
         if(hasCache()){
             updateFromCache();
             return;
         }
 
-        new DownloadXmlTask().execute(this);
+        new AsyncUpdater().execute(this);
     }
 
-    public String getURL() {
-        return url;
+    public CityCondition getCity() {
+        return city;
+    }
+
+    public Context getContext() {
+        return rootView.getContext();
     }
 
     public boolean hasCache() {
@@ -87,22 +92,23 @@ public class SwellController {
 
 }
 
-class DownloadXmlTask extends AsyncTask<SwellController, Void, List<Weather>> {
+class AsyncUpdater extends AsyncTask<SeaConditionController, Void, List<SeaCondition>> {
 
-    private SwellController controller;
+    private SeaConditionController controller;
 
     @Override
-    protected List<Weather> doInBackground(SwellController... controllers) {
+    protected List<SeaCondition> doInBackground(SeaConditionController... controllers) {
         this.controller = controllers[0];
         try {
-            return new XmlWeatherService().getWeathers(controller.getURL());
+            return new SeaConditionService(controller.getContext()).geCondition(controller.getCity());
         } catch (Exception e) {
+            Log.e(AsyncUpdater.class.getCanonicalName(), e.getMessage());
         }
         return null;
     }
 
     @Override
-    protected void onPostExecute(List<Weather> result) {
+    protected void onPostExecute(List<SeaCondition> result) {
         controller.callback(result);
     }
 }

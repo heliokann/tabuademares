@@ -4,82 +4,59 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.controller.base.AbstractController;
-import com.novoideal.tabuademares.controller.base.BaseController;
+import com.novoideal.tabuademares.service.CityCondition;
 
-import org.joda.time.LocalDate;
-import org.json.JSONObject;
 import org.shredzone.commons.suncalc.MoonIllumination;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Helio on 14/08/2017.
  */
 
-public class MoonController extends AbstractController implements BaseController {
+public class MoonController  {
 
-    private String url = "https://burningsoul-moon-v1.p.mashape.com";
+    public static View rootView = null;
 
     public MoonController(View view) {
-        super(view);
-    }
-
-    @Override
-    public Map<String, String> getHeaders() {
-        HashMap<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-Type", "application/json");
-        headers.put("X-Mashape-Key", "TO9BQLIKVqmshVCQaA25CtETEuwtp1jjX2qjsnU32aifjyF3NI");
-        return headers;
-    }
-
-    @Override
-    public void callback(int elementID, JSONObject response) {
-        String stage = response.optString("stage");
-        if ("waning".equals(stage)) {
-            stage = getContext().getString(R.string.waning);
-        } else if ("waxing".equals(stage)) {
-            stage = getContext().getString(R.string.waxing);
+        if (view != null) {
+            this.rootView = view;
         }
-        Double age = response.optDouble("age");
-        updateLabel(R.id.moon_phase, getContext().getString(R.string.moon_phase, stage, age));
     }
+
 
     private String getHold(Double age) {
-        if (age > 28 && age < 2) {
+        if (age > 27 || age < 3) {
             return "de lua nova";
         }
 
-        if (age > 5 && age < 9) {
+        if (age > 4 && age < 10) {
             return "de quarto crescente";
         }
 
-        if (age > 12 && age < 16) {
+        if (age > 11 && age < 17) {
             return "da lua cheia";
         }
 
-        if (age > 20 && age < 24) {
+        if (age > 19 && age < 25) {
             return "de quarto minguante";
         }
 
-        return "";
+        return "Pouca influência";
     }
 
     private String getPhase(Double age) {
-        if (age > 29 || age < 1) {
+        if (age >= 29 || age <= 1) {
             return "Nova";
         }
 
-        if (age > 7 && age < 8) {
+        if (age >= 7 && age <= 8) {
             return "Quarto Crescente";
         }
 
-        if (age > 14 && age < 15) {
+        if (age >= 14 && age <= 15) {
             return "Cheia";
         }
 
-        if (age > 21 && age < 22) {
+        if (age >= 21 && age <= 22) {
             return "Quarto Minguante";
         }
 
@@ -103,19 +80,16 @@ public class MoonController extends AbstractController implements BaseController
     }
 
     public void request() {
-        LocalDate dt = LocalDate.now();
-        Double age = MoonIllumination.of(dt.toDate()).getPhase() * 29.5308;
+
+    }
+    public void request(CityCondition city) {
+        city = city != null ? city : CityCondition.defaultCity;
+        Double age = MoonIllumination.of(city.getDate()).getPhase() * 29.5308;
         TextView textView = (TextView) rootView.findViewById(R.id.moon_phase);
-        textView.setText(getContext().getString(R.string.moon_phase, getPhase(age), age));
+        textView.setText(rootView.getContext().getString(R.string.moon_phase, getPhase(age), age));
 
         textView = (TextView) rootView.findViewById(R.id.moon_hold);
-        textView.setText(getContext().getString(R.string.moon_hold, getHold(age)));
-
-//        doRequest(url, R.id.moon_phase, this);
+        textView.setText(rootView.getContext().getString(R.string.moon_hold, getHold(age)));
     }
 
-    @Override
-    public String getURL() {
-        return url;
-    }
 }

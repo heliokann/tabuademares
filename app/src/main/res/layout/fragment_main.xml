@@ -26,6 +26,16 @@
         android:onClick="showTimePickerDialog"
         android:textColorHighlight="@android:color/holo_blue_light" />
 
+    <Spinner
+        android:id="@+id/spin_city"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:drawableRight="@drawable/ic_48"
+        android:drawableLeft="@drawable/ic_48"
+        android:layout_marginBottom="50px"
+        android:layout_width="match_parent"
+        android:layout_height="70px" />
+
     <TextView
         android:id="@+id/moon_phase"
         android:layout_width="match_parent"

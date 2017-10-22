@@ -29,6 +29,7 @@ dependencies {
     compile 'com.android.volley:volley:+'
     compile 'joda-time:joda-time:2.9.+'
     compile 'org.shredzone.commons:commons-suncalc:1.+'
+    compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
 
 //    compile 'com.mashape.unirest:unirest-java:1.4.+'
     testCompile 'junit:junit:4.12'

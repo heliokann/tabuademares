@@ -15,19 +15,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
-import com.novoideal.tabuademares.controller.SwellController;
+import com.novoideal.tabuademares.controller.SeaConditionController;
 import com.novoideal.tabuademares.controller.WindController;
 import com.novoideal.tabuademares.controller.base.AbstractController;
+import com.novoideal.tabuademares.service.CityCondition;
 
 import org.joda.time.LocalDate;
-import org.shredzone.commons.suncalc.MoonIllumination;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
     public static MainActivity mainActivity;
+    private CityCondition currentCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +74,37 @@ public class MainActivity extends AppCompatActivity {
         refresh.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   refreshAll(null);
+                   refreshAll(null, currentCity);
                }
         });
+    }
 
+    public void createCitySpinner(View rootView){
+        List<CityCondition> defaultCities = new ArrayList<>();
+        defaultCities.add(CityCondition.defaultCity);
+        defaultCities.add(new CityCondition(3464, 455891, "Niteroi",
+                LocalDate.now().toDate(), -22.909309, -43.072231));
+
+
+        ArrayAdapter<CityCondition> arrayAdapter = new ArrayAdapter<CityCondition>(getApplicationContext(), android.R.layout.simple_spinner_item, defaultCities);
+        final Spinner cities = (Spinner) rootView.findViewById(R.id.spin_city);
+        AdapterView.OnItemSelectedListener choose = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                currentCity = (CityCondition) cities.getSelectedItem();
+                AbstractController.clearCache();
+                SeaConditionController.clearCache();
+                mainActivity.refreshAll(mainActivity.mViewPager, currentCity);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        };
+
+        cities.setAdapter(arrayAdapter);
+        cities.setOnItemSelectedListener(choose);
     }
 
     public void showTimePickerDialog(View v) {
@@ -86,24 +119,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void refreshAll(View rootView) {
+    public void refreshAll(View rootView, CityCondition cityCondition) {
         if (rootView == null) {
             AbstractController.clearCache();
-            SwellController.clearCache();
+            SeaConditionController.clearCache();
             Toast.makeText(mainActivity, getString(R.string.refreshing), Toast.LENGTH_LONG).show();
         }
 
-//        try {
-//            Request.windRequest((AppCompatActivity) mainActivity);
-//            Request.moonRequest((AppCompatActivity) mainActivity);
-//            Request.extremesRequest((AppCompatActivity) mainActivity);
-        new MoonController(rootView).request();
+        new MoonController(rootView).request(cityCondition);
         new WindController(rootView).request();
-        new ExtremesController(rootView).request();
-        new SwellController(rootView).request();
-//        } catch (AuthFailureError authFailureError) {
-//            authFailureError.printStackTrace();
-//        }
+        new ExtremesController(rootView).request(cityCondition);
+        new SeaConditionController(rootView).request(cityCondition);
     }
 
 
@@ -166,21 +192,23 @@ public class MainActivity extends AppCompatActivity {
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle, new Date()));
 
-            LocalDate dt = LocalDate.now();
-            Double age = MoonIllumination.of(dt.toDate()).getPhase() * 29.5308;
-            textView = (TextView) rootView.findViewById(R.id.moon_phase);
-            textView.setText(getString(R.string.moon_phase, "quarter", age));
+//            LocalDate dt = LocalDate.now();
+//            Double age = MoonIllumination.of(dt.toDate()).getPhase() * 29.5308;
+//            textView = (TextView) rootView.findViewById(R.id.moon_phase);
+//            textView.setText(getString(R.string.moon_phase, "quarter", age));
 
             System.out.println("Entrou no OnCreateView");
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    MainActivity.mainActivity.refreshAll(rootView);
-                }
-            };
+//            Runnable runnable = new Runnable() {
+//                @Override
+//                public void run() {
+//                    MainActivity.mainActivity.refreshAll(rootView, mainActivity.currentCity);
+//                }
+//            };
 
-            Thread thread = new Thread(runnable);
-            thread.start();
+//            Thread thread = new Thread(runnable);
+//            thread.start();
+
+            mainActivity.createCitySpinner(rootView);
 
             return rootView;
         }

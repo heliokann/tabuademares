@@ -162,12 +162,12 @@ public class JsonRequestController {
         RequestQueuer.getInstance(ctx).addToRequestQueue(jsObjRequest);
     }
 
-//    new DownloadXmlTask().execute(URL);
+//    new AsyncUpdater().execute(URL);
 
 
 }
 
-// class DownloadXmlTask extends AsyncTask<String, Void, String> {
+// class AsyncUpdater extends AsyncTask<String, Void, String> {
 //    @Override
 //    protected String doInBackground(String... urls) {
 //        try {

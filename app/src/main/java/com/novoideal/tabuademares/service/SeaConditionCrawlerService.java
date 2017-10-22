@@ -1,7 +1,9 @@
 package com.novoideal.tabuademares.service;
 
-import com.novoideal.tabuademares.model.Weather;
+import com.novoideal.tabuademares.model.SeaCondition;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -16,14 +18,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Helio on 08/08/2017.
  */
 
-public class XmlWeatherService {
+public class SeaConditionCrawlerService {
+
+    private String baseUrl = "http://servicos.cptec.inpe.br/XML/cidade/";
 
     private InputStream downloadUrl(String urlString) throws IOException {
         URL url = new URL(urlString);
@@ -37,8 +40,9 @@ public class XmlWeatherService {
         return conn.getInputStream();
     }
 
-    public List<Weather> getWeathers(String xmlUrl) throws Exception {
+    public List<SeaCondition> getWeathers(CityCondition city) throws Exception {
         InputStream stream = null;
+        String xmlUrl = baseUrl + city.getCodeSeaCondition() + "/dia/" + city.days()+ "/ondas.xml";
         try {
 
             stream = downloadUrl(xmlUrl);
@@ -66,16 +70,16 @@ public class XmlWeatherService {
     }
 
     class SwelltHandler extends DefaultHandler {
-        private final List<Weather> data = new ArrayList<>();
+        private final List<SeaCondition> data = new ArrayList<>();
 
         private String currentText;
-        private Weather current;
+        private SeaCondition current;
 
         private String city;
         private String uf;
         private String updated;
 
-        public List<Weather> getResult() {
+        public List<SeaCondition> getResult() {
             return data;
         }
 
@@ -86,9 +90,9 @@ public class XmlWeatherService {
                 case "manha":
                 case "tarde":
                 case "noite":
-                    current = new Weather();
+                    current = new SeaCondition();
                     current.setPeriod(localName);
-                    current.setCidade(city);
+                    current.setCity(city);
                     current.setUf(uf);
                     current.setUpdated(updated);
             }
@@ -115,7 +119,7 @@ public class XmlWeatherService {
                     data.add(current);
                     break;
                 case "dia":
-                    current.setDate(currentText);
+                    current.setDate(DateTime.parse(currentText.substring(0,10), DateTimeFormat.forPattern("dd-MM-yyyy")).toDate());
                     break;
                 case "agitacao":
                     current.setAgitation(currentText);
