@@ -32,7 +32,11 @@ public class SeaConditionService {
 
         conditions = new SeaConditionCrawlerService().getWeathers(city);
 
-        saveSeaCondiction(conditions);
+        // TODO refazer o contains
+        SeaCondition sc = conditions.get(0);
+        if( seaConditionDao.geCondition(new CityCondition(null, null, sc.getCity(), sc.getDate(), null, null)).isEmpty()){
+            saveSeaCondiction(conditions);
+        }
 
         return conditions;
 

@@ -57,11 +57,11 @@
         android:layout_margin="10px" />
 
     <TextView
-        android:id="@+id/hide_tide"
+        android:id="@+id/hight_tide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15px"
-        android:text="@string/hide_tide" />
+        android:text="@string/hight_tide" />
 
     <TextView
         android:id="@+id/low_water"

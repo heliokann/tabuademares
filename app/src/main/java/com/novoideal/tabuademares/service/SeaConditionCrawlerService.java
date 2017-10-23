@@ -46,7 +46,7 @@ public class SeaConditionCrawlerService {
         try {
 
             stream = downloadUrl(xmlUrl);
-            BufferedReader buffer = new BufferedReader(new InputStreamReader(stream));
+            BufferedReader buffer = new BufferedReader(new InputStreamReader(stream, "ISO-8859-1"));
 
             SwelltHandler handler = new SwelltHandler();
             System.setProperty("org.xml.sax.driver", "org.xmlpull.v1.sax2.Driver");

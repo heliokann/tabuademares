@@ -4,7 +4,7 @@
     <string name="moon_phase">Fase da lua: %1$s (%2$.2f dias)</string>
     <string name="moon_hold">Influência da lua: %1$s</string>
     <string name="low_water">Baixa-mar: %1$s</string>
-    <string name="hide_tide">Preamar: %1$s</string>
+    <string name="hight_tide">Preamar: %1$s</string>
     <string name="wind">Vento: %1$s (%2$d graus), %3$.1f nós</string>
     <string name="swell">Swell: %1$s</string>
     <string name="doing">Swell: Doing</string>

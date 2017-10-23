@@ -13,7 +13,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.novoideal.tabuademares.model.SeaCondition;
+import com.novoideal.tabuademares.model.ExtremeTide;
 import com.novoideal.tabuademares.service.CityCondition;
 
 import java.sql.SQLException;
@@ -21,59 +21,59 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
+public class ExtremesDao extends OrmLiteSqliteOpenHelper {
 
-    private static final String DATABASE_NAME = "tabuaMares_seaCondiction.db";
+    private static final String DATABASE_NAME = "tabuaMares_extremes.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<SeaCondition, Integer> dao = null;
-    private RuntimeExceptionDao<SeaCondition, Integer> runtimeDao = null;
+    private Dao<ExtremeTide, Integer> dao = null;
+    private RuntimeExceptionDao<ExtremeTide, Integer> runtimeDao = null;
 
-    public SeaConditionDao(Context context) {
+    public ExtremesDao(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            Log.i(SeaConditionDao.class.getName(), "onCreate");
-            TableUtils.createTableIfNotExists(connectionSource, SeaCondition.class);
+            Log.i(ExtremesDao.class.getName(), "onCreate");
+            TableUtils.createTableIfNotExists(connectionSource, ExtremeTide.class);
         } catch (SQLException e) {
-            Log.e(SeaConditionDao.class.getName(), "Can't create database", e);
+            Log.e(ExtremesDao.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
         }
     }
 
-    public void addNew(SeaCondition data) {
-        RuntimeExceptionDao<SeaCondition, Integer> dao = getRuntimeDao();
+    public void addNew(ExtremeTide data) {
+        RuntimeExceptionDao<ExtremeTide, Integer> dao = getRuntimeDao();
         dao.create(data);
-        Log.i(SeaConditionDao.class.getName(), "created new entries in onCreate: ");
+        Log.i(ExtremesDao.class.getName(), "created new entries in onCreate: ");
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            Log.i(SeaConditionDao.class.getName(), "onUpgrade");
-            TableUtils.dropTable(connectionSource, SeaCondition.class, true);
+            Log.i(ExtremesDao.class.getName(), "onUpgrade");
+            TableUtils.dropTable(connectionSource, ExtremeTide.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
-            Log.e(SeaConditionDao.class.getName(), "Can't drop databases", e);
+            Log.e(ExtremesDao.class.getName(), "Can't drop databases", e);
             throw new RuntimeException(e);
         }
     }
 
-    public Dao<SeaCondition, Integer> getDao() throws SQLException {
+    public Dao<ExtremeTide, Integer> getDao() throws SQLException {
         if (dao == null) {
-            dao = getDao(SeaCondition.class);
+            dao = getDao(ExtremeTide.class);
         }
         return dao;
     }
 
-    public RuntimeExceptionDao<SeaCondition, Integer> getRuntimeDao() {
+    public RuntimeExceptionDao<ExtremeTide, Integer> getRuntimeDao() {
         if (runtimeDao == null) {
-            runtimeDao = getRuntimeExceptionDao(SeaCondition.class);
+            runtimeDao = getRuntimeExceptionDao(ExtremeTide.class);
         }
         return runtimeDao;
     }
@@ -87,12 +87,12 @@ public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
 
     public void dropAndCreate() throws SQLException {
         ConnectionSource connectionSource = getDao().getConnectionSource();
-        TableUtils.dropTable(connectionSource, SeaCondition.class, true);
-        Log.i(SeaConditionDao.class.getName(), "onCreate");
-        TableUtils.createTableIfNotExists(connectionSource, SeaCondition.class);
+        TableUtils.dropTable(connectionSource, ExtremeTide.class, true);
+        Log.i(ExtremesDao.class.getName(), "onCreate");
+        TableUtils.createTableIfNotExists(connectionSource, ExtremeTide.class);
     }
 
-    public List<SeaCondition> geCondition(CityCondition city) {
+    public List<ExtremeTide> geCondition(CityCondition city) {
         Map m = new HashMap();
         m.put("city", city.getName());
         m.put("date", city.getDate());

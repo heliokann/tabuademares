@@ -1,75 +1,101 @@
 package com.novoideal.tabuademares.controller;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.controller.base.AbstractController;
-import com.novoideal.tabuademares.controller.base.BaseController;
+import com.novoideal.tabuademares.model.ExtremeTide;
 import com.novoideal.tabuademares.service.CityCondition;
+import com.novoideal.tabuademares.service.ExtremesService;
 
 import org.joda.time.DateTime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.List;
 
 /**
  * Created by Helio on 14/08/2017.
  */
 
-public class ExtremesController extends AbstractController implements BaseController {
+public class ExtremesController  {
 
     private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
-    private String url = "https://www.worldtides.info/api?extremes=key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
+    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
+    private CityCondition city;
+    public static View rootView = null;
 
     public ExtremesController(View view) {
-        super(view);
-    }
-
-    @Override
-    public void callback(int elementID, JSONObject response) {
-        try {
-            JSONArray extremes = response.getJSONArray("extremes");
-            String low = "";
-            String high = "";
-            DateTime now = DateTime.now();
-            NumberFormat nf = new DecimalFormat("#.##");
-            for (int i = 0; i < extremes.length(); i++) {
-                JSONObject extreme = extremes.getJSONObject(i);
-                DateTime exDate = new DateTime(extreme.getString("date"));
-                if (exDate.getDayOfMonth() == now.getDayOfMonth()) {
-                    if (extreme.getString("type").equals("Low")) {
-                        low += exDate.toString("HH:mm") + " (" + nf.format(extreme.getDouble("height") + 0.45) + "m)    ";
-                    } else {
-                        high += exDate.toString("HH:mm") + " (" + nf.format(extreme.getDouble("height") + 0.45) + "m)    ";
-                    }
-                }
-            }
-            updateLabel(R.id.low_water, getContext().getString(R.string.low_water, low));
-            updateLabel(R.id.hide_tide, getContext().getString(R.string.hide_tide, high));
-        } catch (JSONException e) {
-            Toast.makeText(getContext(), "Deu ruim no extremos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        if (view != null) {
+            this.rootView = view;
         }
-    }
-
-    @Override
-    public void request() {
-        request(null);
     }
 
     public void request(CityCondition city) {
         city = city != null ? city : CityCondition.defaultCity;
-        url = baseUrl + "&lat="+city.getLatitude() + "&lon=" + city.getLongetude();
+        this.city = city;
+        url = baseUrl + "&lat=" + city.getLatitude() + "&lon=" + city.getLongetude();
 
-        doRequest(url, R.id.low_water, this);
-        doRequest(url, R.id.hide_tide, this);
+        List<ExtremeTide> result = new ExtremesService(this).geCondition(city);
+
+        if (!result.isEmpty()) {
+            populateView(result);
+        }
     }
 
-    @Override
+    public void populateView(List<ExtremeTide> result) {
+        String low = "";
+        String hight = "";
+        DateTime now = DateTime.now();
+
+        for (ExtremeTide extreme : result) {
+            NumberFormat nf = new DecimalFormat("#.##");
+            DateTime exDate = new DateTime(extreme.getDate());
+            if (exDate.getDayOfMonth() == now.getDayOfMonth()) {
+                if (extreme.getType().equals("Low")) {
+                    low += extreme + "    ";
+                } else {
+                    hight += extreme + "    ";
+                }
+            }
+            ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
+            ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, hight));
+        }
+    }
+
+    public CityCondition getCity() {
+        return city;
+    }
+
+
     public String getURL() {
         return url;
     }
+
+    public Context getContext() {
+        return rootView.getContext();
+    }
 }
+
+
+//class ExtremeAsyncUpdater extends AsyncTask<ExtremesController, Void, List<ExtremeTide>> {
+//
+//    private ExtremesController controller;
+//
+//    @Override
+//    protected List<ExtremeTide> doInBackground(ExtremesController... controllers) {
+//        this.controller = controllers[0];
+//        try {
+//            return new ExtremesService(controller.getContext()).geCondition(controller.getCity());
+//        } catch (Exception e) {
+//            Log.e(AsyncUpdater.class.getCanonicalName(), e.getMessage());
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    protected void onPostExecute(List<ExtremeTide> result) {
+//        controller.populateView(result);
+//    }
+//}
