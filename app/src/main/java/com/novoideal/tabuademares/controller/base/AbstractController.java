@@ -10,8 +10,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.novoideal.tabuademares.MainActivity;
-import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.util.RequestQueuer;
 
 import org.json.JSONObject;
@@ -26,12 +24,10 @@ import java.util.Map;
 public abstract class AbstractController implements BaseController {
 
     private static Map<Integer, String> cache = new HashMap<>();
-    public static View rootView = null;
+    private View rootView = null;
 
     public AbstractController(View view) {
-        if (view != null) {
-            this.rootView = view;
-        }
+        this.rootView = view;
     }
 
     public static void clearCache() {
@@ -40,9 +36,6 @@ public abstract class AbstractController implements BaseController {
 
     @Override
     public Context getContext() {
-        if(rootView == null){
-            return MainActivity.mainActivity;
-        }
         return rootView.getContext();
     }
 

@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
+import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.ExtremeTide;
-import com.novoideal.tabuademares.service.CityCondition;
 import com.novoideal.tabuademares.service.ExtremesService;
 
 import org.joda.time.DateTime;
@@ -24,16 +24,13 @@ public class ExtremesController  {
     private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
     private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
     private CityCondition city;
-    public static View rootView = null;
+    public View rootView = null;
 
     public ExtremesController(View view) {
-        if (view != null) {
-            this.rootView = view;
-        }
+        this.rootView = view;
     }
 
     public void request(CityCondition city) {
-        city = city != null ? city : CityCondition.defaultCity;
         this.city = city;
         url = baseUrl + "&lat=" + city.getLatitude() + "&lon=" + city.getLongetude();
 
@@ -59,9 +56,10 @@ public class ExtremesController  {
                     hight += extreme + "    ";
                 }
             }
-            ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
-            ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, hight));
         }
+
+        ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
+        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, hight));
     }
 
     public CityCondition getCity() {
@@ -77,25 +75,3 @@ public class ExtremesController  {
         return rootView.getContext();
     }
 }
-
-
-//class ExtremeAsyncUpdater extends AsyncTask<ExtremesController, Void, List<ExtremeTide>> {
-//
-//    private ExtremesController controller;
-//
-//    @Override
-//    protected List<ExtremeTide> doInBackground(ExtremesController... controllers) {
-//        this.controller = controllers[0];
-//        try {
-//            return new ExtremesService(controller.getContext()).geCondition(controller.getCity());
-//        } catch (Exception e) {
-//            Log.e(AsyncUpdater.class.getCanonicalName(), e.getMessage());
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    protected void onPostExecute(List<ExtremeTide> result) {
-//        controller.populateView(result);
-//    }
-//}

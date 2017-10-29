@@ -1,5 +1,6 @@
 package com.novoideal.tabuademares.service;
 
+import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import org.joda.time.DateTime;

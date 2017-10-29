@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.dao.ExtremesDao;
+import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.ExtremeTide;
 
 import org.joda.time.DateTime;
@@ -35,6 +36,12 @@ public class ExtremesService extends BaseRequestService{
     public void callback(JSONObject response) {
         List<ExtremeTide> extremes = new ArrayList<>();
         try {
+            CityCondition city = controller.getCity();
+            //TODO pensar melhor omo fazer isso
+//            city.setName(response.getString("station"));
+            city.setLatitude(response.getDouble("responseLat"));
+            city.setLongetude(response.getDouble("responseLon"));
+
             JSONArray arrayExtremes = response.getJSONArray("extremes");
             for (int i = 0; i < arrayExtremes.length(); i++) {
                 JSONObject jsonExtreme = arrayExtremes.getJSONObject(i);
@@ -76,7 +83,9 @@ public class ExtremesService extends BaseRequestService{
 
     private void saveSeaCondiction(List<ExtremeTide> conditions) {
         for (ExtremeTide condition: conditions) {
-            extremesDao.addNew(condition);
+            if (!extremesDao.contains(condition)) {
+                extremesDao.addNew(condition);
+            }
         }
     }
 

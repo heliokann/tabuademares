@@ -3,6 +3,7 @@ package com.novoideal.tabuademares.service;
 import android.content.Context;
 
 import com.novoideal.tabuademares.dao.SeaConditionDao;
+import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import java.util.List;
@@ -32,11 +33,16 @@ public class SeaConditionService {
 
         conditions = new SeaConditionCrawlerService().getWeathers(city);
 
-        // TODO refazer o contains
-        SeaCondition sc = conditions.get(0);
-        if( seaConditionDao.geCondition(new CityCondition(null, null, sc.getCity(), sc.getDate(), null, null)).isEmpty()){
-            saveSeaCondiction(conditions);
+        if(conditions.isEmpty()){
+            return conditions;
         }
+
+        //TODO Pensar melhor como fazer isso
+//        SeaCondition sc = conditions.get(0);
+//        city.setName(sc.getCity());
+//        city.setDate(sc.getDate());
+
+        saveSeaCondiction(conditions);
 
         return conditions;
 
@@ -44,8 +50,11 @@ public class SeaConditionService {
     }
 
     private void saveSeaCondiction(List<SeaCondition> conditions) {
-        for (SeaCondition condition: conditions) {
-            seaConditionDao.addNew(condition);
+        for (SeaCondition condition : conditions) {
+            if (!seaConditionDao.contains(condition)) {
+                seaConditionDao.addNew(condition);
+
+            }
         }
     }
 

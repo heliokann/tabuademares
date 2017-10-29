@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.service.CityCondition;
+import com.novoideal.tabuademares.model.CityCondition;
 
 import org.shredzone.commons.suncalc.MoonIllumination;
 
@@ -14,12 +14,10 @@ import org.shredzone.commons.suncalc.MoonIllumination;
 
 public class MoonController  {
 
-    public static View rootView = null;
+    public View rootView = null;
 
     public MoonController(View view) {
-        if (view != null) {
-            this.rootView = view;
-        }
+        this.rootView = view;
     }
 
 

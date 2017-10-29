@@ -1,4 +1,4 @@
-package com.novoideal.tabuademares.service;
+package com.novoideal.tabuademares.model;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
@@ -15,19 +15,22 @@ public class CityCondition {
     private String name;
     private Integer codeSeaCondition;
     private Integer woeId;
-    private Date date;
     private Double latitude;
     private Double longetude;
+    private int days = 0;
 
-    public static final CityCondition defaultCity = new CityCondition(1059, 426480, "Cabo Frio",
-            LocalDate.now().toDate(), -22.87944, -42.018608);
+    public static final CityCondition defaultCity = new CityCondition(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
 
-    public CityCondition(Integer codeSeaCondition, Integer woeId, String name, Date date,
+    public CityCondition() {
+
+    }
+
+    public CityCondition(Integer codeSeaCondition, Integer woeId, String name, int days,
                          Double latitude, Double longetude) {
         this.codeSeaCondition = codeSeaCondition;
         this.woeId = woeId;
         this.name = name;
-        this.date = date;
+        this.days = days;
         this.latitude = latitude;
         this.longetude = longetude;
     }
@@ -57,11 +60,12 @@ public class CityCondition {
     }
 
     public Date getDate() {
-        return date;
+        return new LocalDate().plusDays(days).toDate();
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public CityCondition setDays(int days) {
+        this.days = days;
+        return this;
     }
 
     public Double getLongetude() {
@@ -81,11 +85,27 @@ public class CityCondition {
     }
 
     public Integer days() {
-        return Days.daysBetween(DateTime.now(), new DateTime(date)).getDays();
+        return days;
     }
+
+    public CityCondition clone(int days) {
+        CityCondition clone = new CityCondition();
+        clone.codeSeaCondition = this.codeSeaCondition;
+        clone.woeId = this.woeId;
+        clone.name = this.name;
+        clone.days = days;
+        clone.latitude = this.latitude;
+        clone.longetude = this.longetude;
+        return clone;
+    }
+
 
     @Override
     public String toString() {
-        return name;
+        return name + " - " + new DateTime(getDate()).toString("dd/MM/yyyy");
+    }
+
+    public void setDate(Date date) {
+        days = Days.daysBetween(new LocalDate(), new LocalDate(date)).getDays();
     }
 }

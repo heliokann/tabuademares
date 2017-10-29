@@ -13,8 +13,10 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.ExtremeTide;
-import com.novoideal.tabuademares.service.CityCondition;
+
+import org.joda.time.DateTime;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -97,5 +99,11 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
         m.put("city", city.getName());
         m.put("date", city.getDate());
         return getRuntimeDao().queryForFieldValues(m);
+    }
+
+    public boolean contains(ExtremeTide extreme) {
+//        dao.queryRaw("select * from extremetide where city=? and date='2017-10-28 00:00:00.000000'", "RIO DE JANEIRO").getResults()
+        return getRuntimeDao().queryRawValue("select count(*) from extremetide where city=? and date=?",
+                extreme.getCity(), new DateTime(extreme.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS")) > 0;
     }
 }

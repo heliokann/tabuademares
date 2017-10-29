@@ -10,7 +10,7 @@
     <string name="doing">Swell: Doing</string>
     <string name="refresh">Atualizar</string>
     <string name="refreshing">Atualizando todos os dados</string>
-    <string name="sessionTitle"><xliff:g id="sessionTitle">Resumo das condições de hoje - %1$td/%1$tm/%1$tY</xliff:g></string>
+    <string name="sessionTitle">Resumo das condições</string>
     <string name="waning">minguante</string>
     <string name="waxing">crescente</string>
     <string name="loading">carregando ...</string>

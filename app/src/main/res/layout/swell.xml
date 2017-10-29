@@ -15,21 +15,21 @@
 
         <TextView
             android:id="@+id/morning"
-            android:layout_marginRight="50px"
+            android:layout_marginRight="20px"
             android:text="Manhã (12h)"
             android:textSize="30px"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/afternoon"
-            android:layout_marginRight="50px"
+            android:layout_marginRight="20px"
             android:text="Tarde (18h)"
             android:textSize="30px"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/night"
-            android:layout_marginRight="40px"
+            android:layout_marginRight="20px"
             android:text="Noite (21h)"
             android:textSize="30px"
             android:textStyle="bold"/>
@@ -72,7 +72,6 @@
 
         <TextView
             android:id="@+id/head_2"
-            android:layout_marginRight="20px"
             android:text="Swell"
             android:textSize="30px"
             android:textStyle="bold" />
@@ -101,7 +100,6 @@
 
         <TextView
             android:id="@+id/head_3"
-            android:layout_marginRight="20px"
             android:text="Vento"
             android:textSize="30px"
             android:textStyle="bold" />
