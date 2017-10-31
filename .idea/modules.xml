@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Tabuademares.iml" filepath="$PROJECT_DIR$/Tabuademares.iml" />
+      <module fileurl="file://C:\Users\heliomar.santos\StudioProjects\tabuademares\Tabuademares.iml" filepath="C:\Users\heliomar.santos\StudioProjects\tabuademares\Tabuademares.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\heliomar.santos\StudioProjects\tabuademares\app\app.iml" filepath="C:\Users\heliomar.santos\StudioProjects\tabuademares\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tabuademares.iml" filepath="$PROJECT_DIR$/tabuademares.iml" />
     </modules>
   </component>
 </project>

@@ -15,23 +15,26 @@
 
         <TextView
             android:id="@+id/morning"
-            android:layout_marginRight="20px"
-            android:text="Manhã (12h)"
-            android:textSize="30px"
-            android:textStyle="bold"/>
+            android:layout_marginRight="10sp"
+            android:layout_marginEnd="10sp"
+            android:text="@string/morning_12h"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/afternoon"
-            android:layout_marginRight="20px"
-            android:text="Tarde (18h)"
-            android:textSize="30px"
+            android:layout_marginRight="10sp"
+            android:layout_marginEnd="10sp"
+            android:text="@string/afternoon_18h"
+            android:textSize="12sp"
             android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/night"
-            android:layout_marginRight="20px"
-            android:text="Noite (21h)"
-            android:textSize="30px"
+            android:layout_marginRight="5sp"
+            android:layout_marginEnd="5sp"
+            android:text="@string/night_21h"
+            android:textSize="12sp"
             android:textStyle="bold"/>
     </TableRow>
 
@@ -43,25 +46,26 @@
 
         <TextView
             android:id="@+id/head_1"
-            android:layout_marginRight="20px"
-            android:text="Agitação"
-            android:textSize="30px"
+            android:layout_marginRight="10sp"
+            android:layout_marginEnd="10sp"
+            android:text="@string/agitation"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/a_m"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/a_t"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/a_n"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
     </TableRow>
 
     <TableRow
@@ -72,24 +76,24 @@
 
         <TextView
             android:id="@+id/head_2"
-            android:text="Swell"
-            android:textSize="30px"
+            android:text="@string/lbl_swell"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/s_m"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/s_t"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/s_n"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
     </TableRow>
 
     <TableRow
@@ -100,24 +104,24 @@
 
         <TextView
             android:id="@+id/head_3"
-            android:text="Vento"
-            android:textSize="30px"
+            android:text="@string/lbl_wind"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/w_m"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/w_t"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/w_n"
             android:text="@string/loading"
-            android:textSize="30px" />
+            android:textSize="12sp" />
     </TableRow>
 
 

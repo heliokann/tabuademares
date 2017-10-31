@@ -1,4 +1,4 @@
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
     <string name="app_name">Tábua de marés</string>
     <string name="action_settings">Configurações</string>
     <string name="moon_phase">Fase da lua: %1$s (%2$.2f dias)</string>
@@ -13,8 +13,14 @@
     <string name="sessionTitle">Resumo das condições</string>
     <string name="waning">minguante</string>
     <string name="waxing">crescente</string>
-    <string name="loading">carregando ...</string>
+    <string name="loading">carregando …</string>
     <string name="action_about">Sobre</string>
     <string name="author">Desenvolvedor: Kann</string>
     <string name="pick_time">Data</string>
+    <string name="lbl_wind">Vento</string>
+    <string name="morning_12h">Manhã (12h)</string>
+    <string name="afternoon_18h">Tarde (18h)</string>
+    <string name="night_21h">Noite (21h)</string>
+    <string name="agitation">Agitação</string>
+    <string name="lbl_swell">Swell</string>
 </resources>

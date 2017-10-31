@@ -1,15 +1,19 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/background"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:layout_gravity="center_horizontal"
     tools:context="com.novoideal.tabuademares.MainActivity$PlaceholderFragment">
 
@@ -17,79 +21,84 @@
         android:id="@+id/section_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50px"
+        android:layout_marginBottom="12dp"
         android:textAlignment="center"
         android:text="@string/sessionTitle"
         android:textStyle="bold"
         android:layout_gravity="center_vertical"
         android:gravity="center"
-        android:drawableRight="@drawable/ic_48"
+        android:drawableStart="@drawable/ic_48"
+        android:drawableEnd="@drawable/ic_48"
         android:drawableLeft="@drawable/ic_48"
+        android:drawableRight="@drawable/ic_48"
         android:textColorHighlight="@android:color/holo_blue_light" />
 
     <Spinner
         android:id="@+id/spin_city"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:drawableRight="@drawable/ic_48"
+        android:drawableStart="@drawable/ic_48"
+        android:drawableEnd="@drawable/ic_48"
         android:drawableLeft="@drawable/ic_48"
-        android:layout_marginBottom="50px"
+        android:drawableRight="@drawable/ic_48"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="70px" />
+        android:layout_height="30dp" />
 
     <TextView
         android:id="@+id/moon_phase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
+        android:layout_marginBottom="10dp"
         android:text="@string/moon_phase" />
 
     <TextView
         android:id="@+id/moon_hold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
+        android:layout_marginBottom="4dp"
         android:text="@string/moon_hold" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="@color/colorPrimary"
-        android:layout_margin="10px" />
+        android:layout_margin="10dp" />
 
     <TextView
         android:id="@+id/hight_tide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
+        android:layout_marginBottom="10dp"
         android:text="@string/hight_tide" />
 
     <TextView
         android:id="@+id/low_water"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
+        android:layout_marginBottom="5dp"
         android:text="@string/low_water" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="@color/colorPrimary"
-        android:layout_margin="10px" />
+        android:layout_margin="10dp" />
 
     <TextView
         android:id="@+id/wind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15px"
+        android:layout_marginBottom="5dp"
         android:text="@string/wind" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="@color/colorPrimary"
-        android:layout_margin="10px" />
+        android:layout_margin="10dp" />
 
     <include layout="@layout/swell"/>
 
 </LinearLayout>
+</ScrollView>

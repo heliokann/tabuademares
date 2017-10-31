@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         defaultCities.add(new CityCondition(3464, 455891, "Niterói", position, -22.909309, -43.072231));
 
 
-        ArrayAdapter<CityCondition> arrayAdapter = new ArrayAdapter<CityCondition>(getApplicationContext(), R.layout.spinner_item, defaultCities);
+        ArrayAdapter<CityCondition> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, defaultCities);
         arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
         final Spinner cities = rootView.findViewById(R.id.spin_city);
@@ -199,19 +199,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView textView = rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle));
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
 //                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
                 ((MainActivity)this.getActivity()).createCitySpinner(rootView, position);
             return rootView;
         }
-
-//        @Override
-//        public void onResume() {
-//            super.onResume();
-//    //            Toast.makeText(this.getContext(), "Session " + this, Toast.LENGTH_LONG).show();
-//            ((MainActivity)this.getActivity()).createCitySpinner(this.getView(), getArguments().getInt(ARG_SECTION_NUMBER));
-//        }
     }
 }
