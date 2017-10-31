@@ -44,12 +44,12 @@ public class ExtremesController  {
     public void populateView(List<ExtremeTide> result) {
         String low = "";
         String hight = "";
-        DateTime now = DateTime.now();
+        DateTime cityDate = new DateTime(city.getDate());
 
         for (ExtremeTide extreme : result) {
             NumberFormat nf = new DecimalFormat("#.##");
             DateTime exDate = new DateTime(extreme.getDate());
-            if (exDate.getDayOfMonth() == now.getDayOfMonth()) {
+            if (exDate.getDayOfMonth() == cityDate.getDayOfMonth()) {
                 if (extreme.getType().equals("Low")) {
                     low += extreme + "    ";
                 } else {

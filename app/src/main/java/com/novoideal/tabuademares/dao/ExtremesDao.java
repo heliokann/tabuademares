@@ -103,7 +103,7 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
 
     public boolean contains(ExtremeTide extreme) {
 //        dao.queryRaw("select * from extremetide where city=? and date='2017-10-28 00:00:00.000000'", "RIO DE JANEIRO").getResults()
-        return getRuntimeDao().queryRawValue("select count(*) from extremetide where city=? and date=?",
-                extreme.getCity(), new DateTime(extreme.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS")) > 0;
+        return getRuntimeDao().queryRawValue("select count(*) from extremetide where city=? and date=? and type=?",
+                extreme.getCity(), new DateTime(extreme.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"), extreme.getType()) > 0;
     }
 }

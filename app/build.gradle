@@ -31,6 +31,8 @@ dependencies {
     compile 'org.shredzone.commons:commons-suncalc:1.+'
     compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
 
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
+
 //    compile 'com.mashape.unirest:unirest-java:1.4.+'
     testCompile 'junit:junit:4.12'
 }

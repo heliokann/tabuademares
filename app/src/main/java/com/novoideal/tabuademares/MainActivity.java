@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle));
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
-                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
                 ((MainActivity)this.getActivity()).createCitySpinner(rootView, position);
             return rootView;
         }

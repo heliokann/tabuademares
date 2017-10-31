@@ -112,7 +112,8 @@ public class ExtremeTide {
 
     @Override
     public String toString() {
-//        return city + " - " + uf;
-        return hour + ":" + minute + " (" + new DecimalFormat("#.##").format(height + 0.45) + "m)";
+        return (hour < 10 ? ("0" + hour) : hour) + ":" +
+                (minute < 10 ? ("0" + minute) : minute) + " (" +
+                new DecimalFormat("#.##").format(height + 0.45) + "m)";
     }
 }
