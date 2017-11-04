@@ -18,4 +18,6 @@ public class Const {
     //https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='são paulo, sp')
     //https://query.yahooapis.com/v1/public/yql?&format=json&q=select * from weather.forecast where woeid = 426480 and u = 'c'
     //https://developer.yahoo.com/weather/
+
+    //    http://dataservice.accuweather.com/forecasts/v1/daily/5day/35575?apikey=rAxKrlK9ITzms34RRrdrj0FZL1klPFwE
 }

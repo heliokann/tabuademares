@@ -6,14 +6,14 @@ package com.novoideal.tabuademares.model;
 
 import com.j256.ormlite.field.DatabaseField;
 
+import org.joda.time.DateTime;
+
 import java.text.DecimalFormat;
 import java.util.Date;
 
 public class ExtremeTide {
 
-    enum TYPE {low, hight}
-
-    ;
+    enum TYPE {low, hight};
 
     @DatabaseField(generatedId = true)
     int id;
@@ -26,6 +26,8 @@ public class ExtremeTide {
     private String type;
     @DatabaseField
     private Date date;
+    @DatabaseField
+    private Date fullDate;
     @DatabaseField
     private Double height;
     @DatabaseField
@@ -72,6 +74,18 @@ public class ExtremeTide {
 
     public Date getDate() {
         return date;
+    }
+
+    public String getStrFullDate() {
+        return new DateTime(fullDate).toString("yyyy-MM-dd HH:mm:ss.SSSSSS");
+    }
+
+    public Date getFullDate() {
+        return fullDate;
+    }
+
+    public void setFullDate(Date fullDate) {
+        this.fullDate = fullDate;
     }
 
     public void setDate(Date date) {

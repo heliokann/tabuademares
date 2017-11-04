@@ -52,10 +52,11 @@ public class ExtremesService extends BaseRequestService{
                 extreme.setLon(response.getDouble("responseLon"));
 
                 extreme.setDate(new LocalDate(exDate).toDate());
+                extreme.setFullDate(exDate.toDate());
                 extreme.setMinute(exDate.getMinuteOfHour());
                 extreme.setHour(exDate.getHourOfDay());
                 extreme.setType(jsonExtreme.getString("type"));
-                extreme.setHeight(jsonExtreme.getDouble("height") + 0.45);
+                extreme.setHeight(jsonExtreme.getDouble("height"));
 
                 extremes.add(extreme);
             }
