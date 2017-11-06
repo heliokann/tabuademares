@@ -1,5 +1,11 @@
 package com.novoideal.tabuademares;
 
+import com.google.code.geocoder.Geocoder;
+import com.google.code.geocoder.GeocoderRequestBuilder;
+import com.google.code.geocoder.model.GeocodeResponse;
+import com.google.code.geocoder.model.GeocoderRequest;
+import com.google.code.geocoder.model.LatLng;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +17,14 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void latLongCaboFrio() throws Exception {
+        final Geocoder geocoder = new Geocoder();
+        GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress("Cabo Frio, Rio de Janeiro").setLanguage("pt-BR").getGeocoderRequest();
+        GeocodeResponse geocoderResponse = geocoder.geocode(geocoderRequest);
+
+        LatLng latLong = geocoderResponse.getResults().get(0).getGeometry().getLocation();
+
+        assertEquals(-22.89, latLong.getLat().doubleValue(), 0.01);
+        assertEquals(-42.03, latLong.getLng().doubleValue(), 0.01);
     }
 }

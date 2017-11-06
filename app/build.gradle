@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -30,9 +34,12 @@ dependencies {
     compile 'joda-time:joda-time:2.9.+'
     compile 'org.shredzone.commons:commons-suncalc:1.+'
     compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
+    compile group: 'com.google.code.geocoder-java', name: 'geocoder-java', version: '0.16'
 
     debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
 
 //    compile 'com.mashape.unirest:unirest-java:1.4.+'
     testCompile 'junit:junit:4.12'
+    androidTestCompile "org.mockito:mockito-android:2.11.0"
+    androidTestCompile group: 'commons-io', name: 'commons-io', version: '2.5'
 }

@@ -20,7 +20,7 @@ import java.util.Map;
  * Created by Helio on 22/10/2017.
  */
 
-public class BaseRequestService {
+public abstract class BaseRequestService {
 
     private Context context;
 
@@ -34,9 +34,7 @@ public class BaseRequestService {
         return context;
     }
 
-    public void callback(JSONObject response) {
-        Toast.makeText(getContext(), "You need overhead callback method", Toast.LENGTH_LONG).show();
-    }
+    public abstract void callback(JSONObject response);
 
     public Map<String, String> getHeaders() {
         return new HashMap<>(0);
