@@ -23,4 +23,5 @@
     <string name="night_21h">Noite (21h)</string>
     <string name="agitation">Agitação</string>
     <string name="lbl_swell">Swell</string>
+    <string name="weather_narrative">Tempo: %1$s</string>
 </resources>

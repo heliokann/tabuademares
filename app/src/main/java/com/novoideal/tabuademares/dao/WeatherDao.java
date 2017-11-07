@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class WeatherDao extends OrmLiteSqliteOpenHelper {
 
-    private static final String DATABASE_NAME = "tabuaMares_wind.db";
+    private static final String DATABASE_NAME = "tabuaMares_weather.db";
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Weather, Integer> dao = null;
@@ -96,13 +96,16 @@ public class WeatherDao extends OrmLiteSqliteOpenHelper {
 
     public List<Weather> geCondition(CityCondition city) {
         Map m = new HashMap();
-        m.put("city", city.getName());
+        m.put("lat", city.getLatitude());
+        m.put("lon", city.getLongetude());
         m.put("date", city.getDate());
         return getRuntimeDao().queryForFieldValues(m);
     }
 
     public boolean contains(Weather weather) {
-        return getRuntimeDao().queryRawValue("select count(*) from weather where city=? and date=? and type=?",
-                weather.getCity(), new DateTime(weather.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"), weather.getType()) > 0;
+        return getRuntimeDao().queryRawValue("select count(*) from weather where lat=? and lon=? and date=? and type=?",
+                ""+ weather.getLat(), ""+ weather.getLon(),
+                new DateTime(weather.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"),
+                weather.getType()) > 0;
     }
 }

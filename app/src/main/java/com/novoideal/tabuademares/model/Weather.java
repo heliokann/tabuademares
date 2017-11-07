@@ -152,6 +152,46 @@ public class Weather {
 
     @Override
     public String toString() {
-        return condition + " " + temperature + "ºC, vento: " + windDir + " " + windSpeed + "Km/h";
+        return narrative;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Weather)) return false;
+
+        Weather weather = (Weather) o;
+
+        if (windSpeed != weather.windSpeed) return false;
+        if (windDegree != weather.windDegree) return false;
+        if (temperature != weather.temperature) return false;
+        if (type != null && !type.equals(weather.type)) return false;
+        if (date != null && !date.equals(weather.date)) return false;
+        if (time != null && !time.equals(weather.time)) return false;
+        if (windDir != null && !windDir.equals(weather.windDir)) return false;
+        if (condition != null && !condition.equals(weather.condition)) return false;
+        if (narrative != null && !narrative.equals(weather.narrative)) return false;
+        if (lat != null && !lat.equals(weather.lat)) return false;
+        if (lon != null && !lon.equals(weather.lon)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = city.hashCode();
+        result = 31 * result + uf.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + date.hashCode();
+        result = 31 * result + time.hashCode();
+        result = 31 * result + windSpeed;
+        result = 31 * result + windDegree;
+        result = 31 * result + temperature;
+        result = 31 * result + windDir.hashCode();
+        result = 31 * result + condition.hashCode();
+        result = 31 * result + narrative.hashCode();
+        result = 31 * result + lat.hashCode();
+        result = 31 * result + lon.hashCode();
+        return result;
     }
 }

@@ -6,7 +6,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
 
         android:layout_gravity="center_horizontal"
         android:background="@drawable/background"
@@ -86,11 +86,11 @@
             android:background="@color/colorPrimary" />
 
         <TextView
-            android:id="@+id/wind"
+            android:id="@+id/weather_narrative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="@string/wind" />
+            android:layout_marginBottom="10dp"
+            android:text="@string/weather_narrative" />
 
         <View
             android:layout_width="match_parent"

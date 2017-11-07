@@ -2,7 +2,9 @@ package com.novoideal.tabuademares.controller;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.TextView;
 
+import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.model.CityCondition;
 import com.novoideal.tabuademares.model.Weather;
 import com.novoideal.tabuademares.service.WeatherService;
@@ -30,7 +32,7 @@ public class WeatherController {
 
     public void request(CityCondition city) {
         this.city = city;
-        url = baseUrl + "&geocode=" + city.getLatitude() + "%2C=" + city.getLongetude();
+        url = baseUrl + "&geocode=" + city.getLatitude() + "%2C" + city.getLongetude();
 
         List<Weather> result = new WeatherService(this).geCondition(city);
 
@@ -40,24 +42,19 @@ public class WeatherController {
     }
 
     public void populateView(List<Weather> result) {
-        String low = "";
-        String hight = "";
         DateTime cityDate = new DateTime(city.getDate());
 
         for (Weather weather : result) {
             NumberFormat nf = new DecimalFormat("#.##");
             DateTime exDate = new DateTime(weather.getDate());
             if (exDate.getDayOfMonth() == cityDate.getDayOfMonth()) {
-                if (weather.getType().equals("Low")) {
-                    low += weather + "    ";
-                } else {
-                    hight += weather + "    ";
+                if (weather.getType().equals("day")) {
+                    ((TextView) rootView.findViewById(R.id.weather_narrative)).setText(getContext().getString(R.string.weather_narrative, weather.getNarrative()));
+                    return;
                 }
             }
         }
 
-//        ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
-//        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, hight));
     }
 
     public CityCondition getCity() {

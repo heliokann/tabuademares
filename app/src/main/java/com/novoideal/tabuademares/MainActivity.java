@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
-import com.novoideal.tabuademares.controller.WindController;
+import com.novoideal.tabuademares.controller.WeatherController;
 import com.novoideal.tabuademares.controller.base.AbstractController;
 import com.novoideal.tabuademares.model.CityCondition;
 
@@ -142,9 +142,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         new MoonController(rootView).request(cityCondition);
-        new WindController(rootView).request();
+//        new WindController(rootView).request();
         new ExtremesController(rootView).request(cityCondition);
         new SeaConditionController(rootView).request(cityCondition);
+        new WeatherController(rootView).request(cityCondition);
     }
 
 

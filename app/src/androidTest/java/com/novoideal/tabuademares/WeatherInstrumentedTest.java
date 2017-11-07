@@ -11,18 +11,24 @@ import com.novoideal.tabuademares.service.WeatherService;
 import com.novoideal.tabuademares.test.R;
 
 import org.apache.commons.io.IOUtils;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -58,5 +64,31 @@ public class WeatherInstrumentedTest {
         JSONObject response = new JSONObject(IOUtils.toString(is, Charset.forName("UTF-8")));
 
         weatherService.callback(response);
+        ArgumentCaptor<List<Weather>> result= ArgumentCaptor.forClass(List.class);
+
+        verify(controller).populateView(result.capture());
+
+        assertEquals(14, result.getValue().size());
+
+        DateTime dateTime = new DateTime("2017-11-06T07:00:00-0200");
+        Weather weather1 = new Weather();
+        weather1.setCity("PENSAR");
+        weather1.setCondition("Encoberto");
+        weather1.setNarrative("Muito nublado. Máxima de 23°C. Ventos SE de 15 a 30 km/h.");
+        weather1.setTemperature(23);
+        weather1.setWindDir("SE");
+        weather1.setWindDegree(132);
+        weather1.setWindSpeed(26);
+        weather1.setLat(-22.89);
+        weather1.setLon(-42.03);
+        weather1.setType("day");
+        weather1.setTime(dateTime.toDate());
+        weather1.setDate(new LocalDate(dateTime).toDate());
+
+        assertEquals(result.getValue().get(1), weather1);
+
+
+//        verify(controller).populateView(argThat(result2 -> result2.size() == 8));
+
     }
 }

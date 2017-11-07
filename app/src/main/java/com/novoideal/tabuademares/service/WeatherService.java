@@ -59,6 +59,7 @@ public class WeatherService extends BaseRequestService{
             JSONArray validDate = vt1dailyforecast.getJSONArray("validDate");
             JSONArray temperature = day.getJSONArray("temperature");
             JSONArray narrative = day.getJSONArray("narrative");
+            JSONArray phrase = day.getJSONArray("phrase");
 
             for (int i = 1; i < validDate.length(); i++) {
                 DateTime exDate = new DateTime(validDate.getString(1));
@@ -68,18 +69,20 @@ public class WeatherService extends BaseRequestService{
                 weather.setLat(lat);
                 weather.setLon(lon);
                 weather.setTemperature(temperature.getInt(i));
-                weather.setCondition(narrative.getString(i));
+                weather.setNarrative(narrative.getString(i));
                 weather.setWindDegree(windDirDegrees.getInt(i));
                 weather.setWindSpeed(windSpeed.getInt(i));
                 weather.setWindDir(windDirCompass.getString(i));
                 weather.setDate(new LocalDate(exDate).toDate());
+                weather.setTime(exDate.toDate());
                 weather.setType("day");
-                
+                weather.setCondition(phrase.getString(i));
+
 
                 weathers.add(weather);
             }
         } catch (JSONException e) {
-            Toast.makeText(getContext(), "Deu ruim no extremos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Problema ao acessar weather: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         saveSeaCondiction(weathers);

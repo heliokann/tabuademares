@@ -21,6 +21,10 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+//    compileOptions {
+//        targetCompatibility 1.8
+//        sourceCompatibility 1.8
+//    }
 }
 
 dependencies {
@@ -42,4 +46,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     androidTestCompile "org.mockito:mockito-android:2.11.0"
     androidTestCompile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+//    C:\Users\Helio\AppData\Local\Android\sdk\platform-tools\adb forward tcp:8080 tcp:8080
 }
