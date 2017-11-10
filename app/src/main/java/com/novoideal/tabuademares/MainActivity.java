@@ -25,7 +25,6 @@ import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
 import com.novoideal.tabuademares.controller.WeatherController;
-import com.novoideal.tabuademares.controller.base.AbstractController;
 import com.novoideal.tabuademares.model.CityCondition;
 
 import java.util.ArrayList;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private CityCondition currentCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,37 +78,36 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-        mViewPager.setOffscreenPageLimit(mSectionsPagerAdapter.getCount());
+        int sections = mSectionsPagerAdapter.getCount();
+        mViewPager.setOffscreenPageLimit(sections);
 
         FloatingActionButton refresh = (FloatingActionButton) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-                   refreshAll(null, currentCity);
+                   int current = mViewPager.getCurrentItem();
+                   MainActivity main = (MainActivity) findViewById(R.id.main_content).getContext();
+                   PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, current);
+                   Spinner spinner = fragment.getView().findViewById(R.id.spin_city);
+                   CityCondition currentCity = (CityCondition) spinner.getSelectedItem();
+                   refreshAll(fragment.getView(), currentCity, false);
                }
         });
     }
 
-    public void createCitySpinner(final View rootView, final int position){
-        List<CityCondition> defaultCities = new ArrayList<>();
-        defaultCities.add(CityCondition.defaultCity.clone(position));
-        defaultCities.add(new CityCondition(3464, 455891, "Niterói", position, -22.909309, -43.072231));
-
-
-        ArrayAdapter<CityCondition> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, defaultCities);
+    public void createCitySpinner(final View rootView, List<CityCondition> cities){
+        ArrayAdapter<CityCondition> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
         arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
-        final Spinner cities = rootView.findViewById(R.id.spin_city);
-        cities.setAdapter(arrayAdapter);
+        final Spinner spinner = rootView.findViewById(R.id.spin_city);
+        spinner.setAdapter(arrayAdapter);
 
         AdapterView.OnItemSelectedListener choose = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                currentCity = (CityCondition) cities.getSelectedItem();
-                AbstractController.clearCache();
-                SeaConditionController.clearCache();
+                CityCondition currentCity = (CityCondition) spinner.getSelectedItem();
                 MainActivity main = (MainActivity)findViewById(R.id.main_content).getContext();
-                main.refreshAll(rootView, currentCity);
+                main.refreshAll(rootView, currentCity, false);
             }
 
             @Override
@@ -119,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        cities.setOnItemSelectedListener(choose);
+        spinner.setOnItemSelectedListener(choose);
     }
 
     public void showTimePickerDialog(View v) {
@@ -134,18 +131,25 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void refreshAll(View rootView, CityCondition cityCondition) {
-        if (rootView == null) {
-            AbstractController.clearCache();
-            SeaConditionController.clearCache();
+    public void refreshAll(View view, CityCondition cityCondition, boolean update) {
+
+        MoonController moonController = new MoonController(view,cityCondition);
+        ExtremesController extremesController = new ExtremesController(view, cityCondition);
+        SeaConditionController seaConditionController = new SeaConditionController(view, cityCondition);
+        WeatherController weatherController = new WeatherController(view, cityCondition);
+
+        if (update) {
+            extremesController.update();
+            seaConditionController.update();
+            weatherController.update();
             Toast.makeText(getApplicationContext(), getString(R.string.refreshing), Toast.LENGTH_LONG).show();
         }
 
-        new MoonController(rootView).request(cityCondition);
+        moonController.request();
 //        new WindController(rootView).request();
-        new ExtremesController(rootView).request(cityCondition);
-        new SeaConditionController(rootView).request(cityCondition);
-        new WeatherController(rootView).request(cityCondition);
+        extremesController.request();
+        seaConditionController.request();
+        weatherController.request();
     }
 
 
@@ -182,18 +186,23 @@ public class MainActivity extends AppCompatActivity {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+
+        private List<CityCondition> cities = new ArrayList<>();
+
         public PlaceholderFragment() {
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
+        public List<CityCondition> getCities() {
+            return cities;
+        }
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
+            fragment.cities.add(CityCondition.defaultCity.clone(sectionNumber));
+            fragment.cities.add(new CityCondition(3464, 455891, "Niterói", sectionNumber, -22.909309, -43.072231));
             return fragment;
         }
 
@@ -204,7 +213,9 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(getString(R.string.sessionTitle));
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
 //                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
-                ((MainActivity)this.getActivity()).createCitySpinner(rootView, position);
+            MainActivity main = (MainActivity)this.getActivity();
+            PlaceholderFragment fragment = (PlaceholderFragment) main.mSectionsPagerAdapter.instantiateItem(main.mViewPager, position);
+                ((MainActivity)this.getActivity()).createCitySpinner(rootView, fragment.cities);
             return rootView;
         }
     }

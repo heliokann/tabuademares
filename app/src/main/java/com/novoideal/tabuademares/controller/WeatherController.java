@@ -26,11 +26,12 @@ public class WeatherController {
     private CityCondition city;
     public View rootView;
 
-    public WeatherController(View view) {
+    public WeatherController(View view, CityCondition city) {
         this.rootView = view;
+        this.city = city;
     }
 
-    public void request(CityCondition city) {
+    public void request() {
         this.city = city;
         url = baseUrl + "&geocode=" + city.getLatitude() + "%2C" + city.getLongetude();
 
@@ -68,5 +69,8 @@ public class WeatherController {
 
     public Context getContext() {
         return rootView.getContext();
+    }
+
+    public void update() {
     }
 }

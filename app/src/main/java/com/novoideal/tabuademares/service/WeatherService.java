@@ -62,7 +62,7 @@ public class WeatherService extends BaseRequestService{
             JSONArray phrase = day.getJSONArray("phrase");
 
             for (int i = 1; i < validDate.length(); i++) {
-                DateTime exDate = new DateTime(validDate.getString(1));
+                DateTime exDate = new DateTime(validDate.getString(i));
                 Weather weather = new Weather();
                 // TODO pensar em uma forma melhor
                 weather.setCity("PENSAR");

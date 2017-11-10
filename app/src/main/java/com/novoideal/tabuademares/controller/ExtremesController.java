@@ -24,14 +24,14 @@ public class ExtremesController  {
     private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
     private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
     private CityCondition city;
-    public View rootView = null;
+    public View rootView;
 
-    public ExtremesController(View view) {
+    public ExtremesController(View view, CityCondition city) {
         this.rootView = view;
+        this.city = city;
     }
 
-    public void request(CityCondition city) {
-        this.city = city;
+    public void request() {
         url = baseUrl + "&lat=" + city.getLatitude() + "&lon=" + city.getLongetude();
 
         List<ExtremeTide> result = new ExtremesService(this).geCondition(city);
@@ -73,5 +73,8 @@ public class ExtremesController  {
 
     public Context getContext() {
         return rootView.getContext();
+    }
+
+    public void update() {
     }
 }

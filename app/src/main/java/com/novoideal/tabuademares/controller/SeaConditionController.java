@@ -7,13 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.service.SeaConditionService;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Helio on 14/08/2017.
@@ -22,23 +20,18 @@ import java.util.Map;
 public class SeaConditionController {
 
     private CityCondition city;
+    private View rootView;
 
-    private static Map<String, SeaCondition> cacheWeater = new HashMap<>();
-    private View rootView = null;
-
-    public static void clearCache() {
-        cacheWeater.clear();
-    }
-
-    public SeaConditionController(View view) {
+    public SeaConditionController(View view, CityCondition city) {
         this.rootView = view;
+        this.city= city;
     }
 
     protected void updateLabel(int elementID, String value) {
         ((TextView) rootView.findViewById(elementID)).setText(value);
     }
 
-    public void updateWeather(SeaCondition w, int agitation, int swell, int wind) {
+    public void updateCondiction(SeaCondition w, int agitation, int swell, int wind) {
         updateLabel(agitation, w.getAgitation());
         updateLabel(swell, w.getSewll() + ", " + w.getHeight() + "m");
         updateLabel(wind, w.getWind_dir() + ", " + w.getWind() + " nós");
@@ -49,24 +42,23 @@ public class SeaConditionController {
             return;
         }
 
-        for (SeaCondition weater : result) {
-            switch (weater.getPeriod()){
+        for (SeaCondition condition : result) {
+            switch (condition.getPeriod()){
                 case "manha" :
-                    updateWeather(weater, R.id.a_m, R.id.s_m, R.id.w_m);
+                    updateCondiction(condition, R.id.a_m, R.id.s_m, R.id.w_m);
                     break;
                 case "tarde" :
-                    updateWeather(weater, R.id.a_t, R.id.s_t, R.id.w_t);
+                    updateCondiction(condition, R.id.a_t, R.id.s_t, R.id.w_t);
                     break;
                 case "noite" :
-                    updateWeather(weater, R.id.a_n, R.id.s_n, R.id.w_n);
+                    updateCondiction(condition, R.id.a_n, R.id.s_n, R.id.w_n);
                     break;
             }
         }
 
     }
 
-    public void request(CityCondition city) {
-        this.city = city;
+    public void request() {
         new AsyncUpdater().execute(this);
     }
 
@@ -78,6 +70,8 @@ public class SeaConditionController {
         return rootView.getContext();
     }
 
+    public void update() {
+    }
 }
 
 class AsyncUpdater extends AsyncTask<SeaConditionController, Void, List<SeaCondition>> {

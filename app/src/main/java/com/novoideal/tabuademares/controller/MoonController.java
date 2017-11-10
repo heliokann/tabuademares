@@ -14,10 +14,12 @@ import org.shredzone.commons.suncalc.MoonIllumination;
 
 public class MoonController  {
 
-    public View rootView = null;
+    public View rootView;
+    public CityCondition city;
 
-    public MoonController(View view) {
+    public MoonController(View view, CityCondition city) {
         this.rootView = view;
+        this.city = city;
     }
 
 
@@ -78,10 +80,6 @@ public class MoonController  {
     }
 
     public void request() {
-
-    }
-    public void request(CityCondition city) {
-        city = city != null ? city : CityCondition.defaultCity;
         Double age = MoonIllumination.of(city.getDate()).getPhase() * 29.5308;
         TextView textView = (TextView) rootView.findViewById(R.id.moon_phase);
         textView.setText(rootView.getContext().getString(R.string.moon_phase, getPhase(age), age));
