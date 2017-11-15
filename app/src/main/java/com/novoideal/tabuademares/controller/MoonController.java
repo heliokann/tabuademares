@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 
 import org.shredzone.commons.suncalc.MoonIllumination;
 
@@ -15,9 +15,9 @@ import org.shredzone.commons.suncalc.MoonIllumination;
 public class MoonController  {
 
     public View rootView;
-    public CityCondition city;
+    public LocationParam city;
 
-    public MoonController(View view, CityCondition city) {
+    public MoonController(View view, LocationParam city) {
         this.rootView = view;
         this.city = city;
     }

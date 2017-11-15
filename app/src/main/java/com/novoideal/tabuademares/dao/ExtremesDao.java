@@ -13,10 +13,11 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -92,16 +93,21 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
         TableUtils.createTableIfNotExists(connectionSource, ExtremeTide.class);
     }
 
-    public List<ExtremeTide> geCondition(CityCondition city) {
+    public List<ExtremeTide> geCondition(LocationParam city) {
+        if (city.getLatExtreme() == null || city.getLongExtreme() == null) {
+            return new ArrayList<>(0);
+        }
+
         Map m = new HashMap();
-        m.put("city", city.getName());
+        m.put("lat", city.getLatExtreme());
+        m.put("lon", city.getLongExtreme());
         m.put("date", city.getDate());
         return getRuntimeDao().queryForFieldValues(m);
     }
 
     public boolean contains(ExtremeTide extreme) {
 //        dao.queryRaw("select * from extremetide where city=? and date='2017-10-28 00:00:00.000000'", "RIO DE JANEIRO").getResults()
-        return getRuntimeDao().queryRawValue("select count(*) from extremetide where city=? and fullDate=? and type=?",
-                extreme.getCity(), extreme.getStrFullDate(), extreme.getType()) > 0;
+        return getRuntimeDao().queryRawValue("select count(*) from extremetide where lat=? and lon=? and fullDate=? and type=?",
+                extreme.getLat().toString(), extreme.getLon().toString(), extreme.getStrFullDate(), extreme.getType()) > 0;
     }
 }

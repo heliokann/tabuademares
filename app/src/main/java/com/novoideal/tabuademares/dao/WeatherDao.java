@@ -9,12 +9,13 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.Weather;
 
 import org.joda.time.DateTime;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,10 +95,14 @@ public class WeatherDao extends OrmLiteSqliteOpenHelper {
         TableUtils.createTableIfNotExists(connectionSource, Weather.class);
     }
 
-    public List<Weather> geCondition(CityCondition city) {
+    public List<Weather> geCondition(LocationParam city) {
+        if (city.getLatWeather() == null || city.getLongWeather() == null) {
+            return new ArrayList<>(0);
+        }
+
         Map m = new HashMap();
-        m.put("lat", city.getLatitude());
-        m.put("lon", city.getLongetude());
+        m.put("lat", city.getLatWeather());
+        m.put("lon", city.getLongWeather());
         m.put("date", city.getDate());
         return getRuntimeDao().queryForFieldValues(m);
     }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.service.SeaConditionService;
 
@@ -19,10 +19,10 @@ import java.util.List;
 
 public class SeaConditionController {
 
-    private CityCondition city;
+    private LocationParam city;
     private View rootView;
 
-    public SeaConditionController(View view, CityCondition city) {
+    public SeaConditionController(View view, LocationParam city) {
         this.rootView = view;
         this.city= city;
     }
@@ -62,7 +62,7 @@ public class SeaConditionController {
         new AsyncUpdater().execute(this);
     }
 
-    public CityCondition getCity() {
+    public LocationParam getCity() {
         return city;
     }
 

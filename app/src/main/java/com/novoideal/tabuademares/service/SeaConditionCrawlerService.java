@@ -1,6 +1,6 @@
 package com.novoideal.tabuademares.service;
 
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import org.joda.time.DateTime;
@@ -41,7 +41,7 @@ public class SeaConditionCrawlerService {
         return conn.getInputStream();
     }
 
-    public List<SeaCondition> getWeathers(CityCondition city) throws Exception {
+    public List<SeaCondition> getWeathers(LocationParam city) throws Exception {
         InputStream stream = null;
         String xmlUrl = baseUrl + city.getCodeSeaCondition() + "/dia/" + city.days()+ "/ondas.xml";
         try {

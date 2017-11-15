@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
 import com.novoideal.tabuademares.service.ExtremesService;
 
@@ -23,10 +23,10 @@ public class ExtremesController  {
 
     private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
     private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
-    private CityCondition city;
+    private LocationParam city;
     public View rootView;
 
-    public ExtremesController(View view, CityCondition city) {
+    public ExtremesController(View view, LocationParam city) {
         this.rootView = view;
         this.city = city;
     }
@@ -43,7 +43,7 @@ public class ExtremesController  {
 
     public void populateView(List<ExtremeTide> result) {
         String low = "";
-        String hight = "";
+        String high = "";
         DateTime cityDate = new DateTime(city.getDate());
 
         for (ExtremeTide extreme : result) {
@@ -53,16 +53,16 @@ public class ExtremesController  {
                 if (extreme.getType().equals("Low")) {
                     low += extreme + "    ";
                 } else {
-                    hight += extreme + "    ";
+                    high += extreme + "    ";
                 }
             }
         }
 
         ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
-        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, hight));
+        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, high));
     }
 
-    public CityCondition getCity() {
+    public LocationParam getCity() {
         return city;
     }
 

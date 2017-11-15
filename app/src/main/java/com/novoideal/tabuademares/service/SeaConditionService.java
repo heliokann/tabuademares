@@ -3,7 +3,7 @@ package com.novoideal.tabuademares.service;
 import android.content.Context;
 
 import com.novoideal.tabuademares.dao.SeaConditionDao;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class SeaConditionService {
         return null;
     }
 
-    public List<SeaCondition> geCondition(CityCondition city) throws Exception {
+    public List<SeaCondition> geCondition(LocationParam city) throws Exception {
         List<SeaCondition> conditions =  seaConditionDao.geCondition(city);
         if(conditions != null && !conditions.isEmpty()){
             return conditions;

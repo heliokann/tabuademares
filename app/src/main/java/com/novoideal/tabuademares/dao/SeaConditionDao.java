@@ -13,7 +13,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import org.joda.time.DateTime;
@@ -94,7 +94,7 @@ public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
         TableUtils.createTableIfNotExists(connectionSource, SeaCondition.class);
     }
 
-    public List<SeaCondition> geCondition(CityCondition city) {
+    public List<SeaCondition> geCondition(LocationParam city) {
         Map m = new HashMap();
         m.put("city", city.getName());
         m.put("date", city.getDate());

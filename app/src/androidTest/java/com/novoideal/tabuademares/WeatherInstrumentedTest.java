@@ -4,8 +4,9 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.novoideal.tabuademares.controller.WeatherController;
+import com.novoideal.tabuademares.dao.LocationParamDao;
 import com.novoideal.tabuademares.dao.WeatherDao;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.Weather;
 import com.novoideal.tabuademares.service.WeatherService;
 import com.novoideal.tabuademares.test.R;
@@ -42,6 +43,9 @@ public class WeatherInstrumentedTest {
     @Mock
     WeatherDao weatherDao;
 
+    @Mock
+    LocationParamDao locationParamDao;
+
     WeatherService weatherService;
 
 
@@ -50,12 +54,12 @@ public class WeatherInstrumentedTest {
         MockitoAnnotations.initMocks(this);
 
         when(controller.getURL()).thenReturn("https://api.weather.com/v2/turbo/vt1dailyforecast?apiKey=d522aa97197fd864d36b418f39ebb323&format=json&language=pt-BR&units=m&geocode=-22.89%2C-42.03");
-        when(weatherDao.geCondition((CityCondition) any())).thenReturn(new ArrayList<Weather>());
-        when(controller.getCity()).thenReturn(CityCondition.defaultCity);
+        when(weatherDao.geCondition((LocationParam) any())).thenReturn(new ArrayList<Weather>());
+        when(controller.getCity()).thenReturn(LocationParam.defaultCity);
 
         when(controller.getContext()).thenReturn(InstrumentationRegistry.getTargetContext());
 
-        weatherService = new WeatherService(weatherDao, controller);
+        weatherService = new WeatherService(weatherDao, locationParamDao, controller);
     }
 
     @Test

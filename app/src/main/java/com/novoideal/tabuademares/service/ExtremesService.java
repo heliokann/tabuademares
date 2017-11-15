@@ -4,7 +4,8 @@ import android.widget.Toast;
 
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.dao.ExtremesDao;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.dao.LocationParamDao;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
 
 import org.joda.time.DateTime;
@@ -24,23 +25,25 @@ import java.util.List;
 public class ExtremesService extends BaseRequestService{
 
     private ExtremesDao extremesDao;
+    private LocationParamDao locationParamDao;
     private ExtremesController controller;
 
     public ExtremesService(ExtremesController controller) {
         super(controller.getContext());
-        extremesDao = new ExtremesDao(this.getContext());
+        this.extremesDao = new ExtremesDao(this.getContext());
         this.controller = controller;
+        this.locationParamDao = new LocationParamDao(this.getContext());
     }
 
     @Override
     public void callback(JSONObject response) {
         List<ExtremeTide> extremes = new ArrayList<>();
         try {
-            CityCondition city = controller.getCity();
-            //TODO pensar melhor omo fazer isso
-//            city.setName(response.getString("station"));
-            city.setLatitude(response.getDouble("responseLat"));
-            city.setLongetude(response.getDouble("responseLon"));
+            LocationParam city = controller.getCity();
+            //TODO mostrar se a cidade for diferente
+            city.setLatExtreme(response.getDouble("responseLat"));
+            city.setLongExtreme(response.getDouble("responseLon"));
+            locationParamDao.updateExtremeParams(city);
 
             JSONArray arrayExtremes = response.getJSONArray("extremes");
             for (int i = 0; i < arrayExtremes.length(); i++) {
@@ -69,7 +72,7 @@ public class ExtremesService extends BaseRequestService{
         controller.populateView(extremes);
     }
 
-    public List<ExtremeTide> geCondition(CityCondition city) {
+    public List<ExtremeTide> geCondition(LocationParam city) {
         List<ExtremeTide> conditions =  extremesDao.geCondition(city);
         if(conditions != null && !conditions.isEmpty()){
             return conditions;

@@ -3,8 +3,9 @@ package com.novoideal.tabuademares.service;
 import android.widget.Toast;
 
 import com.novoideal.tabuademares.controller.WeatherController;
+import com.novoideal.tabuademares.dao.LocationParamDao;
 import com.novoideal.tabuademares.dao.WeatherDao;
-import com.novoideal.tabuademares.model.CityCondition;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.Weather;
 
 import org.joda.time.DateTime;
@@ -24,11 +25,13 @@ import java.util.List;
 public class WeatherService extends BaseRequestService{
 
     private WeatherDao weatherDao;
+    private LocationParamDao locationParamDao;
     private WeatherController controller;
 
-    public WeatherService(WeatherDao weatherDao, WeatherController controller) {
+    public WeatherService(WeatherDao weatherDao, LocationParamDao locationParamDao, WeatherController controller) {
         super(controller.getContext());
         this.weatherDao = weatherDao;
+        this.locationParamDao = locationParamDao;
         this.controller = controller;
     }
 
@@ -36,6 +39,7 @@ public class WeatherService extends BaseRequestService{
     public WeatherService(WeatherController controller) {
         super(controller.getContext());
         weatherDao = new WeatherDao(this.getContext());
+        this.locationParamDao = new LocationParamDao(this.getContext());
         this.controller = controller;
     }
 
@@ -43,13 +47,14 @@ public class WeatherService extends BaseRequestService{
     public void callback(JSONObject response) {
         List<Weather> weathers = new ArrayList<>();
         try {
-            CityCondition city = controller.getCity();
-            //TODO pensar melhor omo fazer isso
-//            city.setName(response.getString("station"));
+            LocationParam city = controller.getCity();
             String[] latLong = response.getString("id").split(",");
             Double lat = Double.parseDouble((latLong[0]));
             Double lon = Double.parseDouble((latLong[1]));
 
+            city.setLatWeather(lat);
+            city.setLongWeather(lon);
+            locationParamDao.updateWeatherParams(city);
 
             JSONObject vt1dailyforecast = response.getJSONObject("vt1dailyforecast");
             JSONObject day = vt1dailyforecast.getJSONObject("day");
@@ -90,7 +95,7 @@ public class WeatherService extends BaseRequestService{
         controller.populateView(weathers);
     }
 
-    public List<Weather> geCondition(CityCondition city) {
+    public List<Weather> geCondition(LocationParam city) {
         List<Weather> conditions =  weatherDao.geCondition(city);
         if(conditions != null && !conditions.isEmpty()){
             return conditions;
