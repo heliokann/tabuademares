@@ -13,6 +13,7 @@ import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.Weather;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -112,5 +113,9 @@ public class WeatherDao extends OrmLiteSqliteOpenHelper {
                 ""+ weather.getLat(), ""+ weather.getLon(),
                 new DateTime(weather.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"),
                 weather.getType()) > 0;
+    }
+
+    public int clearBefore(LocalDate now) {
+        return getRuntimeDao().updateRaw("delete from weather where date < ?", now.toString("yyyy-MM-dd"));
     }
 }

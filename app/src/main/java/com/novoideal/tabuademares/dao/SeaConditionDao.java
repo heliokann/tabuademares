@@ -17,6 +17,7 @@ import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -104,5 +105,9 @@ public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
     public boolean contains(SeaCondition condition) {
         return getRuntimeDao().queryRawValue("select count(*) from seacondition where city=? and date=? and period=?",
                 condition.getCity(), new DateTime(condition.getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"), condition.getPeriod()) > 0;
+    }
+
+    public int clearBefore(LocalDate now) {
+        return getRuntimeDao().updateRaw("delete from seacondition where date < ?", now.toString("yyyy-MM-dd"));
     }
 }

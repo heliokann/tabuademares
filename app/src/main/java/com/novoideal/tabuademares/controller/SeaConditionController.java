@@ -11,6 +11,9 @@ import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.service.SeaConditionService;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 import java.util.List;
 
 /**
@@ -43,6 +46,9 @@ public class SeaConditionController {
         }
 
         for (SeaCondition condition : result) {
+            if(Days.daysBetween(new DateTime(condition.getDate()), new DateTime(city.getDate())).getDays() != 0){
+                break;
+            }
             switch (condition.getPeriod()){
                 case "manha" :
                     updateCondiction(condition, R.id.a_m, R.id.s_m, R.id.w_m);

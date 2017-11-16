@@ -16,6 +16,8 @@ import com.j256.ormlite.table.TableUtils;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
 
+import org.joda.time.LocalDate;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,5 +111,9 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
 //        dao.queryRaw("select * from extremetide where city=? and date='2017-10-28 00:00:00.000000'", "RIO DE JANEIRO").getResults()
         return getRuntimeDao().queryRawValue("select count(*) from extremetide where lat=? and lon=? and fullDate=? and type=?",
                 extreme.getLat().toString(), extreme.getLon().toString(), extreme.getStrFullDate(), extreme.getType()) > 0;
+    }
+
+    public int clearBefore(LocalDate now) {
+        return getRuntimeDao().updateRaw("delete from extremetide where date < ?", now.toString("yyyy-MM-dd"));
     }
 }

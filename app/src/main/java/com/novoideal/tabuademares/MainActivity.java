@@ -26,8 +26,13 @@ import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
 import com.novoideal.tabuademares.controller.WeatherController;
+import com.novoideal.tabuademares.dao.ExtremesDao;
+import com.novoideal.tabuademares.dao.SeaConditionDao;
+import com.novoideal.tabuademares.dao.WeatherDao;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.LocationParamService;
+
+import org.joda.time.LocalDate;
 
 import java.util.Date;
 import java.util.List;
@@ -61,16 +66,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-//        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
-            getSupportFragmentManager().beginTransaction().disallowAddToBackStack().commit();
-//            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-//        }
         mSectionsPagerAdapter = createFragmentAdapter();
 
         createViewPager(mSectionsPagerAdapter);
 
         createRefresh();
+
+        cleanBD();
+    }
+
+    private void cleanBD() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LocalDate now = new LocalDate();
+                new SeaConditionDao(getApplicationContext()).clearBefore(now);
+                new ExtremesDao(getApplicationContext()).clearBefore(now);
+                new WeatherDao(getApplicationContext()).clearBefore(now);
+            }
+        }).start();
+
     }
 
     @Override
@@ -95,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                    PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, current);
                    Spinner spinner = fragment.getView().findViewById(R.id.spin_city);
                    LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-                   refreshAll(fragment.getView(), currentCity, false);
+                   refreshAll(fragment.getView(), currentCity, true);
                }
         });
     }
@@ -174,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         moonController.request();
-//        new WindController(rootView).request();
         extremesController.request();
         seaConditionController.request();
         weatherController.request();
@@ -236,16 +250,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onSaveInstanceState(Bundle outState) {
-            //No call for super(). Bug on API Level > 11.
-        }
-
-        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            if(savedInstanceState != null){
-                return null;
-            }
-
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.sessionTitle));
@@ -253,11 +258,6 @@ public class MainActivity extends AppCompatActivity {
 //                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
             MainActivity main = (MainActivity)this.getActivity();
             PlaceholderFragment fragment = (PlaceholderFragment) main.mSectionsPagerAdapter.instantiateItem(main.mViewPager, position);
-//            PlaceholderFragment fragment = (PlaceholderFragment) main.getSupportFragmentManager()..instantiateItem(main.mViewPager, position);
-            if(fragment.cities == null){
-                return rootView;
-            }
-
             main.createCitySpinner(rootView, fragment.cities);
             return rootView;
         }
