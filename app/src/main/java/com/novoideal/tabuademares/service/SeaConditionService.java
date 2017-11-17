@@ -58,5 +58,8 @@ public class SeaConditionService {
         }
     }
 
+    public void cleanCondiction(LocationParam city) {
+        seaConditionDao.clearCondiction(city);
+    }
 
 }

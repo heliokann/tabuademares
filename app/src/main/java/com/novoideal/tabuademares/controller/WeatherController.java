@@ -72,5 +72,6 @@ public class WeatherController {
     }
 
     public void update() {
+        new WeatherService(this).cleanCondiction(city);
     }
 }

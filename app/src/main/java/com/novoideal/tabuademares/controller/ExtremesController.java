@@ -76,5 +76,6 @@ public class ExtremesController  {
     }
 
     public void update() {
+        new ExtremesService(this).cleanCondiction(city);
     }
 }

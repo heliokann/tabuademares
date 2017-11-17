@@ -72,6 +72,11 @@ public class ExtremesService extends BaseRequestService{
         controller.populateView(extremes);
     }
 
+    @Override
+    public void cleanCondiction(LocationParam city) {
+        extremesDao.clearCondiction(city);
+    }
+
     public List<ExtremeTide> geCondition(LocationParam city) {
         List<ExtremeTide> conditions =  extremesDao.geCondition(city);
         if(conditions != null && !conditions.isEmpty()){

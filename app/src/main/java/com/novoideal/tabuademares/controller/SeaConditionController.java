@@ -77,6 +77,7 @@ public class SeaConditionController {
     }
 
     public void update() {
+        new SeaConditionService(this.getContext()).cleanCondiction(city);
     }
 }
 

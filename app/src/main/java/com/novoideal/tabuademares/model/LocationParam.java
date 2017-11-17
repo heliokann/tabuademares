@@ -81,6 +81,10 @@ public class LocationParam {
         return new LocalDate().plusDays(days).toDate();
     }
 
+    public String getFullDateStr() {
+        return new DateTime(getDate()).toString("yyyy-MM-dd HH:mm:ss.SSSSSS");
+    }
+
     public LocationParam setDays(int days) {
         this.days = days;
         return this;

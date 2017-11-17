@@ -116,4 +116,7 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
     public int clearBefore(LocalDate now) {
         return getRuntimeDao().updateRaw("delete from extremetide where date < ?", now.toString("yyyy-MM-dd"));
     }
+    public int clearCondiction(LocationParam param) {
+        return getRuntimeDao().updateRaw("delete from extremetide where date = ?", param.getFullDateStr());
+    }
 }

@@ -110,4 +110,8 @@ public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
     public int clearBefore(LocalDate now) {
         return getRuntimeDao().updateRaw("delete from seacondition where date < ?", now.toString("yyyy-MM-dd"));
     }
+
+    public int clearCondiction(LocationParam param) {
+        return getRuntimeDao().updateRaw("delete from seacondition where date = ?", param.getFullDateStr());
+    }
 }

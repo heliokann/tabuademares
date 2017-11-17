@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.util.RequestQueuer;
 
 import org.json.JSONObject;
@@ -69,4 +70,6 @@ public abstract class BaseRequestService {
 
         RequestQueuer.getInstance(service.getContext()).addToRequestQueue(jsObjRequest);
     }
+
+    public abstract void cleanCondiction(LocationParam city);
 }

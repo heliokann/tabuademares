@@ -95,6 +95,11 @@ public class WeatherService extends BaseRequestService{
         controller.populateView(weathers);
     }
 
+    @Override
+    public void cleanCondiction(LocationParam city) {
+        weatherDao.clearCondiction(city);
+    }
+
     public List<Weather> geCondition(LocationParam city) {
         List<Weather> conditions =  weatherDao.geCondition(city);
         if(conditions != null && !conditions.isEmpty()){

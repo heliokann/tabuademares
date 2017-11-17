@@ -118,4 +118,8 @@ public class WeatherDao extends OrmLiteSqliteOpenHelper {
     public int clearBefore(LocalDate now) {
         return getRuntimeDao().updateRaw("delete from weather where date < ?", now.toString("yyyy-MM-dd"));
     }
+
+    public int clearCondiction(LocationParam param) {
+        return getRuntimeDao().updateRaw("delete from weather where date = ?", param.getFullDateStr());
+    }
 }

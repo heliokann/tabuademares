@@ -182,10 +182,10 @@ public class MainActivity extends AppCompatActivity {
         WeatherController weatherController = new WeatherController(view, cityCondition);
 
         if (update) {
+            Toast.makeText(getApplicationContext(), getString(R.string.refreshing), Toast.LENGTH_LONG).show();
             extremesController.update();
             seaConditionController.update();
             weatherController.update();
-            Toast.makeText(getApplicationContext(), getString(R.string.refreshing), Toast.LENGTH_LONG).show();
         }
 
         moonController.request();
