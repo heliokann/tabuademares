@@ -161,7 +161,11 @@ public class LocationParam {
 
     @Override
     public String toString() {
-        return name + " - " + new DateTime(getDate()).toString("dd/MM/yyyy");
+        return name;// + " - " + new DateTime(getDate()).toString("dd/MM/yyyy");
+    }
+
+    public String getTodayStr() {
+        return new DateTime(getDate()).toString("dd/MM/yyyy");
     }
 
     public void setDate(Date date) {

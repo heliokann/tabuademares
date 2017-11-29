@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:dither="false"
-    android:src="@drawable/ic_48"
-    android:filter="false"
-    android:tileMode="repeat"
-    android:alpha="240"
-    />
+<!--<bitmap xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:dither="false"-->
+    <!--android:src="@drawable/ic_48"-->
+    <!--android:filter="false"-->
+    <!--android:tileMode="repeat"-->
+    <!--android:alpha="240"-->
+    <!--/>-->
+<shape  xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <gradient
+        android:startColor="#00FFFF"
+        android:angle="135"
+        android:endColor="#ADD8E6" />
+
+</shape>

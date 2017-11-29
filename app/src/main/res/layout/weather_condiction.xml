@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="3"
+    android:orientation="horizontal"
+    android:rowCount="2"
+    android:rowOrderPreserved="true">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/sun" />
+
+    <ImageView
+        android:layout_gravity="center"
+        android:src="@drawable/moon" />
+
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:src="@drawable/wind" />
+
+    <TextView
+        android:id="@+id/weather_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="40dp"
+        android:text="Ensolarado" />
+
+    <TextView
+        android:id="@+id/moon_phase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Crescente"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/wind_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Nordeste, 10 nós"
+        android:textAlignment="center" />
+</GridLayout>
+</LinearLayout>

@@ -2,17 +2,19 @@ package com.novoideal.tabuademares.controller;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.GridView;
 
+import com.novoideal.tabuademares.adapter.ExtremeViewAdapter;
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
+import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.ExtremesService;
 
 import org.joda.time.DateTime;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,8 +23,8 @@ import java.util.List;
 
 public class ExtremesController  {
 
-    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
-    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
+    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&grid_extreme=";
+    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&grid_extreme=&lat=-22.87944&lon=-42.01860";
     private LocationParam city;
     public View rootView;
 
@@ -45,11 +47,13 @@ public class ExtremesController  {
         String low = "";
         String high = "";
         DateTime cityDate = new DateTime(city.getDate());
+        List<ExtremeTide> today = new ArrayList<>();
 
         for (ExtremeTide extreme : result) {
             NumberFormat nf = new DecimalFormat("#.##");
             DateTime exDate = new DateTime(extreme.getDate());
             if (exDate.getDayOfMonth() == cityDate.getDayOfMonth()) {
+                today.add(extreme);
                 if (extreme.getType().equals("Low")) {
                     low += extreme + "    ";
                 } else {
@@ -58,8 +62,21 @@ public class ExtremesController  {
             }
         }
 
-        ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
-        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, high));
+//        ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
+//        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, high));
+
+        createGridView(today);
+    }
+
+    public void createGridView(List<ExtremeTide> today) {
+        GridView gv = rootView.findViewById(R.id.grid_extreme);
+//        LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        GridView gv = (GridView) inflater.inflate(R.layout.grid_extreme, (ViewGroup) rootView, false);
+        gv.setNumColumns(today.size());
+        gv.setAdapter(new ExtremeViewAdapter(rootView, today));
+//        ((View) rootView).findViewById(R.id.include_extremes).addView(gv);
+        ((ExtremeViewAdapter) gv.getAdapter()).notifyDataSetChanged();
+        gv.invalidateViews();
     }
 
     public LocationParam getCity() {

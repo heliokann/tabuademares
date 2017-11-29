@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
+import com.novoideal.tabuademares.adapter.SeaConditionViewAdapter;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.service.SeaConditionService;
@@ -45,23 +47,39 @@ public class SeaConditionController {
             return;
         }
 
+        SeaCondition[] today = new SeaCondition[3];
+
         for (SeaCondition condition : result) {
             if(Days.daysBetween(new DateTime(condition.getDate()), new DateTime(city.getDate())).getDays() != 0){
                 break;
             }
             switch (condition.getPeriod()){
                 case "manha" :
-                    updateCondiction(condition, R.id.a_m, R.id.s_m, R.id.w_m);
+                    today[0] = condition;
+//                    updateCondiction(condition, R.id.a_m, R.id.s_m, R.id.w_m);
                     break;
                 case "tarde" :
-                    updateCondiction(condition, R.id.a_t, R.id.s_t, R.id.w_t);
+                    today[1] = condition;
+//                    updateCondiction(condition, R.id.a_t, R.id.s_t, R.id.w_t);
                     break;
                 case "noite" :
-                    updateCondiction(condition, R.id.a_n, R.id.s_n, R.id.w_n);
+                    today[2] = condition;
+//                    updateCondiction(condition, R.id.a_n, R.id.s_n, R.id.w_n);
                     break;
             }
         }
 
+        if (today[0] != null) {
+            createGridView(today);
+        }
+
+    }
+
+    public void createGridView(SeaCondition[] today ) {
+        GridView gv = rootView.findViewById(R.id.grid_swell);
+        gv.setAdapter(new SeaConditionViewAdapter(rootView, today));
+        ((SeaConditionViewAdapter) gv.getAdapter()).notifyDataSetChanged();
+        gv.invalidateViews();
     }
 
     public void request() {

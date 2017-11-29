@@ -119,4 +119,12 @@ public class SeaCondition {
     public String toString() {
         return "";
     }
+
+    public String getWindStr() {
+        return wind_dir  + ", " + wind + " nós";
+    }
+
+    public String getFullSwell() {
+        return sewll + ",  " + height + " m";
+    }
 }

@@ -82,10 +82,12 @@ public class MoonController  {
     public void request() {
         Double age = MoonIllumination.of(city.getDate()).getPhase() * 29.5308;
         TextView textView = (TextView) rootView.findViewById(R.id.moon_phase);
-        textView.setText(rootView.getContext().getString(R.string.moon_phase, getPhase(age), age));
+//        textView.setText(rootView.getContext().getString(R.string.moon_phase, getPhase(age), age));
+        textView.setText(getPhase(age));
 
         textView = (TextView) rootView.findViewById(R.id.moon_hold);
-        textView.setText(rootView.getContext().getString(R.string.moon_hold, getHold(age)));
+//        textView.setText(rootView.getContext().getString(R.string.moon_hold, getHold(age)));
+        textView.setText("Influência: lua " + getHold(age));
     }
 
 }

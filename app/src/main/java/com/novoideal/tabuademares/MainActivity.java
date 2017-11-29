@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,14 +56,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         mSectionsPagerAdapter = createFragmentAdapter();
 
@@ -175,6 +173,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshAll(View view, LocationParam cityCondition, boolean update) {
+        TextView today = view.findViewById(R.id.lbl_condition);
+        today.setText("Condição - " + cityCondition.getTodayStr());
 
         MoonController moonController = new MoonController(view,cityCondition);
         ExtremesController extremesController = new ExtremesController(view, cityCondition);
@@ -252,8 +252,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.sessionTitle));
+//            TextView textView = rootView.findViewById(R.id.section_label);
+//            textView.setText(getString(R.string.sessionTitle));
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
 //                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
             MainActivity main = (MainActivity)this.getActivity();

@@ -87,19 +87,19 @@
 //
 //    public static void updateExtremes(JSONObject response) {
 //        try {
-//            JSONArray extremes = response.getJSONArray("extremes");
+//            JSONArray grid_extreme = response.getJSONArray("grid_extreme");
 //            String low = "";
 //            String high = "";
 //            DateTime now = DateTime.now();
 //            NumberFormat nf = new DecimalFormat("#.##");
-//            for (int i = 0; i < extremes.length(); i++) {
-//                JSONObject extreme = extremes.getJSONObject(i);
-//                DateTime exDate = new DateTime(extreme.getString("date"));
+//            for (int i = 0; i < grid_extreme.length(); i++) {
+//                JSONObject item_extreme = grid_extreme.getJSONObject(i);
+//                DateTime exDate = new DateTime(item_extreme.getString("date"));
 //                if (exDate.getDayOfMonth() == now.getDayOfMonth()) {
-//                    if (extreme.getString("type").equals("Low")) {
-//                        low += exDate.toString("HH:mm") + " (" + nf.format(extreme.getDouble("height") + 0.45) + "m)    ";
+//                    if (item_extreme.getString("type").equals("Low")) {
+//                        low += exDate.toString("HH:mm") + " (" + nf.format(item_extreme.getDouble("height") + 0.45) + "m)    ";
 //                    } else {
-//                        high += exDate.toString("HH:mm") + " (" + nf.format(extreme.getDouble("height") + 0.45) + "m)    ";
+//                        high += exDate.toString("HH:mm") + " (" + nf.format(item_extreme.getDouble("height") + 0.45) + "m)    ";
 //                    }
 //                }
 //            }

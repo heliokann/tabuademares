@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:verticalSpacing="30dp"
+    android:horizontalSpacing="30dp"
+    android:background="@drawable/rounded_corner"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/extreme_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Baixa-mar" />
+
+    <TextView
+        android:id="@+id/extreme_time"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginBottom="5dp"
+        android:text="00:32" />
+
+    <TextView
+        android:id="@+id/extreme_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginBottom="5dp"
+        android:text="-0,15m" />
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_height="10dp"
+        android:id="@+id/extreme_type_icon"
+        android:layout_width="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/up"/>
+
+</LinearLayout>

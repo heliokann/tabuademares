@@ -33,6 +33,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, day);
-        ((TextView)getActivity().findViewById(R.id.section_label)).setText(getString(R.string.sessionTitle, c.getTime()));
+//        ((TextView)getActivity().findViewById(R.id.section_label)).setText(getString(R.string.sessionTitle, c.getTime()));
     }
 }
