@@ -54,14 +54,14 @@ public class SeaConditionViewAdapter extends BaseAdapter {
             gridView = inflater.inflate(R.layout.item_swell, null);
             SeaCondition seaCondition = seaConditions[position];
 
+            TextView period = (TextView) gridView.findViewById(R.id.swell_period);
+            period.setText(seaCondition.getPeriod());
+
             TextView agitation = (TextView) gridView.findViewById(R.id.swell_agitation);
             agitation.setText(seaCondition.getAgitation());
 
             TextView height = (TextView) gridView.findViewById(R.id.swell_height);
             height.setText(seaCondition.getFullSwell());
-
-            TextView period = (TextView) gridView.findViewById(R.id.swell_period);
-            period.setText(seaCondition.getPeriod());
 
             TextView wind = (TextView) gridView.findViewById(R.id.swell_wind);
             wind.setText(seaCondition.getWindStr());

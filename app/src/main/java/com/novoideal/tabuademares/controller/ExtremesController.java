@@ -23,8 +23,8 @@ import java.util.List;
 
 public class ExtremesController  {
 
-    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&grid_extreme=";
-    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&grid_extreme=&lat=-22.87944&lon=-42.01860";
+    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=";
+    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes=&lat=-22.87944&lon=-42.01860";
     private LocationParam city;
     public View rootView;
 

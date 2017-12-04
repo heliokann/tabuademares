@@ -40,6 +40,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:drawableEnd="@drawable/ic_48"
+            tools:listitem="@layout/spinner_item"
             android:drawableLeft="@drawable/ic_48"
             android:drawableRight="@drawable/ic_48"
             android:drawableStart="@drawable/ic_48"
@@ -75,7 +76,7 @@
             android:layout_marginBottom="4dp"
             android:text="@string/moon_hold"
             android:textAlignment="center"
-            android:textSize="20dp" />
+            android:textSize="16dp" />
 
         <include
             layout="@layout/grid_extreme"

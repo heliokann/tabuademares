@@ -51,6 +51,8 @@ public class WeatherController {
             if (exDate.getDayOfMonth() == cityDate.getDayOfMonth()) {
                 if (weather.getType().equals("day")) {
                     ((TextView) rootView.findViewById(R.id.weather_narrative)).setText(getContext().getString(R.string.weather_narrative, weather.getNarrative()));
+                    ((TextView) rootView.findViewById(R.id.weather_wind)).setText(weather.getWindDir() + ", " + weather.getWindSpeed() + " km/h");
+                    ((TextView) rootView.findViewById(R.id.weather_main)).setText(weather.getCondition());
                     return;
                 }
             }

@@ -125,6 +125,6 @@ public class SeaCondition {
     }
 
     public String getFullSwell() {
-        return sewll + ",  " + height + " m";
+        return sewll + ",  " + height + "m";
     }
 }

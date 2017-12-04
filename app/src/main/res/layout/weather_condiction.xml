@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-<GridLayout
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:columnCount="3"
     android:orientation="horizontal"
+    android:paddingTop="5dp"
     android:rowCount="2"
     android:rowOrderPreserved="true">
 
     <ImageView
         android:layout_gravity="center"
-        android:layout_marginLeft="40dp"
+        android:gravity="center"
         android:src="@drawable/sun" />
 
     <ImageView
         android:layout_gravity="center"
+        android:gravity="center"
         android:src="@drawable/moon" />
 
     <ImageView
-        android:layout_marginRight="10dp"
         android:layout_gravity="center"
+        android:gravity="center"
         android:src="@drawable/wind" />
 
     <TextView
         android:id="@+id/weather_main"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="40dp"
-        android:text="Ensolarado" />
+        android:gravity="center"
+        android:maxWidth="100dp"
+        android:singleLine="false"
+        android:text="Ensolarado com pancadas de chuva de manhã" />
 
     <TextView
         android:id="@+id/moon_phase"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Crescente"
+        android:gravity="center"
+        android:maxWidth="100dp"
+        android:text="Gibosa minguante"
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/wind_speed"
-        android:layout_width="wrap_content"
+        android:id="@+id/weather_wind"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="3"
+        android:maxWidth="100dp"
         android:text="Nordeste, 10 nós"
         android:textAlignment="center" />
 </GridLayout>
-</LinearLayout>

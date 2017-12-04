@@ -45,7 +45,7 @@ public class ExtremesService extends BaseRequestService{
             city.setLongExtreme(response.getDouble("responseLon"));
             locationParamDao.updateExtremeParams(city);
 
-            JSONArray arrayExtremes = response.getJSONArray("grid_extreme");
+            JSONArray arrayExtremes = response.getJSONArray("extremes");
             for (int i = 0; i < arrayExtremes.length(); i++) {
                 JSONObject jsonExtreme = arrayExtremes.getJSONObject(i);
                 DateTime exDate = new DateTime(jsonExtreme.getString("date"));
