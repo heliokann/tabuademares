@@ -11,6 +11,7 @@
     <TextView
         android:id="@+id/extreme_type"
         android:layout_width="match_parent"
+        android:textColor="#ffffff"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Baixa-mar" />
@@ -18,6 +19,7 @@
     <TextView
         android:id="@+id/extreme_time"
         android:layout_width="match_parent"
+        android:textColor="#ffffff"
         android:textSize="20dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -26,6 +28,7 @@
 
     <TextView
         android:id="@+id/extreme_height"
+        android:textColor="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -36,6 +39,7 @@
     <ImageView
         android:layout_gravity="center_horizontal"
         android:layout_height="10dp"
+        android:textColor="#ffffff"
         android:id="@+id/extreme_type_icon"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"

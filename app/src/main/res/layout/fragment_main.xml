@@ -9,7 +9,6 @@
         android:layout_height="match_parent"
 
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/background"
         android:orientation="vertical"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -17,48 +16,19 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.novoideal.tabuademares.MainActivity$PlaceholderFragment">
 
-        <!--<TextView-->
-        <!--android:id="@+id/section_label"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center_vertical"-->
-        <!--android:layout_marginBottom="12dp"-->
-        <!--android:drawableEnd="@drawable/ic_48"-->
-        <!--android:drawableLeft="@drawable/ic_48"-->
-        <!--android:drawableRight="@drawable/ic_48"-->
-        <!--android:drawableStart="@drawable/ic_48"-->
-        <!--android:gravity="center"-->
-        <!--android:text="@string/sessionTitle"-->
-        <!--android:textAlignment="center"-->
-        <!--android:textColorHighlight="@android:color/holo_blue_light"-->
-        <!--android:textStyle="bold" />-->
-
         <Spinner
             android:id="@+id/spin_city"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:drawableEnd="@drawable/ic_48"
             tools:listitem="@layout/spinner_item"
-            android:drawableLeft="@drawable/ic_48"
-            android:drawableRight="@drawable/ic_48"
-            android:drawableStart="@drawable/ic_48"
             android:gravity="center" />
-
-        <TextView
-            android:id="@+id/lbl_condition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Condição - 01/11/2017"
-            android:textAlignment="center"
-            android:textSize="25dp" />
 
         <include
             layout="@layout/weather_condiction"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" />
 
         <TextView
@@ -78,55 +48,19 @@
             android:textAlignment="center"
             android:textSize="16dp" />
 
-        <include
-            layout="@layout/grid_extreme"
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/grid_extreme"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="3dp"
+            android:stretchMode="columnWidth"
+            tools:listitem="@layout/item_extreme"
+            android:fadingEdge="vertical"
+            android:numColumns="4">
 
-        <!--<TextView-->
-        <!--android:id="@+id/moon_phase"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="10dp"-->
-        <!--android:text="@string/moon_phase" />-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/moon_hold"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="4dp"-->
-        <!--android:text="@string/moon_hold" />-->
-
-        <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dip"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:background="@color/colorPrimary" />-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/hight_tide"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="10dp"-->
-        <!--android:text="@string/hight_tide" />-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/low_water"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginBottom="5dp"-->
-        <!--android:text="@string/low_water" />-->
-
-        <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dip"-->
-        <!--android:layout_margin="10dp"-->
-        <!--android:background="@color/colorPrimary" />-->
-
-        <!--<include layout="@layout/swell"-->
-        <!--android:layout_height="110dp"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--/>-->
+        </GridView>
 
         <TextView
             android:id="@+id/lbl_title_swell"
@@ -138,7 +72,7 @@
             android:textSize="25dp" />
 
         <include
-            layout="@layout/grid_swell"
+            layout="@layout/table_swell"
             android:layout_width="match_parent"
             android:layout_height="130dp" />
 
