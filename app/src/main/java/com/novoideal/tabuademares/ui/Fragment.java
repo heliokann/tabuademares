@@ -10,8 +10,6 @@ import com.novoideal.tabuademares.MainActivity;
 import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.model.LocationParam;
 
-import java.util.List;
-
 /**
  * Created by Helio on 04/12/2017.
  */
@@ -29,18 +27,18 @@ public class Fragment {
         private static final String ARG_SECTION_NUMBER = "section_number";
 
 
-        private List<LocationParam> cities;
+        private int sectionNumber;
 
-        public PlaceholderFragment(int sectionNumber, List<LocationParam> cities) {
-            this.cities =  cities;
+        public PlaceholderFragment(int sectionNumber) {
+            this.sectionNumber = sectionNumber;
         }
 
-        public List<LocationParam> getCities() {
-            return cities;
+        public LocationParam getCity(LocationParam locationParam) {
+            return locationParam.clone(sectionNumber);
         }
 
-        public static PlaceholderFragment newInstance(int sectionNumber, List<LocationParam> cities) {
-            PlaceholderFragment fragment = new PlaceholderFragment(sectionNumber, cities);
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment(sectionNumber);
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -50,14 +48,12 @@ public class Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-//            TextView textView = rootView.findViewById(R.id.section_label);
-//            textView.setText(getString(R.string.sessionTitle));
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
 //                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
             MainActivity main = (MainActivity)this.getActivity();
-//            PlaceholderFragment fragment = (PlaceholderFragment) main.mSectionsPagerAdapter.instantiateItem(main.mViewPager, position);
             PlaceholderFragment fragment = (PlaceholderFragment) main.getSectionsPagerAdapter().instantiateItem(main.getViewPager(), position);
-            main.createCitySpinner(rootView, fragment.cities);
+//            main.createCitySpinner(rootView, fragment.cities);
+            main.refreshAll(rootView, main.getCurrentLocation().clone(position), false);
             return rootView;
         }
     }

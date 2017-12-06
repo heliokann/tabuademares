@@ -1,10 +1,9 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tableLayout1"
-    android:layout_marginBottom="50sp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:stretchColumns="0,1,2,3"
-    >
+    android:layout_marginBottom="50sp"
+    android:stretchColumns="0,1,2,3">
 
     <TableRow
         android:id="@+id/tableRow1"
@@ -21,25 +20,25 @@
 
         <TextView
             android:id="@+id/morning"
+            android:text="@string/agitation"
             android:textAlignment="center"
             android:textColor="#368BC1"
-            android:text="@string/agitation"
             android:textSize="12dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/afternoon"
+            android:text="@string/lbl_swell"
             android:textAlignment="center"
             android:textColor="#368BC1"
-            android:text="@string/lbl_swell"
             android:textSize="12dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/night"
+            android:text="@string/lbl_wind"
             android:textAlignment="center"
             android:textColor="#368BC1"
-            android:text="@string/lbl_wind"
             android:textSize="12dp"
             android:textStyle="bold" />
     </TableRow>
@@ -53,31 +52,32 @@
 
         <TextView
             android:id="@+id/head_1"
-            android:textAlignment="center"
             android:text="@string/morning_12h"
+            android:textAlignment="center"
             android:textSize="12dp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/a_m"
-            android:textAlignment="center"
-            android:textStyle="bold"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/a_t"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/s_m"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/a_n"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/w_m"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
     </TableRow>
 
     <TableRow
@@ -89,31 +89,32 @@
 
         <TextView
             android:id="@+id/head_2"
+            android:text="@string/afternoon_18h"
             android:textAlignment="center"
             android:textSize="12dp"
-            android:text="@string/afternoon_18h"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/s_m"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/a_t"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/s_t"
-            android:textStyle="bold"
-            android:textAlignment="center"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/s_n"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/w_t"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
     </TableRow>
 
     <TableRow
@@ -125,31 +126,31 @@
 
         <TextView
             android:id="@+id/head_3"
+            android:text="@string/night_21h"
             android:textAlignment="center"
             android:textSize="12dp"
-            android:text="@string/night_21h"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/w_m"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/a_n"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/w_t"
-            android:textStyle="bold"
-            android:textAlignment="center"
+            android:id="@+id/s_n"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/w_n"
-            android:textStyle="bold"
-            android:textAlignment="center"
             android:text="@string/loading"
-            android:textSize="12dp" />
+            android:textAlignment="center"
+            android:textSize="12dp"
+            android:textStyle="bold" />
     </TableRow>
 
 

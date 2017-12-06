@@ -1,7 +1,7 @@
 package com.novoideal.tabuademares;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
@@ -10,14 +10,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.novoideal.tabuademares.adapter.FragmentAdapter;
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
@@ -33,7 +36,7 @@ import org.joda.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import static com.novoideal.tabuademares.ui.Fragment.PlaceholderFragment;
+import static com.novoideal.tabuademares.ui.Fragment.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentStatePagerAdapter mSectionsPagerAdapter;
     public Date date = new Date();
     private List<LocationParam> locations;
+    private LocationParam currentLocation;
     private LocationParamService locationParamService;
 
     /**
@@ -61,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mSectionsPagerAdapter = createFragmentAdapter();
 
@@ -106,62 +110,53 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createRefresh() {
-        FloatingActionButton refresh = (FloatingActionButton) findViewById(R.id.btn_refresh);
+        ImageView refresh = (ImageView) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   int current = mViewPager.getCurrentItem();
-                   MainActivity main = (MainActivity) findViewById(R.id.main_content).getContext();
-                   PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, current);
-                   Spinner spinner = fragment.getView().findViewById(R.id.spin_city);
-                   LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-                   refreshAll(fragment.getView(), currentCity, true);
-               }
+            @Override
+            public void onClick(View view) {
+                refreshOnUserIteration(true);
+            }
         });
     }
 
     public FragmentStatePagerAdapter createFragmentAdapter(){
-        return new FragmentStatePagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public int getCount() {
-                return 3;
-            }
+        if (locations == null){
+            locationParamService = new LocationParamService(getApplicationContext());
+            locations = locationParamService.geLocations();
+            currentLocation = locations.get(0);
+            createCitySpinner(locations);
+        }
 
-            @Override
-            public Fragment getItem(int position) {
-                if (locations == null){
-                    locationParamService = new LocationParamService(getApplicationContext());
-                    locations = locationParamService.geLocations();
-                }
-                return PlaceholderFragment.newInstance(position, locationParamService.geLocations(locations, position));
-            }
-
-            @Override
-            public int getItemPosition(Object object) {
-                return super.getItemPosition(object);
-            }
-
-            @Override
-            public CharSequence getPageTitle(int position) {
-//                return ((PlaceholderFragment)getItem(position).getTargetFragment()).getCities().get(0).getTodayStr();
-                return new LocalDate().plusDays(position).toString("dd/MM/yyyy");
-            }
-        };
+        return new FragmentAdapter(getSupportFragmentManager());
     }
 
-    public void createCitySpinner(final View rootView, List<LocationParam> cities){
+    @SuppressLint("RestrictedApi")
+    public void refreshOnUserIteration(boolean update){
+        int current = mViewPager.getCurrentItem();
+        Spinner spinner = (Spinner) findViewById(R.id.spin_city);
+        LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
+        for (Fragment fragment: getSupportFragmentManager().getFragments() ) {
+            refreshAll(fragment.getView(), ((PlaceholderFragment)fragment).getCity(currentCity), update);
+        }
+    }
+
+    public LocationParam getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void createCitySpinner(List<LocationParam> cities) {
         ArrayAdapter<LocationParam> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
         arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
-        final Spinner spinner = rootView.findViewById(R.id.spin_city);
+        final Spinner spinner = (Spinner) findViewById(R.id.spin_city);
         spinner.setAdapter(arrayAdapter);
+        spinner.setSelected(false);
+        spinner.setSelection(0,false);
 
         AdapterView.OnItemSelectedListener choose = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-                MainActivity main = (MainActivity)findViewById(R.id.main_content).getContext();
-                main.refreshAll(rootView, currentCity, false);
+                refreshOnUserIteration(false);
             }
 
             @Override
@@ -192,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         WeatherController weatherController = new WeatherController(view, cityCondition);
 
         if (update) {
-            Toast.makeText(getApplicationContext(), getString(R.string.refreshing), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Atualizando: " + cityCondition.getTodayStr(), Toast.LENGTH_LONG).show();
             extremesController.update();
             seaConditionController.update();
             weatherController.update();

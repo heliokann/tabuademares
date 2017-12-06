@@ -33,14 +33,14 @@ public class MoonController  {
         }
 
         if (age > 11 && age < 17) {
-            return "da lua cheia";
+            return "de lua cheia";
         }
 
         if (age > 19 && age < 25) {
             return "de quarto minguante";
         }
 
-        return "Pouca influência";
+        return "pouca influência de lua";
     }
 
     private String getPhase(Double age) {
@@ -87,7 +87,7 @@ public class MoonController  {
 
         textView = (TextView) rootView.findViewById(R.id.moon_hold);
 //        textView.setText(rootView.getContext().getString(R.string.moon_hold, getHold(age)));
-        textView.setText("Influência: lua " + getHold(age));
+        textView.setText("Influência: " + getHold(age));
     }
 
 }
