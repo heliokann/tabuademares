@@ -27,24 +27,24 @@
 
     <style name="AppTheme.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <!--<item name="android:textColor">@android:color/holo_blue_dark</item>-->
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">@dimen/title_toolbar</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
 
     <style name="AppTheme.titleSwell" parent="AppTheme.textSwell">
-        <item name="android:textColor">#368BC1</item>
-        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/titleSwellTextColor</item>
+        <item name="android:textSize">@dimen/title_swell</item>
     </style>
 
     <style name="AppTheme.textSwell" parent="android:Widget.TextView">
-        <item name="android:textSize">11dp</item>
+        <item name="android:textSize">@dimen/text_swell</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AppTheme.textExtremeTime" parent="AppTheme.textExtreme">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">@dimen/text_extreme_time</item>
     </style>
 
     <style name="AppTheme.textExtreme" parent="android:Widget.TextView">
@@ -61,7 +61,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/table_border</item>
-        <item name="android:textColor">#368BC1</item>
+        <item name="android:textColor">@color/tableRowTextColor</item>
     </style>
 
     <style name="AppTheme.textTitleSection" parent="android:Widget.TextView">
@@ -69,7 +69,7 @@
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">25dp</item>
+        <item name="android:textSize">@dimen/title_section</item>
     </style>
 
 

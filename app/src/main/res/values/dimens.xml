@@ -9,4 +9,9 @@
     <dimen name="ext_heidht">100dp</dimen>
     <dimen name="tab_layout_height">30dp</dimen>
     <dimen name="toolbar_height">40dp</dimen>
+    <dimen name="title_toolbar">16dp</dimen>
+    <dimen name="title_swell">12dp</dimen>
+    <dimen name="text_swell">11dp</dimen>
+    <dimen name="text_extreme_time">20dp</dimen>
+    <dimen name="title_section">25dp</dimen>
 </resources>
