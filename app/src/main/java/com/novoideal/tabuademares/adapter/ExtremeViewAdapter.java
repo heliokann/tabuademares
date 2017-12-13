@@ -58,7 +58,7 @@ public class ExtremeViewAdapter extends BaseAdapter {
             ExtremeTide extreme = today.get(position);
 
             TextView extremeType = (TextView) gridView.findViewById(R.id.extreme_type);
-            extremeType.setText(extreme.getType());
+            extremeType.setText(extreme.isLow() ? R.string.low_water : R.string.hight_tide);
 
             TextView extremeTime = (TextView) gridView.findViewById(R.id.extreme_time);
             extremeTime.setText(extreme.getStrHourMinute());

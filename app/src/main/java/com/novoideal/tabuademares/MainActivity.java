@@ -36,7 +36,7 @@ import org.joda.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-import static com.novoideal.tabuademares.ui.Fragment.*;
+import static com.novoideal.tabuademares.ui.Fragment.PlaceholderFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         createViewPager(mSectionsPagerAdapter);
 
         createRefresh();
-
         setupTabLayout();
 
         cleanBD();
@@ -98,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    @SuppressLint("MissingSuperCall")
     protected void onSaveInstanceState(Bundle outState) {
         //No call for super(). Bug on API Level > 11.
     }

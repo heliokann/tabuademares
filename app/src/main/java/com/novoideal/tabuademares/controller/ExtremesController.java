@@ -70,11 +70,8 @@ public class ExtremesController  {
 
     public void createGridView(List<ExtremeTide> today) {
         GridView gv = rootView.findViewById(R.id.grid_extreme);
-//        LayoutInflater inflater = (LayoutInflater) rootView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        GridView gv = (GridView) inflater.inflate(R.layout.grid_extreme, (ViewGroup) rootView, false);
         gv.setNumColumns(today.size());
         gv.setAdapter(new ExtremeViewAdapter(rootView, today));
-//        ((View) rootView).findViewById(R.id.include_extremes).addView(gv);
         ((ExtremeViewAdapter) gv.getAdapter()).notifyDataSetChanged();
         gv.invalidateViews();
     }

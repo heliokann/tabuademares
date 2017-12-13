@@ -3,43 +3,28 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="5dp"
-    android:verticalSpacing="30dp"
-    android:horizontalSpacing="30dp"
     android:background="@drawable/rounded_corner"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/extreme_type"
-        android:layout_width="match_parent"
-        android:textColor="#ffffff"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
+        style="@style/AppTheme.textExtreme"
         android:text="Baixa-mar" />
 
     <TextView
         android:id="@+id/extreme_time"
-        android:layout_width="match_parent"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginBottom="5dp"
+        style="@style/AppTheme.textExtremeTime"
         android:text="00:32" />
 
     <TextView
         android:id="@+id/extreme_height"
-        android:textColor="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginBottom="5dp"
+        style="@style/AppTheme.textExtreme"
         android:text="-0,15m" />
 
 
     <ImageView
         android:layout_gravity="center_horizontal"
         android:layout_height="10dp"
-        android:textColor="#ffffff"
         android:id="@+id/extreme_type_icon"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"

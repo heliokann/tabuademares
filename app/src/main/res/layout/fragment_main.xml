@@ -29,23 +29,20 @@
 
             <TextView
                 android:id="@+id/lbl_tide"
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Maré"
-                android:textAlignment="center"
-                android:textSize="25dp" />
+                style="@style/AppTheme.textTitleSection" />
 
             <GridView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/grid_extreme"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/ext_heidht"
+                android:verticalSpacing="@dimen/ext_vertical_sp"
+                android:horizontalSpacing="@dimen/ext_horizontal_sp"
+                android:gravity="center"
                 android:fadingEdge="vertical"
-                android:horizontalSpacing="3dp"
                 android:numColumns="4"
                 android:stretchMode="columnWidth"
-                android:verticalSpacing="10dp"
                 tools:listitem="@layout/item_extreme" />
 
             <TextView
@@ -60,12 +57,8 @@
 
         <TextView
             android:id="@+id/lbl_title_swell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="Previsão de variação"
-            android:textAlignment="center"
-            android:textSize="25dp" />
+            style="@style/AppTheme.textTitleSection"
+            android:text="Previsão de variação"/>
 
         <include
             layout="@layout/table_swell"

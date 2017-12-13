@@ -7,14 +7,8 @@
         >
         <shape android:shape="rectangle" >
             <solid android:color="#F0F0F0" />
+            <corners android:radius="10dp" />
         </shape>
     </item>
 
 </layer-list>
-
-<!--<shape android:shape="rectangle"-->
-    <!--xmlns:android="http://schemas.android.com/apk/res/android"  >-->
-    <!--<size android:height="80dp" android:width="40dp" />-->
-    <!--<padding android:left="10000000dp" android:top="100dp"/>-->
-<!--<solid android:color="#C0C0C0"/>-->
-<!--</shape>-->

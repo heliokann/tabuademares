@@ -13,15 +13,17 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
+            android:theme="@style/AppTheme.Toolbar"
+            app:title="@string/app_name"
+            app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <Spinner
@@ -40,12 +42,12 @@
 
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/tab_layout_height"
             android:background="@drawable/tab_layout"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="#0baeff"
-            app:tabTextColor="#d3d3d3" />
+            app:tabSelectedTextColor="@color/tabSelectedTextColor"
+            app:tabTextColor="@color/tabTextColor" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -54,10 +56,10 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="65dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.BottomNavigationView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#f0f0f0"
@@ -78,6 +80,6 @@
             android:layout_gravity="right|center"
             android:layout_marginRight="5dp"
             android:src="@android:drawable/ic_menu_rotate" />
-    </android.support.design.widget.BottomNavigationView>
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

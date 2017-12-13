@@ -7,150 +7,103 @@
 
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dip">
+        style="@style/AppTheme.tableRowSwell">
 
         <TextView
             android:text="Período"
-            android:textAlignment="center"
-            android:textColor="#368BC1"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.titleSwell"/>
 
         <TextView
             android:id="@+id/morning"
             android:text="@string/agitation"
-            android:textAlignment="center"
-            android:textColor="#368BC1"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.titleSwell"/>
 
         <TextView
             android:id="@+id/afternoon"
             android:text="@string/lbl_swell"
-            android:textAlignment="center"
-            android:textColor="#368BC1"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.titleSwell"/>
 
         <TextView
             android:id="@+id/night"
             android:text="@string/lbl_wind"
-            android:textAlignment="center"
-            android:textColor="#368BC1"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.titleSwell"/>
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/table_border"
-        android:padding="5dip">
+        style="@style/AppTheme.tableRowSwell">
 
         <TextView
             android:id="@+id/head_1"
             android:text="@string/morning_12h"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/a_m"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/s_m"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/w_m"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/table_border"
-        android:padding="5dip">
+        style="@style/AppTheme.tableRowSwell">
 
         <TextView
             android:id="@+id/head_2"
             android:text="@string/afternoon_18h"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/a_t"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/s_t"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/w_t"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
     </TableRow>
 
     <TableRow
         android:id="@+id/tableRow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/table_border"
-        android:padding="5dip">
+        style="@style/AppTheme.tableRowSwell">
 
         <TextView
             android:id="@+id/head_3"
             android:text="@string/night_21h"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/a_n"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/s_n"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
 
         <TextView
             android:id="@+id/w_n"
             android:text="@string/loading"
-            android:textAlignment="center"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            style="@style/AppTheme.textSwell"/>
     </TableRow>
 
 

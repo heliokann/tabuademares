@@ -16,6 +16,7 @@ import com.j256.ormlite.table.TableUtils;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
 
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 import java.sql.SQLException;
@@ -49,6 +50,11 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
 
     public void addNew(ExtremeTide data) {
         RuntimeExceptionDao<ExtremeTide, Integer> dao = getRuntimeDao();
+        DateTime dt = new DateTime(data.getFullDate());
+        dao.updateRaw("delete from extremetide where lat=? and lon=? and fullDate > ? and  fullDate < ?",
+                data.getLat().toString(), data.getLon().toString(),
+                dt.minusMinutes(5).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"),
+                dt.plusMinutes(5).toString("yyyy-MM-dd HH:mm:ss.SSSSSS"));
         dao.create(data);
         Log.i(ExtremesDao.class.getName(), "created new entries in onCreate: ");
     }

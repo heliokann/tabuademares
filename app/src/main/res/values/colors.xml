@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="extremeTide">#1E90FF</color>
+    <color name="ext_text_color">#ffffff</color>
+    <color name="endColorTab">#CCCCCC</color>
+    <color name="startColorTab">#ffffff</color>
+    <color name="tabSelectedTextColor">#0baeff</color>
+    <color name="tabTextColor">#d3d3d3</color>
 </resources>
