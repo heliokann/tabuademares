@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/extreme_type"
         style="@style/AppTheme.textExtreme"
-        android:text="Baixa-mar" />
+        android:text="Baixa" />
 
     <TextView
         android:id="@+id/extreme_time"
@@ -24,10 +24,10 @@
 
     <ImageView
         android:layout_gravity="center_horizontal"
-        android:layout_height="10dp"
+        android:layout_height="wrap_content"
         android:id="@+id/extreme_type_icon"
         android:layout_width="match_parent"
         android:adjustViewBounds="true"
-        android:src="@drawable/up"/>
+        android:src="@drawable/up_tide"/>
 
 </LinearLayout>

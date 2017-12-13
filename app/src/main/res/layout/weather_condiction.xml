@@ -17,12 +17,12 @@
         <ImageView
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/sun" />
+            android:src="@drawable/weather_partly_cloud" />
 
         <ImageView
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/moon" />
+            android:src="@drawable/moon_gibous_decrescent" />
 
         <ImageView
             android:layout_gravity="center"

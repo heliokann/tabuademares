@@ -30,7 +30,7 @@
             <TextView
                 android:id="@+id/lbl_tide"
                 android:text="Maré"
-                style="@style/AppTheme.textTitleSection" />
+                style="@style/AppTheme.textTitleSection"/>
 
             <GridView xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
