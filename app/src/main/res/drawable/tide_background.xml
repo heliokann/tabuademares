@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:height="170dp"
-        android:left="20dp"
-        android:right="20dp"
+        android:height="@dimen/tide_bg_retangle_height"
+        android:left="@dimen/tide_bg_retangle_left"
+        android:right="@dimen/tide_bg_retangle_right"
         >
         <shape android:shape="rectangle" >
-            <solid android:color="#F0F0F0" />
-            <corners android:radius="10dp" />
+            <solid android:color="@color/tideBGRetangleColor" />
+            <corners android:radius="@dimen/tide_bg_retangle_radius" />
         </shape>
     </item>
 

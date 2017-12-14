@@ -4,11 +4,9 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
-import com.novoideal.tabuademares.adapter.SeaConditionViewAdapter;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 import com.novoideal.tabuademares.service.SeaConditionService;
@@ -69,18 +67,8 @@ public class SeaConditionController {
             }
         }
 
-//        if (today[0] != null) {
-//            createGridView(today);
-//        }
-
     }
 
-    public void createGridView(SeaCondition[] today ) {
-        GridView gv = rootView.findViewById(R.id.grid_swell);
-        gv.setAdapter(new SeaConditionViewAdapter(rootView, today));
-        ((SeaConditionViewAdapter) gv.getAdapter()).notifyDataSetChanged();
-        gv.invalidateViews();
-    }
 
     public void request() {
         new AsyncUpdater().execute(this);

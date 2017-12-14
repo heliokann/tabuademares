@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:height="2dp"
-        android:left="3dp"
-        android:right="3dp"
-        android:top="0dp">
+        android:height="@dimen/table_swell_line_height"
+        android:left="@dimen/table_swell_line_left"
+        android:right="@dimen/table_swell_line_right">
         <shape android:shape="rectangle">
             <gradient
                 android:angle="360"
-                android:startColor="@color/extremeTide"
-                android:endColor="#006386"
+                android:startColor="@color/tableSwellLineColorStart"
+                android:endColor="@color/tableSwellLineColorEnd"
                 android:type="linear" />
         </shape>
     </item>

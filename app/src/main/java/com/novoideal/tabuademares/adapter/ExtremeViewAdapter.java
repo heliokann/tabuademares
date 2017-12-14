@@ -67,7 +67,7 @@ public class ExtremeViewAdapter extends BaseAdapter {
             extremeHeight.setText(extreme.getStrHeight());
 
             ImageView iv = gridView.findViewById(R.id.extreme_type_icon);
-            iv.setImageResource(extreme.isLow() ? R.drawable.down_tide: R.drawable.up_tide);
+            iv.setImageResource(extreme.isLow() ? R.drawable.tide_down : R.drawable.tide_hight);
 
         } else {
             gridView = (View) convertView;

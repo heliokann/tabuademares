@@ -1,4 +1,5 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tableLayout1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,16 +18,19 @@
         <ImageView
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/weather_partly_cloud" />
+            android:background="@drawable/weather_ic_background"
+            app:srcCompat="@drawable/weather_partly_cloud" />
 
         <ImageView
             android:layout_gravity="center"
             android:gravity="center"
-            android:src="@drawable/moon_gibous_decrescent" />
+            android:background="@drawable/weather_ic_background"
+            app:srcCompat="@drawable/moon_gibous_decrescent" />
 
         <ImageView
             android:layout_gravity="center"
             android:gravity="center"
+            android:background="@drawable/weather_ic_background"
             android:src="@drawable/wind" />
     </TableRow>
 

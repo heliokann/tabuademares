@@ -38,20 +38,20 @@
     </style>
 
     <style name="AppTheme.textSwell" parent="android:Widget.TextView">
-        <item name="android:textSize">@dimen/text_swell</item>
+        <item name="android:textSize">@dimen/swell_text</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AppTheme.textExtremeTime" parent="AppTheme.textExtreme">
-        <item name="android:textSize">@dimen/text_extreme_time</item>
+        <item name="android:textSize">@dimen/tide_text_extreme</item>
     </style>
 
     <style name="AppTheme.textExtreme" parent="android:Widget.TextView">
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:textColor">@color/ext_text_color</item>
+        <item name="android:textColor">@color/tideTextColor</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
