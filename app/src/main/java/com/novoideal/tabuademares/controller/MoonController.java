@@ -1,12 +1,16 @@
 package com.novoideal.tabuademares.controller;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.model.LocationParam;
 
 import org.shredzone.commons.suncalc.MoonIllumination;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Helio on 14/08/2017.
@@ -43,51 +47,74 @@ public class MoonController  {
         return "pouca influência de lua";
     }
 
-    private String getPhase(Double age) {
+    private Map getPhase(Double age) {
+        Map result = new HashMap();
         if (age >= 29 || age <= 1) {
-            return "Nova";
+            result.put("phase", "Nova");
+            result.put("ic", R.drawable.moon_new);
+            return result;
         }
 
         if (age >= 7 && age <= 8) {
-            return "Quarto Crescente";
+            result.put("phase", "Quarto Crescente");
+            result.put("ic", R.drawable.moon_quarter_crescent);
+            return result;
         }
 
         if (age >= 14 && age <= 15) {
-            return "Cheia";
+            result.put("phase", "Cheia");
+            result.put("ic", R.drawable.moon_full);
+            return result;
         }
 
         if (age >= 21 && age <= 22) {
-            return "Quarto Minguante";
+            result.put("phase", "Quarto Minguante");
+            result.put("ic", R.drawable.moon_quarter_decrescent);
+            return result;
         }
 
         if (age > 1 && age < 7) {
-            return "Crescente Côncava";
+            result.put("phase", "Crescente Côncava");
+            result.put("ic", R.drawable.moon_crescent);
+            return result;
         }
 
         if (age > 8 && age < 14) {
-            return "Crescente Gibosa";
+            result.put("phase", "Crescente Gibosa");
+            result.put("ic", R.drawable.moon_gibous_crescent);
+            return result;
         }
 
         if (age > 15 && age < 21) {
-            return "Minguante Gibosa";
+            result.put("phase", "Minguante Gibosa");
+            result.put("ic", R.drawable.moon_gibous_decrescent);
+            return result;
         }
 
         if (age > 22 && age < 29) {
-            return "Minguante Côncava";
+            result.put("phase", "Minguante Côncava");
+            result.put("ic", R.drawable.moon_decrescent);
+            return result;
         }
 
-        return "";
+        result.put("phase", "");
+        result.put("ic", R.drawable.moon_crescent);
+        return result;
     }
 
     public void request() {
         Double age = MoonIllumination.of(city.getDate()).getPhase() * 29.5308;
         TextView textView = (TextView) rootView.findViewById(R.id.moon_phase);
-//        textView.setText(rootView.getContext().getString(R.string.moon_phase, getPhase(age), age));
-        textView.setText(getPhase(age));
+        Map phase = getPhase(age);
+        textView.setText(phase.get("phase").toString());
 
         textView = (TextView) rootView.findViewById(R.id.moon_hold);
 //        textView.setText(rootView.getContext().getString(R.string.moon_hold, getHold(age)));
         textView.setText("Influência: " + getHold(age));
+
+        ImageView imageView = rootView.findViewById(R.id.weather_moon_ic);
+        imageView.setImageResource((Integer) phase.get("ic"));
+
     }
 
 }

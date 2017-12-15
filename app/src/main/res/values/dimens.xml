@@ -5,8 +5,8 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">5dp</dimen>
     <dimen name="tide_horizontal_sp">3dp</dimen>
-    <dimen name="tide_vertical_sp">10dp</dimen>
-    <dimen name="tide_heidht">100dp</dimen>
+    <dimen name="tide_grid_vertical_spacing">10dp</dimen>
+    <dimen name="tide_grid_heidht">100dp</dimen>
     <dimen name="tab_layout_height">30dp</dimen>
     <dimen name="toolbar_height">40dp</dimen>
     <dimen name="title_toolbar">16dp</dimen>
@@ -26,4 +26,15 @@
     <dimen name="table_swell_line_left">3dp</dimen>
     <dimen name="table_swell_line_right">3dp</dimen>
     <dimen name="weather_padding_bg_circle">5dp</dimen>
+    <dimen name="tide_influence_marginBottom">4dp</dimen>
+    <dimen name="tide_influence_textSize">16dp</dimen>
+    <dimen name="weather_narrative_marginBottom">10dp</dimen>
+    <dimen name="weather_narrative_marginTop">10dp</dimen>
+    <dimen name="weather_panel_marginBottom">10dp</dimen>
+    <dimen name="spinner_textSize">25dp</dimen>
+    <dimen name="font_marginLeft">5dp</dimen>
+    <dimen name="font_textSize">10dp</dimen>
+    <dimen name="refresh_marginRight">5dp</dimen>
+    <dimen name="font_panel_height">30dp</dimen>
+    <dimen name="container_view_marginBottom">30dp</dimen>
 </resources>

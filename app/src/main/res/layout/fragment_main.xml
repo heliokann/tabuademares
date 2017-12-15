@@ -19,7 +19,7 @@
             layout="@layout/weather_condiction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="@dimen/weather_panel_marginBottom" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,8 +36,8 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/grid_extreme"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/tide_heidht"
-                android:verticalSpacing="@dimen/tide_vertical_sp"
+                android:layout_height="@dimen/tide_grid_heidht"
+                android:verticalSpacing="@dimen/tide_grid_vertical_spacing"
                 android:horizontalSpacing="@dimen/tide_horizontal_sp"
                 android:gravity="center"
                 android:fadingEdge="vertical"
@@ -49,10 +49,10 @@
                 android:id="@+id/moon_hold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="@dimen/tide_influence_marginBottom"
                 android:text="@string/moon_hold"
                 android:textAlignment="center"
-                android:textSize="16dp" />
+                android:textSize="@dimen/tide_influence_textSize" />
         </LinearLayout>
 
         <TextView
@@ -69,8 +69,8 @@
             android:id="@+id/weather_narrative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/weather_narrative_marginBottom"
+            android:layout_marginTop="@dimen/weather_narrative_marginTop"
             android:text="@string/weather_narrative" />
 
 

@@ -14,4 +14,9 @@
     <color name="tideBGRetangleColor">#F0F0F0</color>
     <color name="tableSwellLineColorStart">#1E90FF</color>
     <color name="tableSwellLineColorEnd">#006386</color>
+    <color name="dropdown_background">#F0F8FF</color>
+    <color name="dropdown_textColor">#B0C4DE</color>
+    <color name="spinner_textColor">#FFFFFF</color>
+    <color name="fontPanelBackground">#f0f0f0</color>
+    <color name="tabIndicatorColor">#3F51B5</color>
 </resources>

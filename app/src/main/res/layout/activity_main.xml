@@ -20,9 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
             android:theme="@style/AppTheme.Toolbar"
-            app:title="@string/app_name"
             app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -30,9 +28,6 @@
                 android:id="@+id/spin_city"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/spinner_background"
                 tools:listitem="@layout/spinner_item" />
 
@@ -46,6 +41,7 @@
             android:background="@drawable/tab_layout"
             app:tabGravity="fill"
             app:tabMode="fixed"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
             app:tabSelectedTextColor="@color/tabSelectedTextColor"
             app:tabTextColor="@color/tabTextColor" />
 
@@ -56,29 +52,29 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="@dimen/container_view_marginBottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#f0f0f0"
+        android:layout_height="@dimen/font_panel_height"
+        android:background="@color/fontPanelBackground"
         android:layout_gravity="bottom|center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/font_marginLeft"
             android:text="Fontes: weather.com, CPTEC/INPE"
-            android:textSize="10dp" />
+            android:textSize="@dimen/font_textSize" />
 
         <ImageView
             android:id="@+id/btn_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="@dimen/refresh_marginRight"
             android:src="@android:drawable/ic_menu_rotate" />
     </FrameLayout>
 

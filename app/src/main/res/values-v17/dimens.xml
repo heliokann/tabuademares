@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="weather_ic_height">32dp</dimen>
+    <dimen name="tide_influence_marginBottom">4dp</dimen>
+    <dimen name="weather_narrative_marginBottom">10dp</dimen>
+    <dimen name="weather_narrative_marginTop">10dp</dimen>
 </resources>

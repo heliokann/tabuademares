@@ -6,5 +6,5 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:text="item text"
     android:textStyle="bold"
-    android:background="#F0F8FF"
-    android:textColor="#B0C4DE"/>
+    android:background="@color/dropdown_background"
+    android:textColor="@color/dropdown_textColor"/>

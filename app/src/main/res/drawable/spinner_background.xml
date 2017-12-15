@@ -10,7 +10,7 @@
                     android:color="@android:color/transparent"/>
             </item>
 
-            <item android:start="80dp">
+            <item android:start="300dp">
                 <bitmap
                     android:gravity="center_vertical|right"
                     android:src="@android:drawable/ic_menu_search"/>

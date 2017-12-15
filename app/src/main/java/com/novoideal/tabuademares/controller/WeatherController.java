@@ -2,6 +2,7 @@ package com.novoideal.tabuademares.controller;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.novoideal.tabuademares.R;
@@ -53,11 +54,29 @@ public class WeatherController {
                     ((TextView) rootView.findViewById(R.id.weather_narrative)).setText(getContext().getString(R.string.weather_narrative, weather.getNarrative()));
                     ((TextView) rootView.findViewById(R.id.weather_wind)).setText(weather.getWindDir() + ", " + weather.getWindSpeed() + " km/h");
                     ((TextView) rootView.findViewById(R.id.weather_main)).setText(weather.getCondition());
+                    ImageView imageView = rootView.findViewById(R.id.weather_ic);
+                    imageView.setImageResource(getIcon(weather.getCondition()));
                     return;
                 }
             }
         }
 
+    }
+
+    private int getIcon(String condition) {
+        if(condition.toLowerCase().contains("ensolarado")){
+            return R.drawable.weather_sunny;
+        }
+
+        if(condition.toLowerCase().contains("nublado")){
+            return R.drawable.weather_partly_cloud;
+        }
+
+        if(condition.toLowerCase().contains("tempestade")){
+            return R.drawable.weather_rain;
+        }
+
+        return R.drawable.weather_partly_cloud;
     }
 
     public LocationParam getCity() {

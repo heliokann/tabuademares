@@ -64,8 +64,16 @@
         <item name="android:textColor">@color/tableRowTextColor</item>
     </style>
 
+    <style name="AppTheme.weatherText" parent="android:Widget.TextView">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxWidth">100dp</item>
+        <item name="android:singleLine">false</item>
+    </style>
     <style name="AppTheme.textTitleSection" parent="android:Widget.TextView">
         <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

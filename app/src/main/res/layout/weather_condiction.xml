@@ -8,26 +8,28 @@
     <TextView
         android:id="@+id/lbl_tide"
         android:text="Tempo"
-        style="@style/AppTheme.textTitleSection"
-        android:layout_marginBottom="5dp" />
+        style="@style/AppTheme.textTitleSection" />
 
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/weather_ic"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/weather_ic_background"
             app:srcCompat="@drawable/weather_partly_cloud" />
 
         <ImageView
+            android:id="@+id/weather_moon_ic"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/weather_ic_background"
             app:srcCompat="@drawable/moon_gibous_decrescent" />
 
         <ImageView
+            android:id="@+id/weather_wind_ic"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/weather_ic_background"
@@ -35,34 +37,23 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/weather_main"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:maxWidth="100dp"
-            android:singleLine="false"
+            style="@style/AppTheme.weatherText"
             android:text="Ensolarado com pancadas de chuva de manhã" />
 
         <TextView
             android:id="@+id/moon_phase"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:maxWidth="100dp"
-            android:singleLine="false"
-            android:text="Gibosa minguante"
-            android:textAlignment="center" />
+            style="@style/AppTheme.weatherText"
+            android:text="Gibosa minguante" />
 
         <TextView
             android:id="@+id/weather_wind"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:maxWidth="100dp"
-            android:singleLine="false"
-            android:text="Nordeste, 10km/h"
-            android:textAlignment="center" />
+            style="@style/AppTheme.weatherText"
+            android:text="Nordeste, 10km/h" />
 
     </TableRow>
 </TableLayout>
