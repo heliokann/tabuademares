@@ -24,6 +24,14 @@
             app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
+            <ImageView
+                android:id="@+id/img_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_marginRight="@dimen/refresh_marginRight"
+                android:src="@drawable/ic_48" />
+
             <Spinner
                 android:id="@+id/spin_city"
                 android:layout_width="wrap_content"
