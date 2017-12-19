@@ -5,7 +5,9 @@ import android.content.Context;
 import com.novoideal.tabuademares.dao.LocationParamDao;
 import com.novoideal.tabuademares.model.LocationParam;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -37,7 +39,7 @@ public class LocationParamService {
         return clone;
     }
 
-    private void saveSeaCondiction(List<LocationParam> conditions) {
+    private void saveLocationParam(List<LocationParam> conditions) {
         for (LocationParam condition : conditions) {
             if (!locationParamDao.contains(condition)) {
                 locationParamDao.addNew(condition);
@@ -47,4 +49,16 @@ public class LocationParamService {
     }
 
 
+    public Date getLastUpdated(LocationParam locationParam) {
+        try {
+            locationParam = locationParamDao.getById(locationParam);
+        } catch (SQLException e) {
+        }
+        locationParam.setUpdated(locationParam.getUpdated() == null ? new Date() : locationParam.getUpdated());
+        return locationParam.getUpdated();
+    }
+
+    public void updateSelected(LocationParam currentLocation) {
+        locationParamDao.updateSelected(currentLocation);
+    }
 }

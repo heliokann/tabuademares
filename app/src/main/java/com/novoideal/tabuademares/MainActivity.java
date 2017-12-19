@@ -31,6 +31,8 @@ import com.novoideal.tabuademares.dao.WeatherDao;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.LocationParamService;
 
+import org.joda.time.DateTime;
+import org.joda.time.Hours;
 import org.joda.time.LocalDate;
 
 import java.util.Date;
@@ -49,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private FragmentStatePagerAdapter mSectionsPagerAdapter;
-    public Date date = new Date();
     private List<LocationParam> locations;
     private LocationParam currentLocation;
     private LocationParamService locationParamService;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-    private  TabLayout tabLayout;;
+    private  TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupTabLayout(){
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
 
@@ -94,6 +95,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
 
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Date updated = locationParamService.getLastUpdated(currentLocation);
+        if (Hours.hoursBetween(new DateTime(updated), new DateTime()).getHours() > 3) {
+            refreshOnUserIteration(true);
+        }
     }
 
     @Override
@@ -123,20 +133,28 @@ public class MainActivity extends AppCompatActivity {
         if (locations == null){
             locationParamService = new LocationParamService(getApplicationContext());
             locations = locationParamService.geLocations();
+            int selectedPosition = 0;
+            for (int i = 0; i < locations.size(); i++) {
+                if (Boolean.TRUE.equals(locations.get(i).getSelected())) {
+                    selectedPosition = i;
+                    break;
+                }
+            }
             currentLocation = locations.get(0);
-            createCitySpinner(locations);
+            createCitySpinner(locations, selectedPosition);
         }
 
         return new FragmentAdapter(getSupportFragmentManager());
     }
 
     @SuppressLint("RestrictedApi")
-    public void refreshOnUserIteration(boolean update){
+    public void refreshOnUserIteration(boolean update) {
         int current = mViewPager.getCurrentItem();
         Spinner spinner = (Spinner) findViewById(R.id.spin_city);
-        LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-        for (Fragment fragment: getSupportFragmentManager().getFragments() ) {
-            refreshAll(fragment.getView(), ((PlaceholderFragment)fragment).getCity(currentCity), update);
+        currentLocation = (LocationParam) spinner.getSelectedItem();
+        locationParamService.updateSelected(currentLocation);
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            refreshAll(fragment.getView(), ((PlaceholderFragment) fragment).getCity(currentLocation), update);
         }
     }
 
@@ -144,14 +162,14 @@ public class MainActivity extends AppCompatActivity {
         return currentLocation;
     }
 
-    public void createCitySpinner(List<LocationParam> cities) {
+    public void createCitySpinner(List<LocationParam> cities, int selectedPosition) {
         ArrayAdapter<LocationParam> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
         arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
         final Spinner spinner = (Spinner) findViewById(R.id.spin_city);
         spinner.setAdapter(arrayAdapter);
         spinner.setSelected(false);
-        spinner.setSelection(0,false);
+        spinner.setSelection(selectedPosition,false);
 
         AdapterView.OnItemSelectedListener choose = new AdapterView.OnItemSelectedListener() {
             @Override

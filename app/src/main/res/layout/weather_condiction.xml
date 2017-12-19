@@ -5,40 +5,43 @@
     android:layout_height="wrap_content"
     android:stretchColumns="0,1,2">
 
-    <TextView
-        android:id="@+id/lbl_tide"
-        android:text="Tempo"
-        style="@style/AppTheme.textTitleSection" />
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/weather_ic"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/weather_ic_background"
-            app:srcCompat="@drawable/weather_partly_cloud" />
-
-        <ImageView
-            android:id="@+id/weather_moon_ic"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/weather_ic_background"
-            app:srcCompat="@drawable/moon_gibous_decrescent" />
-
-        <ImageView
-            android:id="@+id/weather_wind_ic"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/weather_ic_background"
-            android:src="@drawable/wind" />
+        <TextView
+            android:id="@+id/lbl_tide"
+            android:layout_span="3"
+            android:layout_width="match_parent"
+            style="@style/AppTheme.textTitleSection"
+            android:text="Tempo" />
     </TableRow>
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/weather_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/weather_partly_cloud" />
+
+        <ImageView
+            android:id="@+id/weather_moon_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/moon_gibous_decrescent" />
+
+        <ImageView
+            android:id="@+id/weather_wind_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/weather_wind" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/weather_main"

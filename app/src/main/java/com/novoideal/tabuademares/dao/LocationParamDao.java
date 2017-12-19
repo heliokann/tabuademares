@@ -11,6 +11,8 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.novoideal.tabuademares.model.LocationParam;
 
+import org.joda.time.DateTime;
+
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +25,7 @@ import java.util.Map;
 public class LocationParamDao extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "tabuaMares_location.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     private Dao<LocationParam, Integer> dao = null;
     private RuntimeExceptionDao<LocationParam, Integer> runtimeDao = null;
@@ -112,6 +114,11 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
         return getRuntimeDao().queryForAll();
     }
 
+    public void touch(LocationParam city) {
+        getRuntimeDao().updateRaw("update locationParam set updated=? where id=?",
+                new DateTime().toString("yyyy-MM-dd HH:mm:ss.SSSSSS"), ""+city.getId());
+    }
+
     public synchronized int updateExtremeParams(LocationParam city) {
         return getRuntimeDao().updateRaw("update locationParam set latExtreme=?, longExtreme=? where id=?",
                 city.getLatExtreme().toString(), city.getLongExtreme().toString(), "" + city.getId());
@@ -120,5 +127,15 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public synchronized int updateWeatherParams(LocationParam city) {
         return getRuntimeDao().updateRaw("update locationParam set latWeather=?, longWeather=? where id=?",
                 city.getLatWeather().toString(), city.getLongWeather().toString(), "" + city.getId());
+    }
+
+    public LocationParam getById(LocationParam city) throws SQLException {
+        return getRuntimeDao().queryForId(city.getId());
+    }
+
+    public void updateSelected(LocationParam city) {
+        RuntimeExceptionDao dao = getRuntimeDao();
+        dao.updateRaw("update locationParam set selected=? where selected=?", "0", "1");
+        dao.updateRaw("update locationParam set selected=? where id=?", "1", "" + city.getId());
     }
 }

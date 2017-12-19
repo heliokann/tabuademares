@@ -58,6 +58,9 @@ public class WeatherService extends BaseRequestService{
 
             JSONObject vt1dailyforecast = response.getJSONObject("vt1dailyforecast");
             JSONObject day = vt1dailyforecast.getJSONObject("day");
+            if (day.getJSONArray("dayPartName").getString(0).equals("null")) {
+                day = vt1dailyforecast.getJSONObject("night");
+            }
             JSONArray windSpeed = day.getJSONArray("windSpeed");
             JSONArray windDirDegrees = day.getJSONArray("windDirDegrees");
             JSONArray windDirCompass = day.getJSONArray("windDirCompass");
@@ -66,7 +69,9 @@ public class WeatherService extends BaseRequestService{
             JSONArray narrative = day.getJSONArray("narrative");
             JSONArray phrase = day.getJSONArray("phrase");
 
-            for (int i = 1; i < validDate.length(); i++) {
+            LocalDate nowDate = new LocalDate();
+
+            for (int i = 0; i < validDate.length(); i++) {
                 DateTime exDate = new DateTime(validDate.getString(i));
                 Weather weather = new Weather();
                 // TODO pensar em uma forma melhor
@@ -78,11 +83,15 @@ public class WeatherService extends BaseRequestService{
                 weather.setWindDegree(windDirDegrees.getInt(i));
                 weather.setWindSpeed(windSpeed.getInt(i));
                 weather.setWindDir(windDirCompass.getString(i));
-                weather.setDate(new LocalDate(exDate).toDate());
+                LocalDate localDate = new LocalDate(exDate);
+                weather.setDate(localDate.toDate());
                 weather.setTime(exDate.toDate());
                 weather.setType("day");
                 weather.setCondition(phrase.getString(i));
 
+                if (nowDate.getDayOfMonth() == localDate.getDayOfMonth()) {
+                    locationParamDao.touch(city);
+                }
 
                 weathers.add(weather);
             }

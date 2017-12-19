@@ -35,6 +35,10 @@ public class LocationParam {
     private Double latWeather;
     @DatabaseField
     private Double longWeather;
+    @DatabaseField
+    private Date updated;
+    @DatabaseField
+    private boolean selected;
     private int days = 0;
 
     public static final LocationParam defaultCity = new LocationParam(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
@@ -175,4 +179,28 @@ public class LocationParam {
     public int getId() {
         return id;
     }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+    public String getStrUpdatedDate() {
+        return new DateTime(updated).toString("yyyy-MM-dd HH:mm:ss.SSSSSS");
+    }
+
+    public boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+//    public boolean isSelected() {
+//        return Boolean.TRUE.equals(selected);
+//    }
 }

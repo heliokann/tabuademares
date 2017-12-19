@@ -34,7 +34,7 @@
     <dimen name="spinner_textSize">25dp</dimen>
     <dimen name="font_marginLeft">5dp</dimen>
     <dimen name="font_textSize">10dp</dimen>
-    <dimen name="refresh_marginRight">5dp</dimen>
+    <dimen name="refresh_marginRight">10dp</dimen>
     <dimen name="font_panel_height">30dp</dimen>
     <dimen name="container_view_marginBottom">30dp</dimen>
 </resources>

@@ -58,7 +58,7 @@
         <TextView
             android:id="@+id/lbl_title_swell"
             style="@style/AppTheme.textTitleSection"
-            android:text="Previsão de variação"/>
+            android:text="Variação"/>
 
         <include
             layout="@layout/table_swell"

@@ -1,4 +1,7 @@
 <vector android:height="@dimen/weather_ic_width" android:viewportHeight="32.0"
     android:viewportWidth="32.0" android:width="@dimen/weather_ic_width" xmlns:android="http://schemas.android.com/apk/res/android">
     <path android:fillColor="#FF000000" android:pathData="M16,4.64C9.74,4.64 4.64,9.74 4.64,16c0,6.26 5.1,11.36 11.36,11.36S27.36,22.26 27.36,16C27.36,9.74 22.26,4.64 16,4.64zM16,25.52c-0.47,0 -0.94,-0.04 -1.4,-0.1c-2.09,-2.57 -3.35,-5.84 -3.35,-9.42c0,-3.58 1.25,-6.85 3.35,-9.42C15.06,6.51 16,6.47 16,6.47v0c5,0 9.52,4.25 9.52,9.52C25.52,21.27 21.27,25.52 16,25.52z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M16,0.5C7.44,0.5 0.5,7.44 0.5,16S7.44,31.5 16,31.5S31.5,24.56 31.5,16S24.56,0.5 16,0.5zM16,30.13C8.2,30.13 1.87,23.8 1.87,16S8.2,1.87 16,1.87S30.13,8.2 30.13,16S23.8,30.13 16,30.13z"/>
 </vector>

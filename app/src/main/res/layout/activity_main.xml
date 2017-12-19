@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|center"
                 android:layout_marginRight="@dimen/refresh_marginRight"
-                android:src="@drawable/ic_48" />
+                app:srcCompat="@drawable/ic_logo" />
 
             <Spinner
                 android:id="@+id/spin_city"
@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center"
             android:layout_marginLeft="@dimen/font_marginLeft"
+            android:textColor="@color/fontTextColor"
             android:text="Fontes: weather.com, CPTEC/INPE"
             android:textSize="@dimen/font_textSize" />
 
@@ -83,7 +84,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:layout_marginRight="@dimen/refresh_marginRight"
-            android:src="@android:drawable/ic_menu_rotate" />
+            android:tint="@color/fontTextColor"
+            app:srcCompat="@drawable/refresh" />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
