@@ -68,11 +68,19 @@ public class WeatherController {
             return R.drawable.weather_sunny;
         }
 
+        if(condition.toLowerCase().equals("nublado")){
+            return R.drawable.weather_cloud;
+        }
+
         if(condition.toLowerCase().contains("nublado")){
             return R.drawable.weather_partly_cloud;
         }
 
         if(condition.toLowerCase().contains("tempestade")){
+            return R.drawable.weather_storm;
+        }
+
+        if(condition.toLowerCase().contains("chuva")) {
             return R.drawable.weather_rain;
         }
 
