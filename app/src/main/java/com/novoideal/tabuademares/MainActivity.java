@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
             DateTime dt_updated = new DateTime(currentLocation.getUpdated());
             if (Minutes.minutesBetween(dt_updated, now).getMinutes() < 3) {
                 ((TextView) findViewById(R.id.date_refresh)).setText(dt_updated.toString("dd/MM/yyyy HH:mm"));
+                return;
             }
-            return;
         }
 
         DateTime updated = new DateTime(locationParamService.getLastUpdated(currentLocation));
