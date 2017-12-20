@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.novoideal.tabuademares.adapter.FragmentAdapter;
@@ -34,8 +35,8 @@ import com.novoideal.tabuademares.service.LocationParamService;
 import org.joda.time.DateTime;
 import org.joda.time.Hours;
 import org.joda.time.LocalDate;
+import org.joda.time.Minutes;
 
-import java.util.Date;
 import java.util.List;
 
 import static com.novoideal.tabuademares.ui.Fragment.PlaceholderFragment;
@@ -100,10 +101,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        Date updated = locationParamService.getLastUpdated(currentLocation);
-        if (Hours.hoursBetween(new DateTime(updated), new DateTime()).getHours() > 3) {
+
+        DateTime now = new DateTime();
+        if(currentLocation.getUpdated() != null){
+            DateTime dt_updated = new DateTime(currentLocation.getUpdated());
+            if (Minutes.minutesBetween(dt_updated, now).getMinutes() < 3) {
+                ((TextView) findViewById(R.id.date_refresh)).setText(dt_updated.toString("dd/MM/yyyy HH:mm"));
+            }
+            return;
+        }
+
+        DateTime updated = new DateTime(locationParamService.getLastUpdated(currentLocation));
+        String str_updated = updated.toString("dd/MM/yyyy HH:mm");
+
+        if (Hours.hoursBetween(updated, now).getHours() > 3) {
+            str_updated = now.toString("dd/MM/yyyy HH:mm");
+            currentLocation.setUpdated(now.toDate());
             refreshOnUserIteration(true);
         }
+        ((TextView) findViewById(R.id.date_refresh)).setText(str_updated);
     }
 
     @Override

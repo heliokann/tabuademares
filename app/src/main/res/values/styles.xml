@@ -68,7 +68,7 @@
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">false</item>
-        <item name="android:ems">7</item>
+        <item name="android:ems">@integer/wheather_text_ems</item>
         <item name="android:padding">5dp</item>
 
     </style>

@@ -75,17 +75,34 @@
             android:layout_gravity="left|center"
             android:layout_marginLeft="@dimen/font_marginLeft"
             android:textColor="@color/fontTextColor"
-            android:text="Fontes: weather.com, CPTEC/INPE"
+            android:text="@string/font_references"
             android:textSize="@dimen/font_textSize" />
 
-        <ImageView
-            android:id="@+id/btn_refresh"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:layout_marginRight="@dimen/refresh_marginRight"
-            android:tint="@color/fontTextColor"
-            app:srcCompat="@drawable/refresh" />
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="@dimen/font_date_marginRight"
+                android:text="12/12/2017"
+                android:textColor="@color/fontTextColor"
+                android:textSize="@dimen/font_dateSize" />
+
+            <ImageView
+                android:id="@+id/btn_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="@dimen/refresh_marginRight"
+                android:tint="@color/fontTextColor"
+                app:srcCompat="@drawable/refresh" />
+        </LinearLayout>
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

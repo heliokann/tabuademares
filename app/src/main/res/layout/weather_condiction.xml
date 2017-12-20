@@ -3,6 +3,8 @@
     android:id="@+id/tableLayout1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
     android:stretchColumns="0,1,2">
 
     <TableRow android:layout_width="match_parent"

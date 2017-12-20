@@ -14,8 +14,8 @@
     <dimen name="swell_text">11dp</dimen>
     <dimen name="tide_text_extreme">20dp</dimen>
     <dimen name="title_section">25dp</dimen>
-    <dimen name="weather_ic_height">32dp</dimen>
-    <dimen name="weather_ic_width">32dp</dimen>
+    <dimen name="weather_ic_height">40dp</dimen>
+    <dimen name="weather_ic_width">40dp</dimen>
     <dimen name="tide_ic_height">10dp</dimen>
     <dimen name="tide_ic_width">20dp</dimen>
     <dimen name="tide_bg_retangle_height">170dp</dimen>
@@ -37,4 +37,7 @@
     <dimen name="refresh_marginRight">10dp</dimen>
     <dimen name="font_panel_height">30dp</dimen>
     <dimen name="container_view_marginBottom">30dp</dimen>
+    <dimen name="font_dateSize">9dp</dimen>
+    <dimen name="font_date_marginRight">5dp</dimen>
+    <dimen name="wheather_text_ems">4</dimen>
 </resources>
