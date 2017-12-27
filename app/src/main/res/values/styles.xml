@@ -32,22 +32,21 @@
     </style>
 
 
-    <style name="AppTheme.titleSwell" parent="AppTheme.textSwell">
+    <style name="AppTheme.titleSwell" parent="AppTheme.textFontFamily">
         <item name="android:textColor">@color/titleSwellTextColor</item>
         <item name="android:textSize">@dimen/title_swell</item>
     </style>
 
-    <style name="AppTheme.textSwell" parent="android:Widget.TextView">
+    <style name="AppTheme.textSwell" parent="AppTheme.textFontFamily">
         <item name="android:textSize">@dimen/swell_text</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AppTheme.textExtremeTime" parent="AppTheme.textExtreme">
         <item name="android:textSize">@dimen/tide_text_extreme</item>
     </style>
 
-    <style name="AppTheme.textExtreme" parent="android:Widget.TextView">
+    <style name="AppTheme.textExtreme" parent="AppTheme.textFontFamily">
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:layout_width">match_parent</item>
@@ -55,7 +54,7 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="AppTheme.tableRowSwell">
+    <style name="AppTheme.tableRowSwell" parent="AppTheme.textFontFamily">
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:layout_width">wrap_content</item>
@@ -64,7 +63,7 @@
         <item name="android:textColor">@color/tableRowTextColor</item>
     </style>
 
-    <style name="AppTheme.weatherText" parent="android:Widget.TextView">
+    <style name="AppTheme.weatherText" parent="AppTheme.textFontFamily">
         <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">center</item>
         <item name="android:gravity">center</item>
         <item name="android:singleLine">false</item>
@@ -72,14 +71,18 @@
         <item name="android:padding">5dp</item>
 
     </style>
-    <style name="AppTheme.textTitleSection" parent="android:Widget.TextView">
+    <style name="AppTheme.textTitleSection" parent="AppTheme.textFontFamily">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/title_section</item>
-        <item name="android:fontFamily" tools:ignore="NewApi">@font/EncodeSans-Medium</item>
+    </style>
+
+    <style name="AppTheme.textFontFamily" parent="android:Widget.TextView">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/encode_sans_medium</item>
+        <item name="android:textSize">@dimen/text16dp</item>
     </style>
 
 </resources>

@@ -48,6 +48,7 @@
             <TextView
                 android:id="@+id/moon_hold"
                 android:layout_width="match_parent"
+                style="@style/AppTheme.textFontFamily"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/tide_influence_marginBottom"
                 android:text="@string/moon_hold"
@@ -67,6 +68,7 @@
 
         <TextView
             android:id="@+id/weather_narrative"
+            style="@style/AppTheme.textFontFamily"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/weather_narrative_marginBottom"
