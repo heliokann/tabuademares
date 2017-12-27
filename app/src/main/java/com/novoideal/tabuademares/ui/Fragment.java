@@ -49,10 +49,7 @@ public class Fragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             int position = getArguments().getInt(ARG_SECTION_NUMBER);
-//                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
             MainActivity main = (MainActivity)this.getActivity();
-            PlaceholderFragment fragment = (PlaceholderFragment) main.getSectionsPagerAdapter().instantiateItem(main.getViewPager(), position);
-//            main.createCitySpinner(rootView, fragment.cities);
             main.refreshAll(rootView, main.getCurrentLocation().clone(position), false);
             return rootView;
         }

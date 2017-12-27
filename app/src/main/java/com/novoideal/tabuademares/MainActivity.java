@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         currentLocation = (LocationParam) spinner.getSelectedItem();
         locationParamService.updateSelected(currentLocation);
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            tabLayout.getTabAt(current).setText(mSectionsPagerAdapter.getPageTitle(current));
             refreshAll(fragment.getView(), ((PlaceholderFragment) fragment).getCity(currentLocation), update);
         }
     }

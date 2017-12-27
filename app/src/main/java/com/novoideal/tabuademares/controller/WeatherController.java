@@ -68,7 +68,7 @@ public class WeatherController {
             return R.drawable.weather_sunny;
         }
 
-        if(condition.toLowerCase().equals("nublado")){
+        if(condition.toLowerCase().equals("nublado") || condition.toLowerCase().equals("encoberto")){
             return R.drawable.weather_cloud;
         }
 
