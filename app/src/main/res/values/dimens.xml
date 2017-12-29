@@ -10,10 +10,10 @@
     <dimen name="tab_layout_height">30dp</dimen>
     <dimen name="toolbar_height">40dp</dimen>
     <dimen name="title_toolbar">@dimen/text26dp</dimen>
-    <dimen name="title_swell">@dimen/text16dp</dimen>
-    <dimen name="swell_text">@dimen/text16dp</dimen>
-    <dimen name="tide_text_extreme">@dimen/text26dp</dimen>
-    <dimen name="title_section">@dimen/text26dp</dimen>
+    <dimen name="title_swell">@dimen/text15dp</dimen>
+    <dimen name="text_swell">@dimen/text13dp</dimen>
+    <dimen name="tide_text_extreme">@dimen/text25dp</dimen>
+    <dimen name="title_section">@dimen/text25dp</dimen>
     <dimen name="weather_ic_height">40dp</dimen>
     <dimen name="weather_ic_width">40dp</dimen>
     <dimen name="tide_ic_height">10dp</dimen>
@@ -31,7 +31,7 @@
     <dimen name="weather_narrative_marginBottom">10dp</dimen>
     <dimen name="weather_narrative_marginTop">10dp</dimen>
     <dimen name="weather_panel_marginBottom">10dp</dimen>
-    <dimen name="spinner_textSize">@dimen/text26dp</dimen>
+    <dimen name="spinner_textSize">@dimen/text25dp</dimen>
     <dimen name="font_marginLeft">5dp</dimen>
     <dimen name="font_textSize">@dimen/text12dp</dimen>
     <dimen name="refresh_marginRight">10dp</dimen>
@@ -41,6 +41,9 @@
     <dimen name="font_date_marginRight">5dp</dimen>
     <dimen name="wheather_text_ems">4</dimen>
     <dimen name="text26dp">26dp</dimen>
+    <dimen name="text25dp">25dp</dimen>
     <dimen name="text16dp">16dp</dimen>
     <dimen name="text12dp">12dp</dimen>
+    <dimen name="text13dp">13dp</dimen>
+    <dimen name="text15dp">15dp</dimen>
 </resources>

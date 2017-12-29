@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
         final Spinner spinner = (Spinner) findViewById(R.id.spin_city);
+//        spinner.setAdapter(new LocaleSpinnerAdapter(getApplicationContext(), cities));
         spinner.setAdapter(arrayAdapter);
         spinner.setSelected(false);
         spinner.setSelection(selectedPosition,false);

@@ -32,13 +32,13 @@
     </style>
 
 
-    <style name="AppTheme.titleSwell" parent="AppTheme.textFontFamily">
+    <style name="AppTheme.titleSwell" parent="AppTheme.textSwell">
         <item name="android:textColor">@color/titleSwellTextColor</item>
         <item name="android:textSize">@dimen/title_swell</item>
     </style>
 
     <style name="AppTheme.textSwell" parent="AppTheme.textFontFamily">
-        <item name="android:textSize">@dimen/swell_text</item>
+        <item name="android:textSize">@dimen/text_swell</item>
         <item name="android:textAlignment" tools:ignore="NewApi">center</item>
     </style>
 
@@ -68,6 +68,7 @@
         <item name="android:gravity">center</item>
         <item name="android:singleLine">false</item>
         <item name="android:ems">@integer/wheather_text_ems</item>
+        <item name="android:textSize">@dimen/text13dp</item>
         <item name="android:padding">5dp</item>
 
     </style>
@@ -82,7 +83,7 @@
 
     <style name="AppTheme.textFontFamily" parent="android:Widget.TextView">
         <item name="android:fontFamily" tools:ignore="NewApi">@font/encode_sans_medium</item>
-        <item name="android:textSize">@dimen/text16dp</item>
+        <item name="android:textSize">@dimen/text15dp</item>
     </style>
 
 </resources>

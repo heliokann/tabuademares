@@ -37,6 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/spinner_background"
+                android:spinnerMode="dropdown"
+                android:popupBackground="@android:color/transparent"
+                android:dropDownVerticalOffset="40dp"
                 tools:listitem="@layout/spinner_item" />
 
         </android.support.v7.widget.Toolbar>
