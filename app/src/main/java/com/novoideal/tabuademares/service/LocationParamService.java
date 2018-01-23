@@ -61,4 +61,8 @@ public class LocationParamService {
     public void updateSelected(LocationParam currentLocation) {
         locationParamDao.updateSelected(currentLocation);
     }
+
+    public void touch(LocationParam city) {
+        locationParamDao.touch(city);
+    }
 }

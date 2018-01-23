@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         if (Hours.hoursBetween(updated, now).getHours() > 3) {
             str_updated = now.toString("dd/MM/yyyy HH:mm");
             currentLocation.setUpdated(now.toDate());
+            locationParamService.touch(currentLocation);
             refreshOnUserIteration(true);
         }
         ((TextView) findViewById(R.id.date_refresh)).setText(str_updated);
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 }
             }
-            currentLocation = locations.get(0);
+            currentLocation = locations.get(selectedPosition);
             createCitySpinner(locations, selectedPosition);
         }
 
