@@ -109,7 +109,7 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
         Map m = new HashMap();
         m.put("lat", city.getLatExtreme());
         m.put("lon", city.getLongExtreme());
-        m.put("date", city.getDate());
+        m.put("fullDate", city.getFullDateStr());
         return getRuntimeDao().queryForFieldValues(m);
     }
 

@@ -117,7 +117,7 @@ public class SeaCondition {
 
     @Override
     public String toString() {
-        return "";
+        return city + ": " + date.toString();
     }
 
     public String getWindStr() {

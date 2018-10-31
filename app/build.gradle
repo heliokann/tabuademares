@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.novoideal.tabuademares"
         minSdkVersion 15
@@ -29,24 +29,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:26.+'
-    compile 'com.android.volley:volley:+'
-    compile 'joda-time:joda-time:2.9.+'
-    compile 'org.shredzone.commons:commons-suncalc:1.+'
-    compile group: 'com.j256.ormlite', name: 'ormlite-android', version: '4.45'
-    compile group: 'com.google.code.geocoder-java', name: 'geocoder-java', version: '0.16'
+    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.android.support:design:26.+'
+    implementation 'com.android.volley:volley:+'
+    implementation 'joda-time:joda-time:2.9.+'
+    implementation 'org.shredzone.commons:commons-suncalc:1.+'
+    implementation group: 'com.j256.ormlite', name: 'ormlite-android', version: '5.1'
+    implementation group: 'com.google.code.geocoder-java', name: 'geocoder-java', version: '0.16'
 
-    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.0'
 
 //    compile 'com.mashape.unirest:unirest-java:1.4.+'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile "org.mockito:mockito-android:2.11.0"
-    androidTestCompile group: 'commons-io', name: 'commons-io', version: '2.5'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation "org.mockito:mockito-android:2.11.0"
+    androidTestImplementation group: 'commons-io', name: 'commons-io', version: '2.5'
 
 //    C:\Users\Helio\AppData\Local\Android\sdk\platform-tools\adb forward tcp:8080 tcp:8080
 }

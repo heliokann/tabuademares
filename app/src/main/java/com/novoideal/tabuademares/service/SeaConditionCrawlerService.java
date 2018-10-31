@@ -43,7 +43,8 @@ public class SeaConditionCrawlerService {
 
     public List<SeaCondition> getWeathers(LocationParam city) throws Exception {
         InputStream stream = null;
-        String xmlUrl = baseUrl + city.getCodeSeaCondition() + "/dia/" + city.days()+ "/ondas.xml";
+//        String xmlUrl = baseUrl + city.getCodeSeaCondition() + "/dia/" + city.days()+ "/ondas.xml";
+        String xmlUrl = baseUrl + city.getCodeSeaCondition() + "/todos/tempos/ondas.xml";
         try {
 
             stream = downloadUrl(xmlUrl);
@@ -91,6 +92,7 @@ public class SeaConditionCrawlerService {
                 case "manha":
                 case "tarde":
                 case "noite":
+                case "previsao":
                     current = new SeaCondition();
                     current.setPeriod(localName);
                     current.setCity(city);
@@ -117,10 +119,14 @@ public class SeaConditionCrawlerService {
                 case "manha":
                 case "tarde":
                 case "noite":
+                case "previsao":
                     data.add(current);
                     break;
                 case "dia":
                     current.setDate(DateTime.parse(currentText.substring(0,10), DateTimeFormat.forPattern("dd-MM-yyyy")).toDate());
+                    if ("previsao".equals(current.getPeriod())) {
+                        current.setPeriod(currentText.substring(11,13));
+                    }
                     break;
                 case "agitacao":
                     current.setAgitation(currentText);

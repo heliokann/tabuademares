@@ -15,13 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.novoideal.tabuademares.adapter.FragmentAdapter;
+import com.novoideal.tabuademares.adapter.LocaleSpinnerAdapter;
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private FragmentStatePagerAdapter mSectionsPagerAdapter;
     private List<LocationParam> locations;
-    private LocationParam currentLocation;
+    public static LocationParam currentLocation;
     private LocationParamService locationParamService;
 
     /**
@@ -146,17 +146,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private int getSelectedPosition() {
+        int position = 0;
+        for (int i = 0; i < locations.size(); i++) {
+            if (Boolean.TRUE.equals(locations.get(i).getSelected())) {
+                position = i;
+                break;
+            }
+        }
+        return position;
+    }
+
     public FragmentStatePagerAdapter createFragmentAdapter(){
         if (locations == null){
             locationParamService = new LocationParamService(getApplicationContext());
             locations = locationParamService.geLocations();
-            int selectedPosition = 0;
-            for (int i = 0; i < locations.size(); i++) {
-                if (Boolean.TRUE.equals(locations.get(i).getSelected())) {
-                    selectedPosition = i;
-                    break;
-                }
-            }
+            int selectedPosition = getSelectedPosition();
             currentLocation = locations.get(selectedPosition);
             createCitySpinner(locations, selectedPosition);
         }
@@ -168,6 +173,15 @@ public class MainActivity extends AppCompatActivity {
     public void refreshOnUserIteration(boolean update) {
         int current = mViewPager.getCurrentItem();
         Spinner spinner = (Spinner) findViewById(R.id.spin_city);
+
+//        if(spinner.getSelectedItem() == null) {
+//            Toast.makeText(getApplicationContext(), "Criar nova activity", Toast.LENGTH_LONG).show();
+//            Intent intent = new Intent(this, SearchLocation.class);
+//            startActivity(intent);
+////            intent.on
+//            return;
+//        }
+
         currentLocation = (LocationParam) spinner.getSelectedItem();
         locationParamService.updateSelected(currentLocation);
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
@@ -181,12 +195,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createCitySpinner(List<LocationParam> cities, int selectedPosition) {
-        ArrayAdapter<LocationParam> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
-        arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+//        ArrayAdapter<LocationParam> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
+//        arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
 
         final Spinner spinner = (Spinner) findViewById(R.id.spin_city);
-//        spinner.setAdapter(new LocaleSpinnerAdapter(getApplicationContext(), cities));
-        spinner.setAdapter(arrayAdapter);
+        spinner.setAdapter(new LocaleSpinnerAdapter(getApplicationContext(), cities));
+//        spinner.setAdapter(arrayAdapter);
         spinner.setSelected(false);
         spinner.setSelection(selectedPosition,false);
 

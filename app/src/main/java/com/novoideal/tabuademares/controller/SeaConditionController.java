@@ -48,19 +48,27 @@ public class SeaConditionController {
 //        SeaCondition[] today = new SeaCondition[3];
 
         for (SeaCondition condition : result) {
+
+//            System.out.println("Mesmo dia = " + (condition.getDate().getDay() == city.getDate().getDay()) + " - Período: " + condition.getPeriod());
             if(Days.daysBetween(new DateTime(condition.getDate()), new DateTime(city.getDate())).getDays() != 0){
-                break;
+                continue;
             }
+
+            System.out.println("Mesmo dia = " + (condition.getDate().getDay() == city.getDate().getDay()) + " - Período: " + condition.getPeriod());
+
             switch (condition.getPeriod()){
                 case "manha" :
+                case "12" :
 //                    today[0] = condition;
                     updateCondiction(condition, R.id.a_m, R.id.s_m, R.id.w_m);
                     break;
                 case "tarde" :
+                case "18" :
 //                    today[1] = condition;
                     updateCondiction(condition, R.id.a_t, R.id.s_t, R.id.w_t);
                     break;
                 case "noite" :
+                case "21" :
 //                    today[2] = condition;
                     updateCondiction(condition, R.id.a_n, R.id.s_n, R.id.w_n);
                     break;

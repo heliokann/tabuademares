@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.novoideal.tabuademares.MainActivity;
 import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.model.LocationParam;
 
@@ -20,27 +21,39 @@ public class LocaleSpinnerAdapter extends ArrayAdapter<LocationParam> {
 
     public LocaleSpinnerAdapter(Context context, List<LocationParam> locales) {
         super(context, R.layout.spinner_item, locales);
-        setDropDownViewResource(R.layout.spinner_dropdown_item);
+        locales.add(null);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return getCustomView(position, convertView, parent);
+        return getCustomView(position, convertView, parent, R.layout.spinner_dropdown_item, R.id.spinner_dropdown);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return getCustomView(position, convertView, parent);
+        if (getItem(position) == null) {
+            position = getPosition(MainActivity.currentLocation);
+        }
+
+        return getCustomView(position, convertView, parent, R.layout.spinner_item, R.id.spinner_item);
     }
 
-    public View getCustomView(int position, View convertView, ViewGroup parent) {
+    public View getCustomView(int position, View convertView, ViewGroup parent, int resource, int idRow) {
 //return super.getView(position, convertView, parent);
         LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-
-        View row = inflater.inflate(R.layout.spinner_item, parent, false);
-        TextView label = (TextView) row.findViewById(R.id.spinner_item);
         LocationParam locationParam = this.getItem(position);
+        if (locationParam == null) {
+            return inflater.inflate(R.layout.spinner_new_item, parent, false);
+        }
+
+        View row = inflater.inflate(resource, parent, false);
+        TextView label = (TextView) row.findViewById(idRow);
         label.setText(locationParam.toString());
 
 //        ImageView icon = (ImageView) row.findViewById(R.id.icon);

@@ -25,4 +25,5 @@
     <string name="lbl_swell">Swell</string>
     <string name="weather_narrative">Tempo: %1$s</string>
     <string name="font_references">Fontes: weather.com, CPTEC/INPE</string>
+    <string name="title_activity_search_location">SearchLocation</string>
 </resources>

@@ -82,7 +82,7 @@ public class LocationParam {
     }
 
     public Date getDate() {
-        return new LocalDate().plusDays(days).toDate();
+        return new DateTime().plusDays(days).toDate();
     }
 
     public String getFullDateStr() {
