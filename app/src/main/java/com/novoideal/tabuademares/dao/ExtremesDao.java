@@ -11,10 +11,12 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.ExtremeTide;
+import com.novoideal.tabuademares.model.LocationParam;
 
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
@@ -109,8 +111,21 @@ public class ExtremesDao extends OrmLiteSqliteOpenHelper {
         Map m = new HashMap();
         m.put("lat", city.getLatExtreme());
         m.put("lon", city.getLongExtreme());
-        m.put("fullDate", city.getFullDateStr());
-        return getRuntimeDao().queryForFieldValues(m);
+        m.put("fullDate", city.getDate());
+
+        QueryBuilder<ExtremeTide, Integer> queryBuilder = getRuntimeDao().queryBuilder();
+        PreparedQuery pq = null;
+        try {
+            pq = queryBuilder.where().eq("lat", city.getLatExtreme())
+                    .and().eq("lon", city.getLongExtreme())
+                    .and().eq("date", city.getDate()).prepare();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return getRuntimeDao().query(pq);
+//        return getRuntimeDao().queryForFieldValues(m);
+//        return getRuntimeDao().queryRawValue("select * from extremetide where lat=? and lon=? and fullDate=?",
+//                city.getLatExtreme().toString(), city.getLongExtreme().toString(), city.getFullDateStr());
     }
 
     public boolean contains(ExtremeTide extreme) {
