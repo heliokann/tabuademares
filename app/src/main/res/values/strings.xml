@@ -29,4 +29,6 @@
     <string name="weather_narrative">Tempo: %1$s</string>
     <string name="font_references">Fontes: weather.com, CPTEC/INPE</string>
     <string name="title_activity_search_location">SearchLocation</string>
+    <string name="no_tide_data_city">Dados de marés não disponíveis para esta cidade</string>
+    <string name="no_tide_data_date">Sem dados de maré para esta data</string>
 </resources>

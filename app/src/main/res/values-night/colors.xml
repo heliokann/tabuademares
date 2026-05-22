@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5C8FD6</color>
+    <color name="colorPrimaryDark">#3A6DB5</color>
+    <color name="colorAccent">#64B5F6</color>
+    <color name="colorBackground">#121212</color>
+    <color name="colorSurface">#1E1E1E</color>
+    <color name="colorOnSurface">#E8EAF0</color>
+    <color name="colorSecondaryText">#9CA3AF</color>
+    <color name="colorDivider">#2D2D3A</color>
+    <color name="tabSelectedTextColor">#E8EAF0</color>
+    <color name="tabTextColor">#6B7280</color>
+    <color name="tabIndicatorColor">#64B5F6</color>
+    <color name="tideTitle">#5C8FD6</color>
+    <color name="tableRowTextColor">#E8EAF0</color>
+    <color name="titleSwellTextColor">#E8EAF0</color>
+    <color name="fontPanelBackground">#1A1A1A</color>
+    <color name="fontTextColor">#B0B0B0</color>
+    <color name="startColorTab">#2D2D2D</color>
+    <color name="endColorTab">#2D2D2D</color>
+</resources>

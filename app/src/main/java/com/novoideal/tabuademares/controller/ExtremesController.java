@@ -3,9 +3,10 @@ package com.novoideal.tabuademares.controller;
 import android.content.Context;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.TextView;
 
-import com.novoideal.tabuademares.adapter.ExtremeViewAdapter;
 import com.novoideal.tabuademares.R;
+import com.novoideal.tabuademares.adapter.ExtremeViewAdapter;
 import com.novoideal.tabuademares.model.ExtremeTide;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.ExtremesService;
@@ -26,6 +27,14 @@ public class ExtremesController {
     }
 
     public void request() {
+        clearGrid();
+
+        String path = city.getTabuademaresPath();
+        if (path == null || path.isEmpty()) {
+            showNoTideData(rootView.getContext().getString(R.string.no_tide_data_city));
+            return;
+        }
+
         List<ExtremeTide> result = new ExtremesService(this).geCondition(city);
         if (!result.isEmpty()) {
             populateView(result);
@@ -46,11 +55,25 @@ public class ExtremesController {
     }
 
     public void createGridView(List<ExtremeTide> today) {
+        rootView.findViewById(R.id.layout_no_tide_data).setVisibility(View.GONE);
         GridView gv = rootView.findViewById(R.id.grid_extreme);
+        gv.setVisibility(View.VISIBLE);
         gv.setNumColumns(today.size());
         gv.setAdapter(new ExtremeViewAdapter(rootView, today));
         ((ExtremeViewAdapter) gv.getAdapter()).notifyDataSetChanged();
         gv.invalidateViews();
+    }
+
+    public void clearGrid() {
+        rootView.findViewById(R.id.grid_extreme).setVisibility(View.GONE);
+        rootView.findViewById(R.id.layout_no_tide_data).setVisibility(View.VISIBLE);
+        ((TextView) rootView.findViewById(R.id.tv_no_tide_data)).setText("");
+    }
+
+    public void showNoTideData(String message) {
+        rootView.findViewById(R.id.grid_extreme).setVisibility(View.GONE);
+        rootView.findViewById(R.id.layout_no_tide_data).setVisibility(View.VISIBLE);
+        ((TextView) rootView.findViewById(R.id.tv_no_tide_data)).setText(message);
     }
 
     public LocationParam getCity() {

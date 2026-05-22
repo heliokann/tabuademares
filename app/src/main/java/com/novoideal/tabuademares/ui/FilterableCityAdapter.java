@@ -22,7 +22,7 @@ public class FilterableCityAdapter extends ArrayAdapter<LocationParam> {
     private final CityFilter filter = new CityFilter();
 
     public FilterableCityAdapter(Context context, List<LocationParam> cities) {
-        super(context, R.layout.spinner_dropdown_item, new ArrayList<>(cities));
+        super(context, R.layout.item_city_search, new ArrayList<>(cities));
         this.allCities = new ArrayList<>(cities);
         this.filtered = new ArrayList<>(cities);
     }
@@ -40,11 +40,16 @@ public class FilterableCityAdapter extends ArrayAdapter<LocationParam> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_dropdown_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_city_search, parent, false);
         }
-        TextView tv = convertView.findViewById(R.id.spinner_dropdown);
-        LocationParam city = filtered.get(position);
-        tv.setText(city.getName());
+        TextView tvName = convertView.findViewById(R.id.tv_city_name);
+        TextView tvState = convertView.findViewById(R.id.tv_city_state);
+
+        String full = filtered.get(position).getName();
+        int sep = full.lastIndexOf(" - ");
+        tvName.setText(sep >= 0 ? full.substring(0, sep) : full);
+        tvState.setText(sep >= 0 ? full.substring(sep + 3) : "");
+
         return convertView;
     }
 

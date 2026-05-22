@@ -1,6 +1,5 @@
 package com.novoideal.tabuademares.ui;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.model.LocationParam;
 
@@ -45,7 +45,7 @@ public class CitySearchDialog {
         FilterableCityAdapter adapter = new FilterableCityAdapter(context, cities);
         listView.setAdapter(adapter);
 
-        AlertDialog dialog = new AlertDialog.Builder(context)
+        androidx.appcompat.app.AlertDialog dialog = new MaterialAlertDialogBuilder(context)
                 .setTitle(R.string.city_select_title)
                 .setView(dialogView)
                 .setNegativeButton(android.R.string.cancel, null)

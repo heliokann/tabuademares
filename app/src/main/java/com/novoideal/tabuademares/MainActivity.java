@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
         final List<LocationParam> allCities = CityDatasetLoader.load(getApplicationContext());
 
-        cityView.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener cityClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new CitySearchDialog(MainActivity.this, allCities, new CitySearchDialog.OnCitySelectedListener() {
@@ -218,7 +218,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).show();
             }
-        });
+        };
+
+        View citySelector = findViewById(R.id.city_selector);
+        if (citySelector != null) {
+            citySelector.setOnClickListener(cityClickListener);
+        } else {
+            cityView.setOnClickListener(cityClickListener);
+        }
     }
 
     public void showTimePickerDialog(View v) {

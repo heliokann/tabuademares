@@ -13,16 +13,12 @@ import com.novoideal.tabuademares.model.ExtremeTide;
 
 import java.util.List;
 
-/**
- * Created by Helio on 23/11/2017.
- */
-
 public class ExtremeViewAdapter extends BaseAdapter {
 
     private View view;
     private List<ExtremeTide> today;
 
-    public ExtremeViewAdapter(View view, List<ExtremeTide> today){
+    public ExtremeViewAdapter(View view, List<ExtremeTide> today) {
         this.view = view;
         this.today = today;
     }
@@ -45,33 +41,20 @@ public class ExtremeViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Context context = view.getContext();
+        View gridView = convertView != null
+                ? convertView
+                : LayoutInflater.from(context).inflate(R.layout.item_extreme, parent, false);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ExtremeTide extreme = today.get(position);
 
-        View gridView;
-
-        if (convertView == null) {
-
-            gridView = new View(context);
-
-            gridView = inflater.inflate(R.layout.item_extreme, null);
-            ExtremeTide extreme = today.get(position);
-
-            TextView extremeType = (TextView) gridView.findViewById(R.id.extreme_type);
-            extremeType.setText(extreme.isLow() ? R.string.low_water : R.string.hight_tide);
-
-            TextView extremeTime = (TextView) gridView.findViewById(R.id.extreme_time);
-            extremeTime.setText(extreme.getStrHourMinute());
-
-            TextView extremeHeight = (TextView) gridView.findViewById(R.id.extreme_height);
-            extremeHeight.setText(extreme.getStrHeight());
-
-            ImageView iv = gridView.findViewById(R.id.extreme_type_icon);
-            iv.setImageResource(extreme.isLow() ? R.drawable.tide_down : R.drawable.tide_hight);
-
-        } else {
-            gridView = (View) convertView;
-        }
+        ((TextView) gridView.findViewById(R.id.extreme_type))
+                .setText(extreme.isLow() ? R.string.low_water : R.string.hight_tide);
+        ((TextView) gridView.findViewById(R.id.extreme_time))
+                .setText(extreme.getStrHourMinute());
+        ((TextView) gridView.findViewById(R.id.extreme_height))
+                .setText(extreme.getStrHeight());
+        ((ImageView) gridView.findViewById(R.id.extreme_type_icon))
+                .setImageResource(extreme.isLow() ? R.drawable.tide_down : R.drawable.tide_hight);
 
         return gridView;
     }

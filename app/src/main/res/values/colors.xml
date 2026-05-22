@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1c4382</color>
-    <color name="colorPrimaryDark">#16386e</color>
-    <color name="colorAccent">#342080</color>
-    <color name="tideTitle">#1c4382</color>
-    <color name="tideTextColor">#ffffff</color>
-    <color name="endColorTab">#efefef</color>
-    <color name="startColorTab">#efefef</color>
-    <color name="tabSelectedTextColor">#3b3e4c</color>
-    <color name="tabTextColor">#7f8188</color>
-    <color name="tableRowTextColor">#3b3e4c</color>
-    <color name="titleSwellTextColor">#3b3e4c</color>
-    <color name="tideBGRetangleColor">#efefef</color>
-    <color name="tableSwellLineColorStart">#1c4382</color>
+    <color name="colorPrimary">#1C4382</color>
+    <color name="colorPrimaryDark">#16386E</color>
+    <color name="colorPrimaryLight">#5C8FD6</color>
+    <color name="colorAccent">#2D7DD2</color>
+    <color name="colorBackground">#F5F7FA</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#1A1A2E</color>
+    <color name="colorSecondaryText">#6B7280</color>
+    <color name="colorDivider">#E5E7EB</color>
+    <color name="tideTitle">#1C4382</color>
+    <color name="tideTextColor">#FFFFFF</color>
+    <color name="endColorTab">#EFEFEF</color>
+    <color name="startColorTab">#EFEFEF</color>
+    <color name="tabSelectedTextColor">#1C4382</color>
+    <color name="tabTextColor">#9CA3AF</color>
+    <color name="tableRowTextColor">#3B3E4C</color>
+    <color name="titleSwellTextColor">#3B3E4C</color>
+    <color name="tideBGRetangleColor">#EFEFEF</color>
+    <color name="tableSwellLineColorStart">#1C4382</color>
     <color name="tableSwellLineColorEnd">#342080</color>
     <color name="dropdown_background">#F0F8FF</color>
     <color name="dropdown_textColor">#B0C4DE</color>
     <color name="spinner_textColor">#FFFFFF</color>
-    <color name="fontPanelBackground">#f0f0f0</color>
-    <color name="fontTextColor">#3b3e4c</color>
-    <color name="tabIndicatorColor">#342080</color>
+    <color name="fontPanelBackground">#F0F0F0</color>
+    <color name="fontTextColor">#3B3E4C</color>
+    <color name="tabIndicatorColor">#2D7DD2</color>
     <color name="weatherTint">@color/colorPrimary</color>
 </resources>

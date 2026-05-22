@@ -32,16 +32,41 @@
                 android:layout_marginRight="@dimen/refresh_marginRight"
                 app:srcCompat="@drawable/ic_logo" />
 
-            <TextView
-                android:id="@+id/spin_city"
+            <LinearLayout
+                android:id="@+id/city_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="15sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_location_pin"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/spin_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="180dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_drop_down"
+                    android:layout_marginStart="2dp" />
+
+            </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -50,6 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_layout_height"
             android:background="@drawable/tab_layout"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
             app:tabGravity="fill"
             app:tabMode="fixed"
             app:tabIndicatorColor="@color/tabIndicatorColor"

@@ -2,8 +2,8 @@ package com.novoideal.tabuademares.service;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
+import com.novoideal.tabuademares.R;
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.dao.ExtremesDao;
 import com.novoideal.tabuademares.model.ExtremeTide;
@@ -68,8 +68,8 @@ public class ExtremesService {
                 saveConditions(result);
                 controller.populateView(result);
             } else if (city.getTabuademaresPath() != null && !city.getTabuademaresPath().isEmpty()) {
-                Toast.makeText(controller.getContext(),
-                        "Sem dados de maré para esta data", Toast.LENGTH_SHORT).show();
+                controller.showNoTideData(
+                        controller.getContext().getString(R.string.no_tide_data_date));
             }
         }
     }
