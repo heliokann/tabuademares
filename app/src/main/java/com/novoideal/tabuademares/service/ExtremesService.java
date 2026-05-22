@@ -15,7 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -23,6 +25,9 @@ import java.util.List;
  */
 
 public class ExtremesService extends BaseRequestService{
+
+    // Cadastre-se em https://stormglass.io para obter uma chave gratuita (10 req/dia)
+    private static final String STORMGLASS_KEY = "YOUR_STORMGLASS_API_KEY_HERE";
 
     private ExtremesDao extremesDao;
     private LocationParamDao locationParamDao;
@@ -40,26 +45,41 @@ public class ExtremesService extends BaseRequestService{
         List<ExtremeTide> extremes = new ArrayList<>();
         try {
             LocationParam city = controller.getCity();
-            //TODO mostrar se a cidade for diferente
-            city.setLatExtreme(response.getDouble("responseLat"));
-            city.setLongExtreme(response.getDouble("responseLon"));
+
+            double lat = city.getLatitude();
+            double lon = city.getLongetude();
+            String stationName = city.getName();
+
+            JSONObject meta = response.optJSONObject("meta");
+            if (meta != null) {
+                lat = meta.optDouble("lat", lat);
+                lon = meta.optDouble("lng", lon);
+                JSONObject station = meta.optJSONObject("station");
+                if (station != null) {
+                    stationName = station.optString("name", stationName);
+                }
+            }
+
+            city.setLatExtreme(lat);
+            city.setLongExtreme(lon);
             locationParamDao.updateExtremeParams(city);
 
-            JSONArray arrayExtremes = response.getJSONArray("extremes");
-            for (int i = 0; i < arrayExtremes.length(); i++) {
-                JSONObject jsonExtreme = arrayExtremes.getJSONObject(i);
-                DateTime exDate = new DateTime(jsonExtreme.getString("date"));
-                ExtremeTide extreme = new ExtremeTide();
-                extreme.setCity(response.getString("station"));
-                extreme.setLat(response.getDouble("responseLat"));
-                extreme.setLon(response.getDouble("responseLon"));
+            JSONArray data = response.getJSONArray("data");
+            for (int i = 0; i < data.length(); i++) {
+                JSONObject item = data.getJSONObject(i);
+                DateTime exDate = new DateTime(item.getString("time"));
+                String rawType = item.getString("type"); // "high" or "low"
 
+                ExtremeTide extreme = new ExtremeTide();
+                extreme.setCity(stationName);
+                extreme.setLat(lat);
+                extreme.setLon(lon);
                 extreme.setDate(new LocalDate(exDate).toDate());
                 extreme.setFullDate(exDate.toDate());
-                extreme.setMinute(exDate.getMinuteOfHour());
                 extreme.setHour(exDate.getHourOfDay());
-                extreme.setType(jsonExtreme.getString("type"));
-                extreme.setHeight(jsonExtreme.getDouble("height"));
+                extreme.setMinute(exDate.getMinuteOfHour());
+                extreme.setType(Character.toUpperCase(rawType.charAt(0)) + rawType.substring(1));
+                extreme.setHeight(item.getDouble("height"));
 
                 extremes.add(extreme);
             }
@@ -68,8 +88,14 @@ public class ExtremesService extends BaseRequestService{
         }
 
         saveSeaCondiction(extremes);
-
         controller.populateView(extremes);
+    }
+
+    @Override
+    public Map<String, String> getHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Authorization", STORMGLASS_KEY);
+        return headers;
     }
 
     @Override

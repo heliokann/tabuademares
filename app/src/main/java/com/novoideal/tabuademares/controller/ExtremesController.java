@@ -11,6 +11,7 @@ import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.ExtremesService;
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -23,8 +24,8 @@ import java.util.List;
 
 public class ExtremesController  {
 
-    private String baseUrl = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes";
-    private String url = "https://www.worldtides.info/api?key=644e03a8-135d-4480-97ce-fef244faae28&extremes&lat=-22.87944&lon=-42.01860";
+    private static final String STORMGLASS_BASE = "https://api.stormglass.io/v2/tide/extremes/point";
+    private String url = STORMGLASS_BASE;
     private LocationParam city;
     public View rootView;
 
@@ -34,7 +35,13 @@ public class ExtremesController  {
     }
 
     public void request() {
-        url = baseUrl + "&lat=" + city.getLatitude() + "&lon=" + city.getLongetude();
+        long startUnix = new LocalDate(city.getDate()).toDateTimeAtStartOfDay().getMillis() / 1000;
+        long endUnix = startUnix + 86400;
+        url = STORMGLASS_BASE
+                + "?lat=" + city.getLatitude()
+                + "&lng=" + city.getLongetude()
+                + "&start=" + startUnix
+                + "&end=" + endUnix;
 
         List<ExtremeTide> result = new ExtremesService(this).geCondition(city);
 
