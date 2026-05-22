@@ -47,7 +47,7 @@
 //
 //
 //    public static void windRequest(AppCompatActivity ctx) throws AuthFailureError {
-//        String url = "http://api.openweathermap.org/data/2.5/weather?APPID=774a44e054ada12ca9a45c2eabd53aa6&id=3468615";
+//        String url = "http://api.openweathermap.org/data/2.5/weather?APPID=<REMOVED>&id=3468615";
 //        doRequest(url, ctx, R.id.wind);
 //    }
 //
@@ -57,7 +57,7 @@
 //    }
 //
 //    public static void extremesRequest(AppCompatActivity ctx) throws AuthFailureError {
-//        String url = "https://www.worldtides.info/api?extremes=&lat=-22.87944&lon=-42.018608&key=644e03a8-135d-4480-97ce-fef244faae28";
+//        String url = "https://www.worldtides.info/api?extremes=&lat=-22.87944&lon=-42.018608&key=<REMOVED>";
 //        doRequest(url, ctx, R.id.low_water);
 //        doRequest(url, ctx, R.id.hight_tide);
 //    }
@@ -154,7 +154,7 @@
 //            public Map<String, String> getHeaders() throws AuthFailureError {
 //                HashMap<String, String> headers = new HashMap<String, String>();
 //                headers.put("Content-Type", "application/json");
-//                headers.put("X-Mashape-Key", "TO9BQLIKVqmshVCQaA25CtETEuwtp1jjX2qjsnU32aifjyF3NI");
+//                headers.put("X-Mashape-Key", "<REMOVED>");
 //                return headers;
 //            }
 //        };
