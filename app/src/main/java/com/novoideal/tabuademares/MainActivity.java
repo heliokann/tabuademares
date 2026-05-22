@@ -170,7 +170,8 @@ public class MainActivity extends AppCompatActivity {
         }
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             if (fragment instanceof PlaceholderFragment && fragment.getView() != null) {
-                tabLayout.getTabAt(current).setText(mSectionsPagerAdapter.getPageTitle(current));
+                TabLayout.Tab tab = tabLayout.getTabAt(current);
+                if (tab != null) tab.setText(mSectionsPagerAdapter.getPageTitle(current));
                 refreshAll(fragment.getView(), ((PlaceholderFragment) fragment).getCity(currentLocation), update);
             }
         }

@@ -42,7 +42,7 @@ public class FilterableCityAdapter extends ArrayAdapter<LocationParam> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.spinner_dropdown_item, parent, false);
         }
-        TextView tv = convertView.findViewById(android.R.id.text1);
+        TextView tv = convertView.findViewById(R.id.spinner_dropdown);
         LocationParam city = filtered.get(position);
         tv.setText(city.getName());
         return convertView;
