@@ -27,7 +27,7 @@ import java.util.Map;
 public class ExtremesService extends BaseRequestService{
 
     // Cadastre-se em https://stormglass.io para obter uma chave gratuita (10 req/dia)
-    private static final String STORMGLASS_KEY = "YOUR_STORMGLASS_API_KEY_HERE";
+    private static final String STORMGLASS_KEY = "84ec6c9c-560a-11f1-b80d-0242ac120004-84ec6d14-560a-11f1-b80d-0242ac120004";
 
     private ExtremesDao extremesDao;
     private LocationParamDao locationParamDao;
