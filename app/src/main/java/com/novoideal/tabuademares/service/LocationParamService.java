@@ -37,11 +37,16 @@ public class LocationParamService {
         return clone;
     }
 
+    public void saveIfNew(LocationParam city) {
+        if (!locationParamDao.contains(city)) {
+            locationParamDao.addNew(city);
+        }
+    }
+
     private void saveSeaCondiction(List<LocationParam> conditions) {
         for (LocationParam condition : conditions) {
             if (!locationParamDao.contains(condition)) {
                 locationParamDao.addNew(condition);
-
             }
         }
     }

@@ -36,10 +36,8 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
             Log.i(LocationParamDao.class.getName(), "onCreate");
-            int create =  TableUtils.createTableIfNotExists(connectionSource, LocationParam.class);
+            int create = TableUtils.createTableIfNotExists(connectionSource, LocationParam.class);
             if (create > 0) {
-                LocationParam lp = new LocationParam(3464, 455891, "Niterói", 0, -22.909309, -43.072231);
-                addNew(lp);
                 addNew(LocationParam.defaultCity);
             }
         } catch (SQLException e) {
@@ -99,12 +97,12 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public List<LocationParam> geLocationParams(LocationParam city) {
         Map m = new HashMap();
         m.put("latitude", city.getLatitude());
-        m.put("longitude", city.getLongetude());
+        m.put("longetude", city.getLongetude());
         return getRuntimeDao().queryForFieldValues(m);
     }
 
     public boolean contains(LocationParam locationParam) {
-        return getRuntimeDao().queryRawValue("select count(*) from locationParam where latitude=? and longitude=?",
+        return getRuntimeDao().queryRawValue("select count(*) from locationParam where latitude=? and longetude=?",
                 ""+ locationParam.getLatitude(), ""+ locationParam.getLongetude()) > 0;
     }
 
@@ -120,5 +118,10 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public synchronized int updateWeatherParams(LocationParam city) {
         return getRuntimeDao().updateRaw("update locationParam set latWeather=?, longWeather=? where id=?",
                 city.getLatWeather().toString(), city.getLongWeather().toString(), "" + city.getId());
+    }
+
+    public synchronized int updateSeaConditionCode(LocationParam city) {
+        return getRuntimeDao().updateRaw("update locationParam set codeSeaCondition=? where id=?",
+                "" + city.getCodeSeaCondition(), "" + city.getId());
     }
 }

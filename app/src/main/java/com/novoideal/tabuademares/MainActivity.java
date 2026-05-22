@@ -2,23 +2,20 @@ package com.novoideal.tabuademares;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +28,8 @@ import com.novoideal.tabuademares.dao.SeaConditionDao;
 import com.novoideal.tabuademares.dao.WeatherDao;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.LocationParamService;
+import com.novoideal.tabuademares.ui.CitySearchDialog;
+import com.novoideal.tabuademares.util.CityDatasetLoader;
 
 import org.joda.time.LocalDate;
 
@@ -106,11 +105,12 @@ public class MainActivity extends AppCompatActivity {
                @Override
                public void onClick(View view) {
                    int current = mViewPager.getCurrentItem();
-                   MainActivity main = (MainActivity) findViewById(R.id.main_content).getContext();
                    PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, current);
-                   Spinner spinner = fragment.getView().findViewById(R.id.spin_city);
-                   LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-                   refreshAll(fragment.getView(), currentCity, true);
+                   TextView cityView = fragment.getView().findViewById(R.id.spin_city);
+                   LocationParam currentCity = (LocationParam) cityView.getTag();
+                   if (currentCity != null) {
+                       refreshAll(fragment.getView(), currentCity, true);
+                   }
                }
         });
     }
@@ -138,28 +138,43 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
-    public void createCitySpinner(final View rootView, List<LocationParam> cities){
-        ArrayAdapter<LocationParam> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.spinner_item, cities);
-        arrayAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+    public void createCitySpinner(final View rootView, final List<LocationParam> cities) {
+        final TextView cityView = rootView.findViewById(R.id.spin_city);
 
-        final Spinner spinner = rootView.findViewById(R.id.spin_city);
-        spinner.setAdapter(arrayAdapter);
+        final LocationParam initialCity = (cities != null && !cities.isEmpty())
+                ? cities.get(0)
+                : LocationParam.defaultCity;
+        final int dayOffset = initialCity.days();
 
-        AdapterView.OnItemSelectedListener choose = new AdapterView.OnItemSelectedListener() {
+        cityView.setText(initialCity.getName());
+        cityView.setTag(initialCity);
+
+        refreshAll(rootView, initialCity, false);
+
+        final List<LocationParam> allCities = CityDatasetLoader.load(getApplicationContext());
+
+        cityView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                LocationParam currentCity = (LocationParam) spinner.getSelectedItem();
-                MainActivity main = (MainActivity)findViewById(R.id.main_content).getContext();
-                main.refreshAll(rootView, currentCity, false);
+            public void onClick(View v) {
+                new CitySearchDialog(MainActivity.this, allCities, new CitySearchDialog.OnCitySelectedListener() {
+                    @Override
+                    public void onCitySelected(LocationParam selected) {
+                        final LocationParam cityWithDay = selected.clone(dayOffset);
+                        cityView.setText(selected.getName());
+                        cityView.setTag(cityWithDay);
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                new LocationParamService(getApplicationContext()).saveIfNew(selected.clone(0));
+                            }
+                        }).start();
+
+                        refreshAll(rootView, cityWithDay, false);
+                    }
+                }).show();
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        };
-
-        spinner.setOnItemSelectedListener(choose);
+        });
     }
 
     public void showTimePickerDialog(View v) {

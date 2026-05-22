@@ -17,6 +17,7 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
+    @org.junit.Ignore("Google Geocoder API descontinuado — teste de integração externo")
     public void latLongCaboFrio() throws Exception {
         final Geocoder geocoder = new Geocoder();
         GeocoderRequest geocoderRequest = new GeocoderRequestBuilder().setAddress("Cabo Frio, Rio de Janeiro").setLanguage("pt-BR").getGeocoderRequest();

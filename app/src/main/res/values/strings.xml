@@ -17,6 +17,9 @@
     <string name="action_about">Sobre</string>
     <string name="author">Desenvolvedor: Kann</string>
     <string name="pick_time">Data</string>
+    <string name="city_search_hint">Buscar cidade…</string>
+    <string name="city_no_results">Nenhuma cidade encontrada</string>
+    <string name="city_select_title">Selecionar cidade</string>
     <string name="lbl_wind">Vento</string>
     <string name="morning_12h">Manhã (12h)</string>
     <string name="afternoon_18h">Tarde (18h)</string>

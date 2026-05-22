@@ -1,11 +1,14 @@
 package com.novoideal.tabuademares.service;
 
 import android.content.Context;
+import android.util.Log;
 
+import com.novoideal.tabuademares.dao.LocationParamDao;
 import com.novoideal.tabuademares.dao.SeaConditionDao;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.SeaCondition;
 
+import java.util.Collections;
 import java.util.List;
 
 
@@ -16,8 +19,10 @@ import java.util.List;
 public class SeaConditionService {
 
     private SeaConditionDao seaConditionDao;
+    private Context context;
 
     public SeaConditionService(Context context) {
+        this.context = context;
         seaConditionDao = new SeaConditionDao(context);
     }
 
@@ -31,16 +36,22 @@ public class SeaConditionService {
             return conditions;
         }
 
+        if (city.getCodeSeaCondition() == null || city.getCodeSeaCondition() == 0) {
+            int code = new CptecCityLookupService().lookupCode(city.getName());
+            if (code > 0) {
+                city.setCodeSeaCondition(code);
+                new LocationParamDao(context).updateSeaConditionCode(city);
+            } else {
+                Log.w(SeaConditionService.class.getSimpleName(), "CPTEC code not found for: " + city.getName());
+                return Collections.emptyList();
+            }
+        }
+
         conditions = new SeaConditionCrawlerService().getWeathers(city);
 
         if(conditions.isEmpty()){
             return conditions;
         }
-
-        //TODO Pensar melhor como fazer isso
-//        SeaCondition sc = conditions.get(0);
-//        city.setName(sc.getCity());
-//        city.setDate(sc.getDate());
 
         saveSeaCondiction(conditions);
 
