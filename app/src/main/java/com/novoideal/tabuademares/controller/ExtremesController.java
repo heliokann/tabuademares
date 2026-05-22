@@ -10,11 +10,8 @@ import com.novoideal.tabuademares.model.ExtremeTide;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.service.ExtremesService;
 
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,13 +50,11 @@ public class ExtremesController  {
     public void populateView(List<ExtremeTide> result) {
         String low = "";
         String high = "";
-        DateTime cityDate = new DateTime(city.getDate());
+        LocalDate cityDate = new LocalDate(city.getDate());
         List<ExtremeTide> today = new ArrayList<>();
 
         for (ExtremeTide extreme : result) {
-            NumberFormat nf = new DecimalFormat("#.##");
-            DateTime exDate = new DateTime(extreme.getDate());
-            if (exDate.getDayOfMonth() == cityDate.getDayOfMonth()) {
+            if (new LocalDate(extreme.getDate()).equals(cityDate)) {
                 today.add(extreme);
                 if (extreme.getType().equals("Low")) {
                     low += extreme + "    ";
