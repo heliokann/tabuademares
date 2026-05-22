@@ -25,7 +25,7 @@ import java.util.Map;
 public class LocationParamDao extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "tabuaMares_location.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
 
     private Dao<LocationParam, Integer> dao = null;
     private RuntimeExceptionDao<LocationParam, Integer> runtimeDao = null;

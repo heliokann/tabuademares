@@ -15,14 +15,8 @@ import org.joda.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Helio on 14/08/2017.
- */
+public class ExtremesController {
 
-public class ExtremesController  {
-
-    private static final String STORMGLASS_BASE = "https://api.stormglass.io/v2/tide/extremes/point";
-    private String url = STORMGLASS_BASE;
     private LocationParam city;
     public View rootView;
 
@@ -32,40 +26,21 @@ public class ExtremesController  {
     }
 
     public void request() {
-        long startUnix = new LocalDate(city.getDate()).toDateTimeAtStartOfDay().getMillis() / 1000;
-        long endUnix = startUnix + 86400;
-        url = STORMGLASS_BASE
-                + "?lat=" + city.getLatitude()
-                + "&lng=" + city.getLongetude()
-                + "&start=" + startUnix
-                + "&end=" + endUnix;
-
         List<ExtremeTide> result = new ExtremesService(this).geCondition(city);
-
         if (!result.isEmpty()) {
             populateView(result);
         }
     }
 
     public void populateView(List<ExtremeTide> result) {
-        String low = "";
-        String high = "";
         LocalDate cityDate = new LocalDate(city.getDate());
         List<ExtremeTide> today = new ArrayList<>();
 
         for (ExtremeTide extreme : result) {
             if (new LocalDate(extreme.getDate()).equals(cityDate)) {
                 today.add(extreme);
-                if (extreme.getType().equals("Low")) {
-                    low += extreme + "    ";
-                } else {
-                    high += extreme + "    ";
-                }
             }
         }
-
-//        ((TextView) rootView.findViewById(R.id.low_water)).setText(getContext().getString(R.string.low_water, low));
-//        ((TextView) rootView.findViewById(R.id.hight_tide)).setText(getContext().getString(R.string.hight_tide, high));
 
         createGridView(today);
     }
@@ -80,11 +55,6 @@ public class ExtremesController  {
 
     public LocationParam getCity() {
         return city;
-    }
-
-
-    public String getURL() {
-        return url;
     }
 
     public Context getContext() {

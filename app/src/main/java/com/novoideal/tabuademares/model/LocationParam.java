@@ -39,9 +39,16 @@ public class LocationParam {
     private Date updated;
     @DatabaseField
     private boolean selected;
+    @DatabaseField
+    private String tabuademaresPath;
     private int days = 0;
 
-    public static final LocationParam defaultCity = new LocationParam(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
+    public static final LocationParam defaultCity;
+
+    static {
+        defaultCity = new LocationParam(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
+        defaultCity.tabuademaresPath = "/br/rio-de-janeiro/cabo-frio";
+    }
 
     public LocationParam() {
 
@@ -159,6 +166,7 @@ public class LocationParam {
         clone.longExtreme = this.longExtreme;
         clone.latWeather = this.latWeather;
         clone.longWeather = this.longWeather;
+        clone.tabuademaresPath = this.tabuademaresPath;
         return clone;
     }
 
@@ -198,6 +206,14 @@ public class LocationParam {
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+    }
+
+    public String getTabuademaresPath() {
+        return tabuademaresPath;
+    }
+
+    public void setTabuademaresPath(String tabuademaresPath) {
+        this.tabuademaresPath = tabuademaresPath;
     }
 
 //    public boolean isSelected() {

@@ -44,7 +44,9 @@ public class CityDatasetLoader {
                 double lng = city.getDouble("lng");
                 int cptecCode = city.optInt("cptecCode", 0);
 
+                String tabuademaresPath = city.optString("tabuademaresPath", "");
                 LocationParam lp = new LocationParam(cptecCode, 0, name + " - " + state, 0, lat, lng);
+                lp.setTabuademaresPath(tabuademaresPath);
                 result.add(lp);
             }
             return Collections.unmodifiableList(result);
