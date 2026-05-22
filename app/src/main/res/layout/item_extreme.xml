@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@drawable/item_tide_bg_corner"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/extreme_type"
+        style="@style/AppTheme.textExtreme"
+        android:text="Baixa" />
+
+    <TextView
+        android:id="@+id/extreme_time"
+        style="@style/AppTheme.textExtremeTime"
+        android:text="00:32" />
+
+    <TextView
+        android:id="@+id/extreme_height"
+        style="@style/AppTheme.textExtreme"
+        android:text="-0,15m" />
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/extreme_type_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/tide_down"/>
+
+</LinearLayout>

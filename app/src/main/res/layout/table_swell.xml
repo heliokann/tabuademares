@@ -1,0 +1,110 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="50sp"
+    android:stretchColumns="0,1,2,3">
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        style="@style/AppTheme.tableRowSwell">
+
+        <TextView
+            android:text="Período"
+            style="@style/AppTheme.titleSwell"/>
+
+        <TextView
+            android:id="@+id/morning"
+            android:text="@string/agitation"
+            style="@style/AppTheme.titleSwell"/>
+
+        <TextView
+            android:id="@+id/afternoon"
+            android:text="@string/lbl_swell"
+            style="@style/AppTheme.titleSwell"/>
+
+        <TextView
+            android:id="@+id/night"
+            android:text="@string/lbl_wind"
+            style="@style/AppTheme.titleSwell"/>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        style="@style/AppTheme.tableRowSwell">
+
+        <TextView
+            android:id="@+id/head_1"
+            android:text="@string/morning_12h"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/a_m"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/s_m"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/w_m"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        style="@style/AppTheme.tableRowSwell">
+
+        <TextView
+            android:id="@+id/head_2"
+            android:text="@string/afternoon_18h"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/a_t"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/s_t"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/w_t"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        style="@style/AppTheme.tableRowSwell">
+
+        <TextView
+            android:id="@+id/head_3"
+            android:text="@string/night_21h"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/a_n"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/s_n"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+
+        <TextView
+            android:id="@+id/w_n"
+            android:text="@string/loading"
+            style="@style/AppTheme.textSwell"/>
+    </TableRow>
+
+
+</TableLayout>

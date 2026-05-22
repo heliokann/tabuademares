@@ -124,10 +124,28 @@ public class ExtremeTide {
         this.lon = lon;
     }
 
+    public boolean isLow() {
+        return type.equalsIgnoreCase(TYPE.low.name());
+    }
+
+    public String getStrHeight() {
+        return new DecimalFormat("#.##").format(height + 0.45) + "m";
+    }
+
+    public String getStrHour() {
+        return (hour < 10 ? ("0" + hour) : hour).toString();
+    }
+
+    public String getStrMinute() {
+        return (minute < 10 ? ("0" + minute) : minute).toString();
+    }
+
+    public String getStrHourMinute() {
+        return getStrHour() + ":" + getStrMinute();
+    }
+
     @Override
     public String toString() {
-        return (hour < 10 ? ("0" + hour) : hour) + ":" +
-                (minute < 10 ? ("0" + minute) : minute) + " (" +
-                new DecimalFormat("#.##").format(height + 0.45) + "m)";
+        return getStrHourMinute() + " (" + getStrHeight() + ")";
     }
 }

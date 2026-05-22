@@ -2,23 +2,24 @@ package com.novoideal.tabuademares;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+
+import com.novoideal.tabuademares.adapter.FragmentAdapter;
 import com.novoideal.tabuademares.controller.ExtremesController;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
@@ -31,32 +32,25 @@ import com.novoideal.tabuademares.service.LocationParamService;
 import com.novoideal.tabuademares.ui.CitySearchDialog;
 import com.novoideal.tabuademares.util.CityDatasetLoader;
 
+import org.joda.time.DateTime;
+import org.joda.time.Hours;
 import org.joda.time.LocalDate;
+import org.joda.time.Minutes;
 
-import java.util.Date;
 import java.util.List;
+
+import static com.novoideal.tabuademares.ui.Fragment.PlaceholderFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private FragmentStatePagerAdapter mSectionsPagerAdapter;
-    public Date date = new Date();
     private List<LocationParam> locations;
+    public static LocationParam currentLocation;
     private LocationParamService locationParamService;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
+    private TabLayout tabLayout;
 
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +64,14 @@ public class MainActivity extends AppCompatActivity {
         createViewPager(mSectionsPagerAdapter);
 
         createRefresh();
+        setupTabLayout();
 
         cleanBD();
+    }
+
+    private void setupTabLayout() {
+        tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 
     private void cleanBD() {
@@ -84,10 +84,35 @@ public class MainActivity extends AppCompatActivity {
                 new WeatherDao(getApplicationContext()).clearBefore(now);
             }
         }).start();
-
     }
 
     @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        DateTime now = new DateTime();
+        if (currentLocation.getUpdated() != null) {
+            DateTime dt_updated = new DateTime(currentLocation.getUpdated());
+            if (Minutes.minutesBetween(dt_updated, now).getMinutes() < 3) {
+                ((TextView) findViewById(R.id.date_refresh)).setText(dt_updated.toString("dd/MM/yyyy HH:mm"));
+                return;
+            }
+        }
+
+        DateTime updated = new DateTime(locationParamService.getLastUpdated(currentLocation));
+        String str_updated = updated.toString("dd/MM/yyyy HH:mm");
+
+        if (Hours.hoursBetween(updated, now).getHours() > 3) {
+            str_updated = now.toString("dd/MM/yyyy HH:mm");
+            currentLocation.setUpdated(now.toDate());
+            locationParamService.touch(currentLocation);
+            refreshOnUserIteration(true);
+        }
+        ((TextView) findViewById(R.id.date_refresh)).setText(str_updated);
+    }
+
+    @Override
+    @SuppressLint("MissingSuperCall")
     protected void onSaveInstanceState(Bundle outState) {
         //No call for super(). Bug on API Level > 11.
     }
@@ -100,56 +125,72 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createRefresh() {
-        FloatingActionButton refresh = (FloatingActionButton) findViewById(R.id.btn_refresh);
+        ImageView refresh = (ImageView) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   int current = mViewPager.getCurrentItem();
-                   PlaceholderFragment fragment = (PlaceholderFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, current);
-                   TextView cityView = fragment.getView().findViewById(R.id.spin_city);
-                   LocationParam currentCity = (LocationParam) cityView.getTag();
-                   if (currentCity != null) {
-                       refreshAll(fragment.getView(), currentCity, true);
-                   }
-               }
+            @Override
+            public void onClick(View view) {
+                refreshOnUserIteration(true);
+            }
         });
     }
 
-    public FragmentStatePagerAdapter createFragmentAdapter(){
-        return new FragmentStatePagerAdapter(getSupportFragmentManager()) {
-            @Override
-            public int getCount() {
-                return 3;
+    private int getSelectedPosition() {
+        int position = 0;
+        for (int i = 0; i < locations.size(); i++) {
+            if (Boolean.TRUE.equals(locations.get(i).getSelected())) {
+                position = i;
+                break;
             }
-
-            @Override
-            public Fragment getItem(int position) {
-                if (locations == null){
-                    locationParamService = new LocationParamService(getApplicationContext());
-                    locations = locationParamService.geLocations();
-                }
-                return PlaceholderFragment.newInstance(position, locationParamService.geLocations(locations, position));
-            }
-
-            @Override
-            public int getItemPosition(Object object) {
-                return super.getItemPosition(object);
-            }
-        };
+        }
+        return position;
     }
 
-    public void createCitySpinner(final View rootView, final List<LocationParam> cities) {
-        final TextView cityView = rootView.findViewById(R.id.spin_city);
+    public FragmentStatePagerAdapter createFragmentAdapter() {
+        if (locations == null) {
+            locationParamService = new LocationParamService(getApplicationContext());
+            locations = locationParamService.geLocations();
+            if (locations.isEmpty()) {
+                locationParamService.saveIfNew(LocationParam.defaultCity);
+                locations = locationParamService.geLocations();
+            }
+            int selectedPosition = getSelectedPosition();
+            currentLocation = locations.get(selectedPosition);
+            createCitySpinner(locations, selectedPosition);
+        }
+        return new FragmentAdapter(getSupportFragmentManager());
+    }
+
+    @SuppressLint("RestrictedApi")
+    public void refreshOnUserIteration(boolean update) {
+        int current = mViewPager.getCurrentItem();
+        TextView cityView = (TextView) findViewById(R.id.spin_city);
+        if (cityView != null && cityView.getTag() != null) {
+            currentLocation = (LocationParam) cityView.getTag();
+            locationParamService.updateSelected(currentLocation);
+        }
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            if (fragment instanceof PlaceholderFragment && fragment.getView() != null) {
+                tabLayout.getTabAt(current).setText(mSectionsPagerAdapter.getPageTitle(current));
+                refreshAll(fragment.getView(), ((PlaceholderFragment) fragment).getCity(currentLocation), update);
+            }
+        }
+    }
+
+    public LocationParam getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void createCitySpinner(final List<LocationParam> cities, int selectedPosition) {
+        final TextView cityView = (TextView) findViewById(R.id.spin_city);
+        if (cityView == null) return;
 
         final LocationParam initialCity = (cities != null && !cities.isEmpty())
-                ? cities.get(0)
+                ? cities.get(selectedPosition)
                 : LocationParam.defaultCity;
-        final int dayOffset = initialCity.days();
 
         cityView.setText(initialCity.getName());
         cityView.setTag(initialCity);
-
-        refreshAll(rootView, initialCity, false);
+        currentLocation = initialCity;
 
         final List<LocationParam> allCities = CityDatasetLoader.load(getApplicationContext());
 
@@ -159,18 +200,20 @@ public class MainActivity extends AppCompatActivity {
                 new CitySearchDialog(MainActivity.this, allCities, new CitySearchDialog.OnCitySelectedListener() {
                     @Override
                     public void onCitySelected(LocationParam selected) {
-                        final LocationParam cityWithDay = selected.clone(dayOffset);
+                        final LocationParam cityWithDay = selected.clone(0);
                         cityView.setText(selected.getName());
                         cityView.setTag(cityWithDay);
+                        currentLocation = cityWithDay;
 
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                new LocationParamService(getApplicationContext()).saveIfNew(selected.clone(0));
+                                locationParamService.saveIfNew(selected.clone(0));
+                                locationParamService.updateSelected(cityWithDay);
                             }
                         }).start();
 
-                        refreshAll(rootView, cityWithDay, false);
+                        refreshOnUserIteration(false);
                     }
                 }).show();
             }
@@ -184,20 +227,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     public void refreshAll(View view, LocationParam cityCondition, boolean update) {
-
-        MoonController moonController = new MoonController(view,cityCondition);
+        MoonController moonController = new MoonController(view, cityCondition);
         ExtremesController extremesController = new ExtremesController(view, cityCondition);
         SeaConditionController seaConditionController = new SeaConditionController(view, cityCondition);
         WeatherController weatherController = new WeatherController(view, cityCondition);
 
         if (update) {
-            Toast.makeText(getApplicationContext(), getString(R.string.refreshing), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Atualizando: " + cityCondition.getTodayStr(), Toast.LENGTH_LONG).show();
             extremesController.update();
             seaConditionController.update();
             weatherController.update();
@@ -209,15 +250,18 @@ public class MainActivity extends AppCompatActivity {
         weatherController.request();
     }
 
+    public FragmentStatePagerAdapter getSectionsPagerAdapter() {
+        return mSectionsPagerAdapter;
+    }
+
+    public ViewPager getViewPager() {
+        return mViewPager;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Snackbar.make(this.mViewPager, "Ainda não implementado", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             return true;
@@ -231,50 +275,5 @@ public class MainActivity extends AppCompatActivity {
                 .setAction("Action", null).show();
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    @SuppressLint("ValidFragment")
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-
-        private List<LocationParam> cities;
-
-        @SuppressLint("ValidFragment")
-        public PlaceholderFragment(int sectionNumber, List<LocationParam> cities) {
-            this.cities =  cities;
-        }
-
-        public List<LocationParam> getCities() {
-            return cities;
-        }
-
-        public static PlaceholderFragment newInstance(int sectionNumber, List<LocationParam> cities) {
-            PlaceholderFragment fragment = new PlaceholderFragment(sectionNumber, cities);
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.sessionTitle));
-            int position = getArguments().getInt(ARG_SECTION_NUMBER);
-//                Toast.makeText(container.getContext(), "Session " + position, Toast.LENGTH_LONG).show();
-            MainActivity main = (MainActivity)this.getActivity();
-            PlaceholderFragment fragment = (PlaceholderFragment) main.mSectionsPagerAdapter.instantiateItem(main.mViewPager, position);
-            main.createCitySpinner(rootView, fragment.cities);
-            return rootView;
-        }
     }
 }

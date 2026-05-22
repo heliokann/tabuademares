@@ -14,7 +14,9 @@
       "PowerShell(Test-Path *)",
       "PowerShell(git checkout *)",
       "PowerShell(git merge *)",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "PowerShell(.\\\\gradlew.bat compileDebugJavaWithJavac 2>&1 | Where-Object { $_ -match \"error:|BUILD|What went wrong|Caused by\" } | Select-Object -First 40)",
+      "PowerShell($adb = \"C:\\\\Android\\\\sdk\\\\platform-tools\\\\adb.exe\"; & $adb devices)"
     ]
   }
 }

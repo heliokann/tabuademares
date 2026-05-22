@@ -117,6 +117,14 @@ public class SeaCondition {
 
     @Override
     public String toString() {
-        return "";
+        return city + ": " + date.toString();
+    }
+
+    public String getWindStr() {
+        return wind_dir  + ", " + wind + " nós";
+    }
+
+    public String getFullSwell() {
+        return sewll + ",  " + height + "m";
     }
 }
