@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String KEY_CURRENT_TAB = "current_tab";
 
+    static final long REFRESH_COOLDOWN_MS = 5000L;
+    private long lastRefreshAt = 0L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeHelper.applyTheme(this);
@@ -141,11 +144,27 @@ public class MainActivity extends AppCompatActivity {
         return current != null && selected.getName().equals(current.getName());
     }
 
+    static boolean isCooldownActive(long now, long lastRefreshAt, long cooldownMs) {
+        return now - lastRefreshAt < cooldownMs;
+    }
+
     private void createRefresh() {
-        ImageView refresh = (ImageView) findViewById(R.id.btn_refresh);
+        final ImageView refresh = (ImageView) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                long now = System.currentTimeMillis();
+                if (isCooldownActive(now, lastRefreshAt, REFRESH_COOLDOWN_MS)) {
+                    return;
+                }
+                lastRefreshAt = now;
+                refresh.setAlpha(0.4f);
+                refresh.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh.setAlpha(1.0f);
+                    }
+                }, REFRESH_COOLDOWN_MS);
                 refreshOnUserIteration(true);
             }
         });
