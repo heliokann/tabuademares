@@ -58,6 +58,7 @@ public class WeatherService extends BaseRequestService{
             JSONArray times = daily.getJSONArray("time");
             JSONArray codes = daily.getJSONArray("weathercode");
             JSONArray temperatures = daily.getJSONArray("temperature_2m_max");
+            JSONArray minTemperatures = daily.getJSONArray("temperature_2m_min");
             JSONArray windSpeeds = daily.getJSONArray("windspeed_10m_max");
             JSONArray windDirs = daily.getJSONArray("winddirection_10m_dominant");
 
@@ -67,6 +68,7 @@ public class WeatherService extends BaseRequestService{
                 LocalDate localDate = LocalDate.parse(times.getString(i));
                 int code = codes.getInt(i);
                 int temp = (int) temperatures.getDouble(i);
+                int minTemp = (int) minTemperatures.getDouble(i);
                 int speed = (int) Math.round(windSpeeds.getDouble(i));
                 int degree = windDirs.getInt(i);
                 String dir = degreesToCompass(degree);
@@ -77,11 +79,12 @@ public class WeatherService extends BaseRequestService{
                 weather.setLat(lat);
                 weather.setLon(lon);
                 weather.setTemperature(temp);
+                weather.setMinTemperature(minTemp);
                 weather.setWindSpeed(speed);
                 weather.setWindDegree(degree);
                 weather.setWindDir(dir);
                 weather.setCondition(parts[0]);
-                weather.setNarrative(parts[1] + " Máxima: " + temp + "°C. Vento " + dir + " a " + speed + " km/h.");
+                weather.setNarrative(buildNarrative(parts[1], temp, minTemp, dir, speed));
                 weather.setType("day");
                 weather.setDate(localDate.toDate());
                 weather.setTime(localDate.toDateTimeAtStartOfDay().toDate());
@@ -142,6 +145,10 @@ public class WeatherService extends BaseRequestService{
         return conditions;
 
 
+    }
+
+    public static String buildNarrative(String condition, int maxTemp, int minTemp, String windDir, int windSpeed) {
+        return condition + " Máxima: " + maxTemp + "°C. Mínima: " + minTemp + "°C. Vento " + windDir + " a " + windSpeed + " km/h.";
     }
 
     private void saveSeaCondiction(List<Weather> conditions) {

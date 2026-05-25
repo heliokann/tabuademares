@@ -22,7 +22,7 @@ import java.util.List;
 
 public class WeatherController {
 
-    private String baseUrl = "https://api.open-meteo.com/v1/forecast?daily=weathercode,temperature_2m_max,windspeed_10m_max,winddirection_10m_dominant&timezone=America/Sao_Paulo&forecast_days=3";
+    private String baseUrl = "https://api.open-meteo.com/v1/forecast?daily=weathercode,temperature_2m_max,temperature_2m_min,windspeed_10m_max,winddirection_10m_dominant&timezone=America/Sao_Paulo&forecast_days=3";
     private String url = baseUrl;
     private LocationParam city;
     public View rootView;
