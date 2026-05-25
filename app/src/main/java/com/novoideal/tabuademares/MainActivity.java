@@ -137,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(sections);
     }
 
+    static boolean isSameCity(LocationParam current, LocationParam selected) {
+        return current != null && selected.getName().equals(current.getName());
+    }
+
     private void createRefresh() {
         ImageView refresh = (ImageView) findViewById(R.id.btn_refresh);
         refresh.setOnClickListener(new View.OnClickListener() {
@@ -214,6 +218,9 @@ public class MainActivity extends AppCompatActivity {
                 new CitySearchDialog(MainActivity.this, allCities, new CitySearchDialog.OnCitySelectedListener() {
                     @Override
                     public void onCitySelected(LocationParam selected) {
+                        if (isSameCity(currentLocation, selected)) {
+                            return;
+                        }
                         final LocationParam cityWithDay = selected.clone(0);
                         cityView.setText(selected.getName());
                         cityView.setTag(cityWithDay);
