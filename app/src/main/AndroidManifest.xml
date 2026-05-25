@@ -31,6 +31,11 @@
             android:name=".activity.SearchLocation"
             android:label="@string/title_activity_search_location"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

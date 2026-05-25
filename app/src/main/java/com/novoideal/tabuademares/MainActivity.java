@@ -1,6 +1,7 @@
 package com.novoideal.tabuademares;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import com.novoideal.tabuademares.adapter.FragmentAdapter;
 import com.novoideal.tabuademares.controller.ExtremesController;
+import com.novoideal.tabuademares.settings.SettingsActivity;
+import com.novoideal.tabuademares.util.ThemeHelper;
 import com.novoideal.tabuademares.controller.MoonController;
 import com.novoideal.tabuademares.controller.SeaConditionController;
 import com.novoideal.tabuademares.controller.WeatherController;
@@ -51,8 +54,11 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout tabLayout;
 
+    private static final String KEY_CURRENT_TAB = "current_tab";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeHelper.applyTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -65,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         createRefresh();
         setupTabLayout();
+
+        if (savedInstanceState != null) {
+            mViewPager.setCurrentItem(savedInstanceState.getInt(KEY_CURRENT_TAB, 0));
+        }
 
         cleanBD();
     }
@@ -114,7 +124,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     @SuppressLint("MissingSuperCall")
     protected void onSaveInstanceState(Bundle outState) {
-        //No call for super(). Bug on API Level > 11.
+        // Intentionally no super() call — bug on API Level > 11.
+        if (mViewPager != null) {
+            outState.putInt(KEY_CURRENT_TAB, mViewPager.getCurrentItem());
+        }
     }
 
     private void createViewPager(FragmentStatePagerAdapter fragmentStatePagerAdapter) {
@@ -271,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Snackbar.make(this.mViewPager, "Ainda não implementado", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
         if (id == R.id.action_about) {
