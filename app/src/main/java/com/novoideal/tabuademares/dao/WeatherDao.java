@@ -28,7 +28,7 @@ import java.util.Map;
 public class WeatherDao extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "tabuaMares_weather.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Dao<Weather, Integer> dao = null;
     private RuntimeExceptionDao<Weather, Integer> runtimeDao = null;
