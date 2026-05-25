@@ -296,7 +296,7 @@ def merge(
 
 
 def sort_cities(cities: list[dict]) -> list[dict]:
-    return sorted(cities, key=lambda c: (c["state"], normalise(c["name"])))
+    return sorted(cities, key=lambda c: normalise(c["name"]))
 
 
 def bump_version(v: str) -> str:
