@@ -81,24 +81,29 @@ public class TabuadeMaresScraperService {
     }
 
     private Element findDayRow(Document doc, String dateStr) {
-        // Primary: tr with onclick="Day('yyyy-MM-dd')"
+        // The site uses Day('yyyy-MM-d') — no zero-padding on day/month — so try both formats.
+        // dateStr is always zero-padded (yyyy-MM-dd); also build the non-padded variant.
+        String dateStrNoPad = buildNoPadDate(dateStr);
+
         for (Element row : doc.select(CSS_ROW_ONCLICK)) {
-            if (row.attr("onclick").contains("Day('" + dateStr + "')")) {
+            String onclick = row.attr("onclick");
+            if (onclick.contains("Day('" + dateStr + "')") ||
+                onclick.contains("Day('" + dateStrNoPad + "')")) {
                 return row;
             }
         }
 
-        // Fallback: any element referencing the date, walk up to enclosing tr
-        Log.w(TAG, "Primary selector found no row for " + dateStr + ", trying fallback");
-        for (Element el : doc.select("[onclick*=" + dateStr + "], [href*=" + dateStr + "]")) {
-            Element row = el.tagName().equals("tr") ? el : el.closest("tr");
-            if (row != null) {
-                Log.d(TAG, "Fallback found row for date " + dateStr);
-                return row;
-            }
-        }
-
+        Log.w(TAG, "No row found for date " + dateStr + " (tried padded and unpadded variants)");
         return null;
+    }
+
+    private static String buildNoPadDate(String isoDate) {
+        // Site format is yyyy-MM-d: month zero-padded, day NOT zero-padded.
+        // Convert "2026-06-02" → "2026-06-2"
+        String[] parts = isoDate.split("-");
+        if (parts.length != 3) return isoDate;
+        int day = Integer.parseInt(parts[2]);
+        return parts[0] + "-" + parts[1] + "-" + day;
     }
 
     private void parseTideCells(Elements tds, List<ExtremeTide> result, LocalDate date, String cityName) {

@@ -24,6 +24,10 @@ public class TabuadeMaresScraperServiceTest {
                 + "</table></body></html>";
     }
 
+    private static String buildHtmlNoPad(String dateStrNoPad, String... tideCells) {
+        return buildHtml(dateStrNoPad, tideCells);
+    }
+
     private static String highTideCell(String time, String height) {
         return "<td class=\"tabla_mareas_marea\">"
                 + "<div class=\"tabla_mareas_marea_hora\">" + time + "</div>"
@@ -150,6 +154,19 @@ public class TabuadeMaresScraperServiceTest {
 
         assertEquals(1, result.size());
         assertEquals(18, result.get(0).getHour());
+    }
+
+    @Test
+    public void parse_noPaddedDate_matchesRow() {
+        // Site uses Day('yyyy-MM-d'): month zero-padded, day NOT zero-padded
+        LocalDate today = new LocalDate();
+        String todayPadded = today.toString("MM");
+        String noPad = today.getYear() + "-" + todayPadded + "-" + today.getDayOfMonth();
+        String html = buildHtmlNoPad(noPad, highTideCell("06:00", "1,2"));
+
+        List<ExtremeTide> result = SERVICE.parseFromHtml(html, cityForToday());
+
+        assertEquals(1, result.size());
     }
 
     // --- edge cases ---
