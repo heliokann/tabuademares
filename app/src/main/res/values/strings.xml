@@ -31,6 +31,8 @@
     <string name="title_activity_search_location">SearchLocation</string>
     <string name="no_tide_data_city">Dados de marés não disponíveis para esta cidade</string>
     <string name="no_tide_data_date">Sem dados de maré para esta data</string>
+    <string name="no_tide_data_scrape_error">Não foi possível carregar dados de maré</string>
+    <string name="retry_tide_data">Tentar novamente</string>
 
     <string name="title_activity_settings">Configurações</string>
     <string name="pref_theme_title">Tema</string>

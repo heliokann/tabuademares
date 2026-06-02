@@ -2,6 +2,7 @@ package com.novoideal.tabuademares.controller;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -74,6 +75,18 @@ public class ExtremesController {
         rootView.findViewById(R.id.grid_extreme).setVisibility(View.GONE);
         rootView.findViewById(R.id.layout_no_tide_data).setVisibility(View.VISIBLE);
         ((TextView) rootView.findViewById(R.id.tv_no_tide_data)).setText(message);
+        rootView.findViewById(R.id.btn_retry_tide).setVisibility(View.GONE);
+    }
+
+    public void showScrapeError(String message, Runnable onRetry) {
+        showNoTideData(message);
+        Button retryBtn = rootView.findViewById(R.id.btn_retry_tide);
+        retryBtn.setVisibility(View.VISIBLE);
+        retryBtn.setOnClickListener(v -> {
+            retryBtn.setVisibility(View.GONE);
+            clearGrid();
+            onRetry.run();
+        });
     }
 
     public LocationParam getCity() {
