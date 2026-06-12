@@ -66,6 +66,23 @@ public class LocationParamService {
         locationParamDao.updateSelected(currentLocation);
     }
 
+    /**
+     * Persiste a cidade (se nova) e a marca como selecionada usando o id real
+     * da linha no banco. Cidades vindas do dataset embarcado chegam com id 0;
+     * resolver a linha persistida evita marcar a seleção em "where id=0", que
+     * não atinge nenhuma linha. Retorna a linha persistida (com id real).
+     */
+    public LocationParam saveAndSelect(LocationParam city) {
+        saveIfNew(city);
+        LocationParam persisted = locationParamDao.findPersisted(city);
+        if (persisted != null) {
+            locationParamDao.updateSelected(persisted);
+            return persisted;
+        }
+        locationParamDao.updateSelected(city);
+        return city;
+    }
+
     public void touch(LocationParam city) {
         locationParamDao.touch(city);
     }

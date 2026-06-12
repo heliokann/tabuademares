@@ -103,6 +103,11 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
         return getRuntimeDao().queryForFieldValues(m);
     }
 
+    public LocationParam findPersisted(LocationParam city) {
+        List<LocationParam> rows = geLocationParams(city);
+        return (rows == null || rows.isEmpty()) ? null : rows.get(0);
+    }
+
     public boolean contains(LocationParam locationParam) {
         return getRuntimeDao().queryRawValue("select count(*) from locationParam where latitude=? and longetude=?",
                 ""+ locationParam.getLatitude(), ""+ locationParam.getLongetude()) > 0;

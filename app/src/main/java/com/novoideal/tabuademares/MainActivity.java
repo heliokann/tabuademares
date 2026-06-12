@@ -40,6 +40,7 @@ import org.joda.time.Hours;
 import org.joda.time.LocalDate;
 import org.joda.time.Minutes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.novoideal.tabuademares.ui.Fragment.PlaceholderFragment;
@@ -170,28 +171,39 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private int getSelectedPosition() {
-        int position = 0;
+    static int selectedPositionOf(List<LocationParam> locations) {
+        if (locations == null) {
+            return 0;
+        }
         for (int i = 0; i < locations.size(); i++) {
-            if (Boolean.TRUE.equals(locations.get(i).getSelected())) {
-                position = i;
-                break;
+            if (locations.get(i).getSelected()) {
+                return i;
             }
         }
-        return position;
+        return 0;
     }
 
     public FragmentStatePagerAdapter createFragmentAdapter() {
         if (locations == null) {
             locationParamService = new LocationParamService(getApplicationContext());
-            locations = locationParamService.geLocations();
-            if (locations.isEmpty()) {
-                locationParamService.saveIfNew(LocationParam.defaultCity);
+            try {
                 locations = locationParamService.geLocations();
+                if (locations == null || locations.isEmpty()) {
+                    locationParamService.saveIfNew(LocationParam.defaultCity);
+                    locations = locationParamService.geLocations();
+                }
+                int selectedPosition = selectedPositionOf(locations);
+                currentLocation = locations.get(selectedPosition);
+                createCitySpinner(locations, selectedPosition);
+            } catch (Exception e) {
+                // Falha ao restaurar a cidade salva: degrada para a cidade
+                // default sem propagar o erro para a UI (RF-004 / CS-005).
+                currentLocation = LocationParam.defaultCity;
+                if (locations == null) {
+                    locations = new ArrayList<>();
+                }
+                createCitySpinner(locations, selectedPositionOf(locations));
             }
-            int selectedPosition = getSelectedPosition();
-            currentLocation = locations.get(selectedPosition);
-            createCitySpinner(locations, selectedPosition);
         }
         return new FragmentAdapter(getSupportFragmentManager());
     }
@@ -202,7 +214,9 @@ public class MainActivity extends AppCompatActivity {
         TextView cityView = (TextView) findViewById(R.id.spin_city);
         if (cityView != null && cityView.getTag() != null) {
             currentLocation = (LocationParam) cityView.getTag();
-            locationParamService.updateSelected(currentLocation);
+            // A seleção é persistida em onCitySelected via saveAndSelect (com o
+            // id real da linha). Não regravar aqui evita zerar a flag selected
+            // usando um objeto com id 0 (corrida que desfazia a seleção).
         }
         for (Fragment fragment : getSupportFragmentManager().getFragments()) {
             if (fragment instanceof PlaceholderFragment && fragment.getView() != null) {
@@ -248,8 +262,12 @@ public class MainActivity extends AppCompatActivity {
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                locationParamService.saveIfNew(selected.clone(0));
-                                locationParamService.updateSelected(cityWithDay);
+                                LocationParam persisted = locationParamService.saveAndSelect(cityWithDay);
+                                if (persisted != null) {
+                                    // Adota o id real da linha para que operações
+                                    // por id (touch/getById) na sessão acertem a linha.
+                                    cityWithDay.setId(persisted.getId());
+                                }
                             }
                         }).start();
 
