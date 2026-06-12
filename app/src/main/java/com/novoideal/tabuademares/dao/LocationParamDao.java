@@ -11,6 +11,8 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.novoideal.tabuademares.model.LocationParam;
 
+import org.joda.time.DateTime;
+
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +25,7 @@ import java.util.Map;
 public class LocationParamDao extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "tabuaMares_location.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 5;
 
     private Dao<LocationParam, Integer> dao = null;
     private RuntimeExceptionDao<LocationParam, Integer> runtimeDao = null;
@@ -36,10 +38,8 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
             Log.i(LocationParamDao.class.getName(), "onCreate");
-            int create =  TableUtils.createTableIfNotExists(connectionSource, LocationParam.class);
+            int create = TableUtils.createTableIfNotExists(connectionSource, LocationParam.class);
             if (create > 0) {
-                LocationParam lp = new LocationParam(3464, 455891, "Niterói", 0, -22.909309, -43.072231);
-                addNew(lp);
                 addNew(LocationParam.defaultCity);
             }
         } catch (SQLException e) {
@@ -99,17 +99,27 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public List<LocationParam> geLocationParams(LocationParam city) {
         Map m = new HashMap();
         m.put("latitude", city.getLatitude());
-        m.put("longitude", city.getLongetude());
+        m.put("longetude", city.getLongetude());
         return getRuntimeDao().queryForFieldValues(m);
     }
 
+    public LocationParam findPersisted(LocationParam city) {
+        List<LocationParam> rows = geLocationParams(city);
+        return (rows == null || rows.isEmpty()) ? null : rows.get(0);
+    }
+
     public boolean contains(LocationParam locationParam) {
-        return getRuntimeDao().queryRawValue("select count(*) from locationParam where latitude=? and longitude=?",
+        return getRuntimeDao().queryRawValue("select count(*) from locationParam where latitude=? and longetude=?",
                 ""+ locationParam.getLatitude(), ""+ locationParam.getLongetude()) > 0;
     }
 
     public List<LocationParam> geLocationParams() {
         return getRuntimeDao().queryForAll();
+    }
+
+    public void touch(LocationParam city) {
+        getRuntimeDao().updateRaw("update locationParam set updated=? where id=?",
+                new DateTime().toString("yyyy-MM-dd HH:mm:ss.SSSSSS"), ""+city.getId());
     }
 
     public synchronized int updateExtremeParams(LocationParam city) {
@@ -120,5 +130,20 @@ public class LocationParamDao extends OrmLiteSqliteOpenHelper {
     public synchronized int updateWeatherParams(LocationParam city) {
         return getRuntimeDao().updateRaw("update locationParam set latWeather=?, longWeather=? where id=?",
                 city.getLatWeather().toString(), city.getLongWeather().toString(), "" + city.getId());
+    }
+
+    public synchronized int updateSeaConditionCode(LocationParam city) {
+        return getRuntimeDao().updateRaw("update locationParam set codeSeaCondition=? where id=?",
+                "" + city.getCodeSeaCondition(), "" + city.getId());
+    }
+
+    public LocationParam getById(LocationParam city) throws SQLException {
+        return getRuntimeDao().queryForId(city.getId());
+    }
+
+    public void updateSelected(LocationParam city) {
+        RuntimeExceptionDao dao = getRuntimeDao();
+        dao.updateRaw("update locationParam set selected=? where selected=?", "0", "1");
+        dao.updateRaw("update locationParam set selected=? where id=?", "1", "" + city.getId());
     }
 }

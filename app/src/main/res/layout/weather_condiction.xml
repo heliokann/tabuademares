@@ -1,0 +1,64 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:stretchColumns="0,1,2">
+
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/lbl_tide"
+            android:layout_span="3"
+            android:layout_width="match_parent"
+            style="@style/AppTheme.textTitleSection"
+            android:text="Tempo" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/weather_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/weather_partly_cloud" />
+
+        <ImageView
+            android:id="@+id/weather_moon_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/moon_gibous_decrescent" />
+
+        <ImageView
+            android:id="@+id/weather_wind_ic"
+            android:gravity="center"
+            android:tint="@color/weatherTint"
+            app:srcCompat="@drawable/weather_wind" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/weather_main"
+            style="@style/AppTheme.weatherText"
+            android:text="Ensolarado com pancadas de chuva de manhã" />
+
+        <TextView
+            android:id="@+id/moon_phase"
+            style="@style/AppTheme.weatherText"
+            android:text="Gibosa minguante" />
+
+        <TextView
+            android:id="@+id/weather_wind"
+            style="@style/AppTheme.weatherText"
+            android:text="Nordeste, 10km/h" />
+
+    </TableRow>
+</TableLayout>

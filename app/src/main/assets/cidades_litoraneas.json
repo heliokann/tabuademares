@@ -1,0 +1,3397 @@
+{
+  "version": "1.3",
+  "cities": [
+    {
+      "name": "Acaraú",
+      "state": "CE",
+      "lat": -2.829444,
+      "lng": -40.143611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/acarau"
+    },
+    {
+      "name": "Açu da Torre",
+      "state": "BA",
+      "lat": -12.558889,
+      "lng": -37.991389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/acu-da-torre"
+    },
+    {
+      "name": "Afuá",
+      "state": "AP",
+      "lat": -0.157222,
+      "lng": -50.3925,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/afua"
+    },
+    {
+      "name": "Água Doce do Maranhão",
+      "state": "MA",
+      "lat": -2.833889,
+      "lng": -42.121111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/agua-doce-do-maranhao"
+    },
+    {
+      "name": "Ajuruteua",
+      "state": "PA",
+      "lat": -0.83,
+      "lng": -46.603611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/ajuruteua"
+    },
+    {
+      "name": "Albatroz",
+      "state": "RS",
+      "lat": -29.907222,
+      "lng": -50.086389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/albatroz"
+    },
+    {
+      "name": "Alcântara",
+      "state": "MA",
+      "lat": -2.4175,
+      "lng": -44.406389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/alcantara"
+    },
+    {
+      "name": "Alcobaça",
+      "state": "BA",
+      "lat": -17.53,
+      "lng": -39.193333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/alcobaca"
+    },
+    {
+      "name": "Almofala",
+      "state": "CE",
+      "lat": -2.936944,
+      "lng": -39.829722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/almofala"
+    },
+    {
+      "name": "Alto Lagoa Funda",
+      "state": "ES",
+      "lat": -21.030833,
+      "lng": -40.811944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/alto-lagoa-funda"
+    },
+    {
+      "name": "Amapá",
+      "state": "AP",
+      "lat": 2.138056,
+      "lng": -50.675,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/amapa"
+    },
+    {
+      "name": "Amarela",
+      "state": "CE",
+      "lat": -2.893056,
+      "lng": -40.997778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/amarela"
+    },
+    {
+      "name": "Amorim",
+      "state": "PB",
+      "lat": -6.895556,
+      "lng": -34.875833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/amorim"
+    },
+    {
+      "name": "Ananindeua",
+      "state": "PA",
+      "lat": -1.336944,
+      "lng": -48.490278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/ananindeua"
+    },
+    {
+      "name": "Anchieta",
+      "state": "ES",
+      "lat": -20.8025,
+      "lng": -40.643611,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Angra dos Reis",
+      "state": "RJ",
+      "lat": -23.006667,
+      "lng": -44.318056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/angra-dos-reis"
+    },
+    {
+      "name": "Apicum-Açu",
+      "state": "MA",
+      "lat": -1.534167,
+      "lng": -45.087222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/apicum-acu"
+    },
+    {
+      "name": "Aquiraz",
+      "state": "CE",
+      "lat": -3.905556,
+      "lng": -38.3875,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/aquiraz"
+    },
+    {
+      "name": "Aracaju",
+      "state": "SE",
+      "lat": -10.947222,
+      "lng": -37.073056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/aracaju"
+    },
+    {
+      "name": "Aracati",
+      "state": "CE",
+      "lat": -4.561667,
+      "lng": -37.772778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/aracati"
+    },
+    {
+      "name": "Aracruz",
+      "state": "ES",
+      "lat": -19.818889,
+      "lng": -40.274167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/aracruz"
+    },
+    {
+      "name": "Araranguá",
+      "state": "SC",
+      "lat": -28.990278,
+      "lng": -49.413056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/ararangua"
+    },
+    {
+      "name": "Araruama",
+      "state": "RJ",
+      "lat": -22.874167,
+      "lng": -42.343889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/araruama"
+    },
+    {
+      "name": "Aratu",
+      "state": "BA",
+      "lat": -12.783333,
+      "lng": -38.5,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/aratu"
+    },
+    {
+      "name": "Aratuba",
+      "state": "BA",
+      "lat": -13.098611,
+      "lng": -38.75,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/aratuba"
+    },
+    {
+      "name": "Areia Branca",
+      "state": "RN",
+      "lat": -4.921389,
+      "lng": -37.0875,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/areia-branca"
+    },
+    {
+      "name": "Areias Alvas",
+      "state": "RN",
+      "lat": -4.900278,
+      "lng": -37.225278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/areias-alvas"
+    },
+    {
+      "name": "Arembepe",
+      "state": "BA",
+      "lat": -12.774444,
+      "lng": -38.1775,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/arembepe"
+    },
+    {
+      "name": "Arraial do Cabo",
+      "state": "RJ",
+      "lat": -22.971111,
+      "lng": -42.022778,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Arroio do Sal",
+      "state": "RS",
+      "lat": -29.552222,
+      "lng": -49.885278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/arroio-do-sal"
+    },
+    {
+      "name": "Aruana",
+      "state": "SE",
+      "lat": -11.028056,
+      "lng": -37.075833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/aruana"
+    },
+    {
+      "name": "Augusto Correa",
+      "state": "PA",
+      "lat": -0.955556,
+      "lng": -46.656111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/augusto-correa"
+    },
+    {
+      "name": "Bacupari",
+      "state": "RS",
+      "lat": -30.507778,
+      "lng": -50.386944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/bacupari"
+    },
+    {
+      "name": "Bagre",
+      "state": "PA",
+      "lat": -1.901389,
+      "lng": -50.211111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/bagre"
+    },
+    {
+      "name": "Bahia da Traiçao",
+      "state": "PB",
+      "lat": -6.681944,
+      "lng": -34.932778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/bahia-da-traicao"
+    },
+    {
+      "name": "Baía da Traição",
+      "state": "PB",
+      "lat": -6.651389,
+      "lng": -34.958333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/baia-da-traicao"
+    },
+    {
+      "name": "Baía de São Marcos",
+      "state": "MA",
+      "lat": -2.686667,
+      "lng": -44.480833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/baia-de-sao-marcos"
+    },
+    {
+      "name": "Baía Formosa",
+      "state": "RN",
+      "lat": -6.366944,
+      "lng": -35.005833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/baia-formosa"
+    },
+    {
+      "name": "Baía Paranaguá",
+      "state": "PR",
+      "lat": -25.517778,
+      "lng": -48.296389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/baia-paranagua"
+    },
+    {
+      "name": "Baixio",
+      "state": "BA",
+      "lat": -12.105,
+      "lng": -37.690556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/baixio"
+    },
+    {
+      "name": "Balneário Barra do Sul",
+      "state": "SC",
+      "lat": -26.462778,
+      "lng": -48.601667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/balneario-barra-do-sul"
+    },
+    {
+      "name": "Balneário Camboriú",
+      "state": "SC",
+      "lat": -26.990556,
+      "lng": -48.635,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Balneário Gaivota",
+      "state": "SC",
+      "lat": -29.157778,
+      "lng": -49.574167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/balneario-gaivota"
+    },
+    {
+      "name": "Balneario Mogiano",
+      "state": "SP",
+      "lat": -23.758333,
+      "lng": -45.856111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/balneario-mogiano"
+    },
+    {
+      "name": "Balneário Pinhal",
+      "state": "RS",
+      "lat": -30.248056,
+      "lng": -50.228889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/balneario-pinhal"
+    },
+    {
+      "name": "Balneário Rincão",
+      "state": "SC",
+      "lat": -28.833889,
+      "lng": -49.231111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/balneario-rincao"
+    },
+    {
+      "name": "Barbacena",
+      "state": "SC",
+      "lat": -28.427222,
+      "lng": -48.791667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/barbacena"
+    },
+    {
+      "name": "Barcarena",
+      "state": "PA",
+      "lat": -1.54,
+      "lng": -48.753333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/barcarena"
+    },
+    {
+      "name": "Barra",
+      "state": "RN",
+      "lat": -4.948889,
+      "lng": -37.146389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/barra"
+    },
+    {
+      "name": "Barra da Tijuca",
+      "state": "RJ",
+      "lat": -23.010278,
+      "lng": -43.366389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/barra-da-tijuca"
+    },
+    {
+      "name": "Barra de Camaratuba",
+      "state": "PB",
+      "lat": -6.593333,
+      "lng": -34.966111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/barra-de-camaratuba"
+    },
+    {
+      "name": "Barra de Gramame",
+      "state": "PB",
+      "lat": -7.223611,
+      "lng": -34.805,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/barra-de-gramame"
+    },
+    {
+      "name": "Barra de Santo Antonio",
+      "state": "AL",
+      "lat": -9.435833,
+      "lng": -35.485833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/barra-de-santo-antonio"
+    },
+    {
+      "name": "Barra de São Miguel",
+      "state": "AL",
+      "lat": -9.829167,
+      "lng": -35.881111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/barra-de-sao-miguel"
+    },
+    {
+      "name": "Barra do Açu",
+      "state": "RJ",
+      "lat": -21.897778,
+      "lng": -40.984722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/barra-do-acu"
+    },
+    {
+      "name": "Barra do Garcez",
+      "state": "BA",
+      "lat": -13.153056,
+      "lng": -38.831944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/barra-do-garcez"
+    },
+    {
+      "name": "Barra do Itariri",
+      "state": "BA",
+      "lat": -11.950556,
+      "lng": -37.604444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/barra-do-itariri"
+    },
+    {
+      "name": "Barra do Riacho",
+      "state": "ES",
+      "lat": -19.838333,
+      "lng": -40.056667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/barra-do-riacho"
+    },
+    {
+      "name": "Barra Grande",
+      "state": "PI",
+      "lat": -2.908611,
+      "lng": -41.410278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/piaui/barra-grande"
+    },
+    {
+      "name": "Barra Nova",
+      "state": "CE",
+      "lat": -4.1,
+      "lng": -38.153611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/barra-nova"
+    },
+    {
+      "name": "Barra Nova",
+      "state": "ES",
+      "lat": -18.950833,
+      "lng": -39.736389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/barra-nova"
+    },
+    {
+      "name": "Barra Sêca",
+      "state": "ES",
+      "lat": -19.100556,
+      "lng": -39.720278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/barra-seca"
+    },
+    {
+      "name": "Barra Velha",
+      "state": "SC",
+      "lat": -26.636111,
+      "lng": -48.68,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/barra-velha"
+    },
+    {
+      "name": "Barreiras",
+      "state": "RN",
+      "lat": -5.083889,
+      "lng": -36.500278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/barreiras"
+    },
+    {
+      "name": "Barreirinhas",
+      "state": "MA",
+      "lat": -2.548611,
+      "lng": -42.75,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/barreirinhas"
+    },
+    {
+      "name": "Barreiros",
+      "state": "PE",
+      "lat": -8.806944,
+      "lng": -35.110833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/barreiros"
+    },
+    {
+      "name": "Beberibe",
+      "state": "CE",
+      "lat": -4.149444,
+      "lng": -38.114167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/beberibe"
+    },
+    {
+      "name": "Belém",
+      "state": "PA",
+      "lat": -1.455833,
+      "lng": -48.504444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/belem"
+    },
+    {
+      "name": "Belmonte",
+      "state": "BA",
+      "lat": -15.856389,
+      "lng": -38.875,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/belmonte"
+    },
+    {
+      "name": "Bertioga",
+      "state": "SP",
+      "lat": -23.85,
+      "lng": -46.138611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/bertioga"
+    },
+    {
+      "name": "Bitupitá",
+      "state": "CE",
+      "lat": -2.8925,
+      "lng": -41.273333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/bitupita"
+    },
+    {
+      "name": "Boa Viagem",
+      "state": "PE",
+      "lat": -8.133056,
+      "lng": -34.901667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/boa-viagem"
+    },
+    {
+      "name": "Boa Vista",
+      "state": "ES",
+      "lat": -19.444167,
+      "lng": -39.718611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/boa-vista"
+    },
+    {
+      "name": "Boa Vista",
+      "state": "PA",
+      "lat": -0.813056,
+      "lng": -47.026111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/boa-vista"
+    },
+    {
+      "name": "Bojuru",
+      "state": "RS",
+      "lat": -31.655278,
+      "lng": -51.397778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/bojuru"
+    },
+    {
+      "name": "Bom Jardim",
+      "state": "BA",
+      "lat": -17.9875,
+      "lng": -39.481389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/bom-jardim"
+    },
+    {
+      "name": "Bombinhas",
+      "state": "SC",
+      "lat": -27.140556,
+      "lng": -48.513611,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Boracéia",
+      "state": "SP",
+      "lat": -23.756944,
+      "lng": -45.82,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/boraceia"
+    },
+    {
+      "name": "Bracuí",
+      "state": "RJ",
+      "lat": -22.946111,
+      "lng": -44.400278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/bracui"
+    },
+    {
+      "name": "Brasília",
+      "state": "BA",
+      "lat": -16.861389,
+      "lng": -39.141667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/brasilia"
+    },
+    {
+      "name": "Breves",
+      "state": "PA",
+      "lat": -1.691667,
+      "lng": -50.483333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/breves"
+    },
+    {
+      "name": "Búzios",
+      "state": "RJ",
+      "lat": -22.747778,
+      "lng": -41.882222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/armacao-dos-buzios"
+    },
+    {
+      "name": "Cabedelo",
+      "state": "PB",
+      "lat": -6.981389,
+      "lng": -34.833611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/cabedelo"
+    },
+    {
+      "name": "Cabo Cassipore",
+      "state": "AP",
+      "lat": 3.912778,
+      "lng": -51.096389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/cabo-cassipore"
+    },
+    {
+      "name": "Cabo Frio",
+      "state": "RJ",
+      "lat": -22.87944,
+      "lng": -42.018608,
+      "cptecCode": 1059,
+      "tabuademaresPath": "/br/rio-de-janeiro/cabo-frio"
+    },
+    {
+      "name": "Caí",
+      "state": "BA",
+      "lat": -17.004167,
+      "lng": -39.169444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/cai"
+    },
+    {
+      "name": "Caiçara do Norte",
+      "state": "RN",
+      "lat": -5.067222,
+      "lng": -36.050278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/caicara-do-norte"
+    },
+    {
+      "name": "Cajapió",
+      "state": "MA",
+      "lat": -2.884167,
+      "lng": -44.642778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/cajapio"
+    },
+    {
+      "name": "Cajueiro da Praia",
+      "state": "PI",
+      "lat": -2.920278,
+      "lng": -41.328889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/piaui/cajueiro-da-praia"
+    },
+    {
+      "name": "Calçoene",
+      "state": "AP",
+      "lat": 2.508889,
+      "lng": -50.806944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/calcoene"
+    },
+    {
+      "name": "Camamu",
+      "state": "BA",
+      "lat": -13.921389,
+      "lng": -39.040833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/camamu"
+    },
+    {
+      "name": "Camburí",
+      "state": "SP",
+      "lat": -23.780278,
+      "lng": -45.651667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/camburi"
+    },
+    {
+      "name": "Camocim",
+      "state": "CE",
+      "lat": -2.904444,
+      "lng": -40.841389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/camocim"
+    },
+    {
+      "name": "Campina",
+      "state": "PB",
+      "lat": -6.8175,
+      "lng": -34.909722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/campina"
+    },
+    {
+      "name": "Campos dos Goytacazes",
+      "state": "RJ",
+      "lat": -21.8425,
+      "lng": -40.984167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/campos-dos-goytacazes"
+    },
+    {
+      "name": "Camurupim",
+      "state": "PB",
+      "lat": -6.745556,
+      "lng": -34.943056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/camurupim"
+    },
+    {
+      "name": "Canal de Galheta",
+      "state": "PR",
+      "lat": -25.574722,
+      "lng": -48.33,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/canal-de-galheta"
+    },
+    {
+      "name": "Cananéia",
+      "state": "SP",
+      "lat": -25.016667,
+      "lng": -47.933333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/cananeia"
+    },
+    {
+      "name": "Canárias",
+      "state": "MA",
+      "lat": -2.766111,
+      "lng": -41.849444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/canarias"
+    },
+    {
+      "name": "Canavieiras",
+      "state": "BA",
+      "lat": -15.666667,
+      "lng": -38.933333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/canavieiras"
+    },
+    {
+      "name": "Cândido Mendes",
+      "state": "MA",
+      "lat": -1.358611,
+      "lng": -45.646944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/candido-mendes"
+    },
+    {
+      "name": "Canguaretama",
+      "state": "RN",
+      "lat": -6.325833,
+      "lng": -35.025,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/canguaretama"
+    },
+    {
+      "name": "Capão da Canoa",
+      "state": "RS",
+      "lat": -29.742778,
+      "lng": -50.017222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/capao-da-canoa"
+    },
+    {
+      "name": "Capão Novo",
+      "state": "RS",
+      "lat": -29.680833,
+      "lng": -49.971944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/capao-novo"
+    },
+    {
+      "name": "Caponga",
+      "state": "CE",
+      "lat": -4.040278,
+      "lng": -38.196667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/caponga"
+    },
+    {
+      "name": "Caraguatatuba",
+      "state": "SP",
+      "lat": -23.621111,
+      "lng": -45.412778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/caraguatatuba"
+    },
+    {
+      "name": "Caraíva",
+      "state": "BA",
+      "lat": -16.800833,
+      "lng": -39.143056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/caraiva"
+    },
+    {
+      "name": "Caravelas",
+      "state": "BA",
+      "lat": -17.736944,
+      "lng": -39.260833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/caravelas"
+    },
+    {
+      "name": "Carnaubal",
+      "state": "PI",
+      "lat": -2.922778,
+      "lng": -41.545556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/piaui/carnaubal"
+    },
+    {
+      "name": "Carnaubeira",
+      "state": "MA",
+      "lat": -2.833889,
+      "lng": -41.963889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/carnaubeira"
+    },
+    {
+      "name": "Carne de Vaca",
+      "state": "PE",
+      "lat": -7.572222,
+      "lng": -34.831389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/carne-de-vaca"
+    },
+    {
+      "name": "Carrapatal",
+      "state": "MA",
+      "lat": -2.374722,
+      "lng": -43.658611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/carrapatal"
+    },
+    {
+      "name": "Carutapera",
+      "state": "MA",
+      "lat": -1.165556,
+      "lng": -45.938889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/carutapera"
+    },
+    {
+      "name": "Castelhanos",
+      "state": "SP",
+      "lat": -23.851944,
+      "lng": -45.286944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/castelhanos"
+    },
+    {
+      "name": "Caueira",
+      "state": "SE",
+      "lat": -11.216667,
+      "lng": -37.201389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/caueira"
+    },
+    {
+      "name": "Cedral",
+      "state": "MA",
+      "lat": -2.009167,
+      "lng": -44.532222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/cedral"
+    },
+    {
+      "name": "Chaves",
+      "state": "AP",
+      "lat": -0.163056,
+      "lng": -49.982778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/chaves"
+    },
+    {
+      "name": "Cidreira",
+      "state": "RS",
+      "lat": -30.179444,
+      "lng": -50.202778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/cidreira"
+    },
+    {
+      "name": "Coassu",
+      "state": "CE",
+      "lat": -2.848056,
+      "lng": -40.033056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/coassu"
+    },
+    {
+      "name": "Colares",
+      "state": "PA",
+      "lat": -0.934722,
+      "lng": -48.298056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/colares"
+    },
+    {
+      "name": "Conceição da Barra",
+      "state": "ES",
+      "lat": -18.589167,
+      "lng": -39.729722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/conceicao-da-barra"
+    },
+    {
+      "name": "Conceição de Jacareí",
+      "state": "RJ",
+      "lat": -23.0325,
+      "lng": -44.161111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/conceicao-de-jacarei"
+    },
+    {
+      "name": "Conde",
+      "state": "BA",
+      "lat": -11.814444,
+      "lng": -37.556667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/conde"
+    },
+    {
+      "name": "Congo",
+      "state": "BA",
+      "lat": -12.235278,
+      "lng": -37.769444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/congo"
+    },
+    {
+      "name": "Córguinho",
+      "state": "CE",
+      "lat": -2.816389,
+      "lng": -40.400278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/corguinho"
+    },
+    {
+      "name": "Coruripe",
+      "state": "AL",
+      "lat": -10.189722,
+      "lng": -36.169722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/coruripe"
+    },
+    {
+      "name": "Cotovelo",
+      "state": "RN",
+      "lat": -5.959722,
+      "lng": -35.147778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/cotovelo"
+    },
+    {
+      "name": "Cumuruxatiba",
+      "state": "BA",
+      "lat": -17.098056,
+      "lng": -39.190278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/cumuruxatiba"
+    },
+    {
+      "name": "Cunani",
+      "state": "AP",
+      "lat": 2.871667,
+      "lng": -50.961389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/cunani"
+    },
+    {
+      "name": "Curralinho",
+      "state": "PA",
+      "lat": -1.816667,
+      "lng": -49.798889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/curralinho"
+    },
+    {
+      "name": "Curuça",
+      "state": "PA",
+      "lat": -0.659444,
+      "lng": -47.841389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/curuca"
+    },
+    {
+      "name": "Curumim",
+      "state": "RS",
+      "lat": -29.627222,
+      "lng": -49.935,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/curumim"
+    },
+    {
+      "name": "Cururu",
+      "state": "RN",
+      "lat": -6.113056,
+      "lng": -35.1,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/cururu"
+    },
+    {
+      "name": "Cururupe",
+      "state": "BA",
+      "lat": -14.877778,
+      "lng": -39.023333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/cururupe"
+    },
+    {
+      "name": "Cururupu",
+      "state": "MA",
+      "lat": -1.787222,
+      "lng": -44.782778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/cururupu"
+    },
+    {
+      "name": "Diogo Lopes",
+      "state": "RN",
+      "lat": -5.088056,
+      "lng": -36.457222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/diogo-lopes"
+    },
+    {
+      "name": "Doutor Edgardo Pereira Velho",
+      "state": "RS",
+      "lat": -30.738333,
+      "lng": -50.519167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/doutor-edgardo-pereira-velho"
+    },
+    {
+      "name": "Duque de Caxias",
+      "state": "RJ",
+      "lat": -22.793333,
+      "lng": -43.268056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/duque-de-caxias"
+    },
+    {
+      "name": "Enseada",
+      "state": "SP",
+      "lat": -23.4925,
+      "lng": -45.091111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/enseada"
+    },
+    {
+      "name": "Enseada da Pinheira",
+      "state": "SC",
+      "lat": -27.867222,
+      "lng": -48.601389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/enseada-da-pinheira"
+    },
+    {
+      "name": "Estância",
+      "state": "SE",
+      "lat": -11.325833,
+      "lng": -37.282222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/estancia"
+    },
+    {
+      "name": "Estreito",
+      "state": "RS",
+      "lat": -31.841111,
+      "lng": -51.733611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/estreito"
+    },
+    {
+      "name": "Feliz Deserto",
+      "state": "AL",
+      "lat": -10.299722,
+      "lng": -36.290833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/feliz-deserto"
+    },
+    {
+      "name": "Fernandes Belo",
+      "state": "PA",
+      "lat": -1.091389,
+      "lng": -46.308611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/fernandes-belo"
+    },
+    {
+      "name": "Fernando de Noronha",
+      "state": "PE",
+      "lat": -3.854722,
+      "lng": -32.429722,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Florianópolis",
+      "state": "SC",
+      "lat": -27.595417,
+      "lng": -48.548056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/florianopolis"
+    },
+    {
+      "name": "Fontainha",
+      "state": "CE",
+      "lat": -4.617222,
+      "lng": -37.600556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/fontainha"
+    },
+    {
+      "name": "Fortaleza",
+      "state": "CE",
+      "lat": -3.717222,
+      "lng": -38.543333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/fortaleza"
+    },
+    {
+      "name": "Gado Bravo",
+      "state": "RN",
+      "lat": -4.866111,
+      "lng": -37.233611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/gado-bravo"
+    },
+    {
+      "name": "Galinhos",
+      "state": "RN",
+      "lat": -5.0925,
+      "lng": -36.274444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/galinhos"
+    },
+    {
+      "name": "Gamela",
+      "state": "PE",
+      "lat": -8.668056,
+      "lng": -35.08,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/gamela"
+    },
+    {
+      "name": "Garca Torta",
+      "state": "AL",
+      "lat": -9.586111,
+      "lng": -35.661944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/garca-torta"
+    },
+    {
+      "name": "Gargaú",
+      "state": "RJ",
+      "lat": -21.578056,
+      "lng": -41.056389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/gargau"
+    },
+    {
+      "name": "Garopaba",
+      "state": "SC",
+      "lat": -28.027778,
+      "lng": -48.618333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/garopaba"
+    },
+    {
+      "name": "Garopaba do Sul",
+      "state": "SC",
+      "lat": -28.634722,
+      "lng": -48.898056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/garopaba-do-sul"
+    },
+    {
+      "name": "Goiana",
+      "state": "PE",
+      "lat": -7.686667,
+      "lng": -34.855,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/goiana"
+    },
+    {
+      "name": "Grussaí",
+      "state": "RJ",
+      "lat": -21.699722,
+      "lng": -41.025,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/grussai"
+    },
+    {
+      "name": "Guaibim",
+      "state": "BA",
+      "lat": -13.288333,
+      "lng": -38.963611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/guaibim"
+    },
+    {
+      "name": "Guaiú",
+      "state": "BA",
+      "lat": -16.139722,
+      "lng": -38.955556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/guaiu"
+    },
+    {
+      "name": "Guajiru",
+      "state": "RN",
+      "lat": -5.071944,
+      "lng": -35.949722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/guajiru"
+    },
+    {
+      "name": "Guamaré",
+      "state": "RN",
+      "lat": -5.105,
+      "lng": -36.318333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/guamare"
+    },
+    {
+      "name": "Guarajuba",
+      "state": "BA",
+      "lat": -12.651389,
+      "lng": -38.067222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/guarajuba"
+    },
+    {
+      "name": "Guarapari",
+      "state": "ES",
+      "lat": -20.674167,
+      "lng": -40.498611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/guarapari"
+    },
+    {
+      "name": "Guaratiba",
+      "state": "RJ",
+      "lat": -23.006111,
+      "lng": -43.6275,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/guaratiba"
+    },
+    {
+      "name": "Guaratuba",
+      "state": "PR",
+      "lat": -25.883333,
+      "lng": -48.575,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/guaratuba"
+    },
+    {
+      "name": "Guarujá",
+      "state": "SP",
+      "lat": -23.993056,
+      "lng": -46.256944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/guaruja"
+    },
+    {
+      "name": "Guimarães",
+      "state": "MA",
+      "lat": -2.136389,
+      "lng": -44.598889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/guimaraes"
+    },
+    {
+      "name": "Ibiraquera",
+      "state": "SC",
+      "lat": -28.129722,
+      "lng": -48.641389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/ibiraquera"
+    },
+    {
+      "name": "Icapara",
+      "state": "SP",
+      "lat": -24.686111,
+      "lng": -47.462778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/icapara"
+    },
+    {
+      "name": "Icapuí",
+      "state": "CE",
+      "lat": -4.683056,
+      "lng": -37.347222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/icapui"
+    },
+    {
+      "name": "Icaraí",
+      "state": "CE",
+      "lat": -3.026389,
+      "lng": -39.6475,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/icarai"
+    },
+    {
+      "name": "Igrapiúna",
+      "state": "BA",
+      "lat": -13.888056,
+      "lng": -39.013889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/igrapiuna"
+    },
+    {
+      "name": "Iguaba Grande",
+      "state": "RJ",
+      "lat": -22.844444,
+      "lng": -42.23,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Iguape",
+      "state": "SP",
+      "lat": -24.712222,
+      "lng": -47.556389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/iguape"
+    },
+    {
+      "name": "Ilha Comprida",
+      "state": "SP",
+      "lat": -24.848333,
+      "lng": -47.69,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/ilha-comprida"
+    },
+    {
+      "name": "Ilha de Comandatuba",
+      "state": "BA",
+      "lat": -15.360833,
+      "lng": -38.977222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/ilha-de-comandatuba"
+    },
+    {
+      "name": "Ilha do Mosqueiro",
+      "state": "PA",
+      "lat": -1.165,
+      "lng": -48.475,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/ilha-do-mosqueiro"
+    },
+    {
+      "name": "Ilha Guaíba",
+      "state": "RJ",
+      "lat": -22.994722,
+      "lng": -44.03,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/ilha-guaiba"
+    },
+    {
+      "name": "Ilha Irmaos",
+      "state": "MA",
+      "lat": -1.116944,
+      "lng": -45.861111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/ilha-irmaos"
+    },
+    {
+      "name": "Ilhabela",
+      "state": "SP",
+      "lat": -23.778889,
+      "lng": -45.358333,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Ilhéus",
+      "state": "BA",
+      "lat": -14.788056,
+      "lng": -39.049444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/ilheus"
+    },
+    {
+      "name": "Imbassaí",
+      "state": "BA",
+      "lat": -12.494167,
+      "lng": -37.956111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/imbassai"
+    },
+    {
+      "name": "Imbé",
+      "state": "RS",
+      "lat": -30.01,
+      "lng": -50.127778,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Imbituba",
+      "state": "SC",
+      "lat": -28.235833,
+      "lng": -48.673611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/imbituba"
+    },
+    {
+      "name": "Ipioca",
+      "state": "AL",
+      "lat": -9.507778,
+      "lng": -35.585833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/ipioca"
+    },
+    {
+      "name": "Ipojuca",
+      "state": "PE",
+      "lat": -8.560278,
+      "lng": -35.015556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/ipojuca"
+    },
+    {
+      "name": "Itabapoana",
+      "state": "ES",
+      "lat": -21.300833,
+      "lng": -40.959444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/itabapoana"
+    },
+    {
+      "name": "Itacaré",
+      "state": "BA",
+      "lat": -14.275,
+      "lng": -38.995556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itacare"
+    },
+    {
+      "name": "Itacuruçá",
+      "state": "RJ",
+      "lat": -22.929167,
+      "lng": -43.905833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/itacuruca"
+    },
+    {
+      "name": "Itaguaí",
+      "state": "RJ",
+      "lat": -22.938333,
+      "lng": -43.847222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/itaguai"
+    },
+    {
+      "name": "Itajaí",
+      "state": "SC",
+      "lat": -26.907778,
+      "lng": -48.665833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/itajai"
+    },
+    {
+      "name": "Itamaracá",
+      "state": "PE",
+      "lat": -7.752778,
+      "lng": -34.821111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/itamaraca"
+    },
+    {
+      "name": "Itanagra",
+      "state": "BA",
+      "lat": -12.440833,
+      "lng": -37.919722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itanagra"
+    },
+    {
+      "name": "Itanhaém",
+      "state": "SP",
+      "lat": -24.183333,
+      "lng": -46.783333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/itanhaem"
+    },
+    {
+      "name": "Itaoca",
+      "state": "ES",
+      "lat": -20.901944,
+      "lng": -40.776944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/itaoca"
+    },
+    {
+      "name": "Itaparica",
+      "state": "BA",
+      "lat": -12.890833,
+      "lng": -38.666667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itaparica"
+    },
+    {
+      "name": "Itapecerica",
+      "state": "BA",
+      "lat": -13.203333,
+      "lng": -38.8975,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itapecerica"
+    },
+    {
+      "name": "Itapema",
+      "state": "SC",
+      "lat": -27.096944,
+      "lng": -48.614444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/itapema"
+    },
+    {
+      "name": "Itapoá",
+      "state": "SC",
+      "lat": -26.069167,
+      "lng": -48.607778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/itapoa"
+    },
+    {
+      "name": "Itaquena",
+      "state": "BA",
+      "lat": -16.692778,
+      "lng": -39.105,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itaquena"
+    },
+    {
+      "name": "Itarema",
+      "state": "CE",
+      "lat": -2.879722,
+      "lng": -39.888611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/itarema"
+    },
+    {
+      "name": "Itaúnas",
+      "state": "ES",
+      "lat": -18.422222,
+      "lng": -39.699444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/itaunas"
+    },
+    {
+      "name": "Ituberá",
+      "state": "BA",
+      "lat": -13.748611,
+      "lng": -38.996944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/itubera"
+    },
+    {
+      "name": "Jabaquara",
+      "state": "RJ",
+      "lat": -23.206667,
+      "lng": -44.717222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/jabaquara"
+    },
+    {
+      "name": "Jaboatão dos Guararapes",
+      "state": "PE",
+      "lat": -8.199722,
+      "lng": -34.913611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/jaboatao-dos-guararapes"
+    },
+    {
+      "name": "Jacaúna",
+      "state": "CE",
+      "lat": -3.943056,
+      "lng": -38.296389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/jacauna"
+    },
+    {
+      "name": "Jacumã",
+      "state": "PB",
+      "lat": -7.277222,
+      "lng": -34.800278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/jacum"
+    },
+    {
+      "name": "Jaguaruna",
+      "state": "SC",
+      "lat": -28.688333,
+      "lng": -49.001111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/jaguaruna"
+    },
+    {
+      "name": "Japaratinga",
+      "state": "AL",
+      "lat": -9.089722,
+      "lng": -35.256944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/japaratinga"
+    },
+    {
+      "name": "Jardim Atlântico",
+      "state": "ES",
+      "lat": -20.14,
+      "lng": -40.181667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/jardim-atlantico"
+    },
+    {
+      "name": "Jardim Campomar",
+      "state": "RJ",
+      "lat": -22.534167,
+      "lng": -41.959722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/jardim-campomar"
+    },
+    {
+      "name": "Jardim Do Éden",
+      "state": "RS",
+      "lat": -30.064444,
+      "lng": -50.1575,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/jardim-do-eden"
+    },
+    {
+      "name": "Jequiá da Praia",
+      "state": "AL",
+      "lat": -10.014722,
+      "lng": -36.010278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/jequia-da-praia"
+    },
+    {
+      "name": "Jericoacoara",
+      "state": "CE",
+      "lat": -2.795556,
+      "lng": -40.5125,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/jijoca-de-jericoacoara"
+    },
+    {
+      "name": "João Pessoa",
+      "state": "PB",
+      "lat": -7.119444,
+      "lng": -34.845,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/joao-pessoa"
+    },
+    {
+      "name": "Joinville",
+      "state": "SC",
+      "lat": -26.286389,
+      "lng": -48.721667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/joinville"
+    },
+    {
+      "name": "Juqueí",
+      "state": "SP",
+      "lat": -23.769722,
+      "lng": -45.733056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/juquei"
+    },
+    {
+      "name": "Lagoa Do Pau",
+      "state": "AL",
+      "lat": -10.131111,
+      "lng": -36.111944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/lagoa-do-pau"
+    },
+    {
+      "name": "Lagoa do Sal",
+      "state": "RN",
+      "lat": -5.150278,
+      "lng": -35.538889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/lagoa-do-sal"
+    },
+    {
+      "name": "Lagoinha",
+      "state": "CE",
+      "lat": -3.346944,
+      "lng": -39.135833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/lagoinha"
+    },
+    {
+      "name": "Lagoinha",
+      "state": "SP",
+      "lat": -23.519722,
+      "lng": -45.197222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/lagoinha"
+    },
+    {
+      "name": "Laguna",
+      "state": "SC",
+      "lat": -28.481944,
+      "lng": -48.781389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/laguna"
+    },
+    {
+      "name": "Lauro de Freitas",
+      "state": "BA",
+      "lat": -12.885278,
+      "lng": -38.2725,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/lauro-de-freitas"
+    },
+    {
+      "name": "Loteamento Costa do Sol",
+      "state": "SP",
+      "lat": -23.773333,
+      "lng": -45.936389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/loteamento-costa-do-sol"
+    },
+    {
+      "name": "Luís Correia",
+      "state": "PI",
+      "lat": -2.880556,
+      "lng": -41.665833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/piaui/luis-correia"
+    },
+    {
+      "name": "Luís Domingues",
+      "state": "MA",
+      "lat": -1.268333,
+      "lng": -45.862778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/luis-domingues"
+    },
+    {
+      "name": "Macaé",
+      "state": "RJ",
+      "lat": -22.370556,
+      "lng": -41.787222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/macae"
+    },
+    {
+      "name": "Macapá",
+      "state": "AP",
+      "lat": -0.0349,
+      "lng": -51.0694,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/macapa"
+    },
+    {
+      "name": "Macau",
+      "state": "RN",
+      "lat": -5.105833,
+      "lng": -36.651111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/macau"
+    },
+    {
+      "name": "Maceió",
+      "state": "AL",
+      "lat": -9.665833,
+      "lng": -35.735,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/maceio"
+    },
+    {
+      "name": "Maceió",
+      "state": "CE",
+      "lat": -2.892222,
+      "lng": -40.955278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/maceio"
+    },
+    {
+      "name": "Madre de Deus",
+      "state": "BA",
+      "lat": -12.744167,
+      "lng": -38.625278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/madre-de-deus"
+    },
+    {
+      "name": "Magé",
+      "state": "RJ",
+      "lat": -22.691389,
+      "lng": -43.071667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/mage"
+    },
+    {
+      "name": "Mangaratiba",
+      "state": "RJ",
+      "lat": -22.959444,
+      "lng": -44.045833,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Mangue Secco",
+      "state": "BA",
+      "lat": -11.453333,
+      "lng": -37.346667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/mangue-secco"
+    },
+    {
+      "name": "Mangue Seco",
+      "state": "BA",
+      "lat": -11.696944,
+      "lng": -37.49,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/mangue-seco"
+    },
+    {
+      "name": "Manguinhos",
+      "state": "RJ",
+      "lat": -21.400278,
+      "lng": -40.998889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/manguinhos"
+    },
+    {
+      "name": "Maracajaú",
+      "state": "RN",
+      "lat": -5.411389,
+      "lng": -35.309444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/maracajau"
+    },
+    {
+      "name": "Maragogi",
+      "state": "AL",
+      "lat": -9.009722,
+      "lng": -35.215,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/maragogi"
+    },
+    {
+      "name": "Maranduba",
+      "state": "SP",
+      "lat": -23.541944,
+      "lng": -45.228889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/maranduba"
+    },
+    {
+      "name": "Marapanim",
+      "state": "PA",
+      "lat": -0.682222,
+      "lng": -47.631944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/marapanim"
+    },
+    {
+      "name": "Marataízes",
+      "state": "ES",
+      "lat": -21.042778,
+      "lng": -40.825278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/marataizes"
+    },
+    {
+      "name": "Maraú",
+      "state": "BA",
+      "lat": -14.107778,
+      "lng": -38.965833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/marau"
+    },
+    {
+      "name": "Marechal Deodoro",
+      "state": "AL",
+      "lat": -9.706389,
+      "lng": -35.896111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/marechal-deodoro"
+    },
+    {
+      "name": "Maresias",
+      "state": "SP",
+      "lat": -23.793889,
+      "lng": -45.559722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/maresias"
+    },
+    {
+      "name": "Maria Farinha",
+      "state": "PE",
+      "lat": -7.855833,
+      "lng": -34.835833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/maria-farinha"
+    },
+    {
+      "name": "Mariápolis",
+      "state": "RS",
+      "lat": -29.860556,
+      "lng": -50.065,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/mariapolis"
+    },
+    {
+      "name": "Maricá",
+      "state": "RJ",
+      "lat": -22.918333,
+      "lng": -42.818333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/marica"
+    },
+    {
+      "name": "Marobá",
+      "state": "ES",
+      "lat": -21.192222,
+      "lng": -40.927778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/maroba"
+    },
+    {
+      "name": "Marujá",
+      "state": "SP",
+      "lat": -25.2125,
+      "lng": -47.993056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/maruja"
+    },
+    {
+      "name": "Massaguaçu",
+      "state": "SP",
+      "lat": -23.592222,
+      "lng": -45.338056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/massaguacu"
+    },
+    {
+      "name": "Mata",
+      "state": "BA",
+      "lat": -13.441944,
+      "lng": -38.897778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/mata"
+    },
+    {
+      "name": "Mata de São João",
+      "state": "BA",
+      "lat": -12.583611,
+      "lng": -38.013056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/mata-de-sao-joao"
+    },
+    {
+      "name": "Matinhos",
+      "state": "PR",
+      "lat": -25.821389,
+      "lng": -48.546111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/matinhos"
+    },
+    {
+      "name": "Maxaranguape",
+      "state": "RN",
+      "lat": -5.516667,
+      "lng": -35.261944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/maxaranguape"
+    },
+    {
+      "name": "Miramar",
+      "state": "MA",
+      "lat": -1.504167,
+      "lng": -45.356389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/miramar"
+    },
+    {
+      "name": "Moitas",
+      "state": "CE",
+      "lat": -3.006111,
+      "lng": -39.689722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/moitas"
+    },
+    {
+      "name": "Mongaguá",
+      "state": "SP",
+      "lat": -24.087778,
+      "lng": -46.626667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/mongagua"
+    },
+    {
+      "name": "Morro de São Paulo",
+      "state": "BA",
+      "lat": -13.38,
+      "lng": -38.913333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/morro-de-sao-paulo"
+    },
+    {
+      "name": "Morro dos Martins",
+      "state": "RN",
+      "lat": -5.099722,
+      "lng": -35.760833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/morro-dos-martins"
+    },
+    {
+      "name": "Mosqueiro",
+      "state": "SE",
+      "lat": -11.1375,
+      "lng": -37.151944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/mosqueiro"
+    },
+    {
+      "name": "Mostardas",
+      "state": "RS",
+      "lat": -31.133056,
+      "lng": -50.846111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/mostardas"
+    },
+    {
+      "name": "Mota",
+      "state": "PA",
+      "lat": -0.618889,
+      "lng": -47.413611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/mota"
+    },
+    {
+      "name": "Mucuri",
+      "state": "BA",
+      "lat": -18.090833,
+      "lng": -39.546389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/mucuri"
+    },
+    {
+      "name": "Mundaú",
+      "state": "CE",
+      "lat": -3.181389,
+      "lng": -39.375833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/mundau"
+    },
+    {
+      "name": "Natal",
+      "state": "RN",
+      "lat": -5.794444,
+      "lng": -35.211111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/natal"
+    },
+    {
+      "name": "Navegantes",
+      "state": "SC",
+      "lat": -26.898889,
+      "lng": -48.654444,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Niterói",
+      "state": "RJ",
+      "lat": -22.909309,
+      "lng": -43.072231,
+      "cptecCode": 3464,
+      "tabuademaresPath": "/br/rio-de-janeiro/niteroi"
+    },
+    {
+      "name": "Nova Almeida",
+      "state": "ES",
+      "lat": -20.055833,
+      "lng": -40.189444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/nova-almeida"
+    },
+    {
+      "name": "Nova Viçosa",
+      "state": "BA",
+      "lat": -17.902222,
+      "lng": -39.358889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/nova-vicosa"
+    },
+    {
+      "name": "Olinda",
+      "state": "PE",
+      "lat": -7.993611,
+      "lng": -34.850833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/olinda"
+    },
+    {
+      "name": "Olivença",
+      "state": "BA",
+      "lat": -14.950556,
+      "lng": -39.008056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/olivenca"
+    },
+    {
+      "name": "Pacatuba",
+      "state": "SE",
+      "lat": -10.580278,
+      "lng": -36.595278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/pacatuba"
+    },
+    {
+      "name": "Paracambuca",
+      "state": "CE",
+      "lat": -3.6,
+      "lng": -38.77,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/paracambuca"
+    },
+    {
+      "name": "Paracuru",
+      "state": "CE",
+      "lat": -3.4025,
+      "lng": -39.037778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/paracuru"
+    },
+    {
+      "name": "Paranaguá",
+      "state": "PR",
+      "lat": -25.520278,
+      "lng": -48.508889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/paranagua"
+    },
+    {
+      "name": "Paraty",
+      "state": "RJ",
+      "lat": -23.2175,
+      "lng": -44.713056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/paraty"
+    },
+    {
+      "name": "Parnaíba",
+      "state": "PI",
+      "lat": -2.906111,
+      "lng": -41.776944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/piaui/parnaiba"
+    },
+    {
+      "name": "Parque das Dunas",
+      "state": "RN",
+      "lat": -5.828333,
+      "lng": -35.181944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/parque-das-dunas"
+    },
+    {
+      "name": "Paulino Neves",
+      "state": "MA",
+      "lat": -2.721389,
+      "lng": -42.541944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/paulino-neves"
+    },
+    {
+      "name": "Paulista",
+      "state": "PE",
+      "lat": -7.923056,
+      "lng": -34.820278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/paulista"
+    },
+    {
+      "name": "Pé da Serra",
+      "state": "RN",
+      "lat": -4.948056,
+      "lng": -36.885,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/pe-da-serra"
+    },
+    {
+      "name": "Pecém",
+      "state": "CE",
+      "lat": -3.535,
+      "lng": -38.798333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/pecem"
+    },
+    {
+      "name": "Pedra Grande",
+      "state": "RN",
+      "lat": -5.071111,
+      "lng": -35.848889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/pedra-grande"
+    },
+    {
+      "name": "Pedras",
+      "state": "CE",
+      "lat": -3.085,
+      "lng": -39.541111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/pedras"
+    },
+    {
+      "name": "Peruíbe",
+      "state": "SP",
+      "lat": -24.318889,
+      "lng": -47.0025,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/peruibe"
+    },
+    {
+      "name": "Piaçabuçu",
+      "state": "AL",
+      "lat": -10.419722,
+      "lng": -36.429444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/piacabucu"
+    },
+    {
+      "name": "Piçarras",
+      "state": "SC",
+      "lat": -26.770833,
+      "lng": -48.661667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/picarras"
+    },
+    {
+      "name": "Picinguaba",
+      "state": "SP",
+      "lat": -23.378056,
+      "lng": -44.838056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/picinguaba"
+    },
+    {
+      "name": "Pirambu",
+      "state": "SE",
+      "lat": -10.738056,
+      "lng": -36.846389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/pirambu"
+    },
+    {
+      "name": "Piriá",
+      "state": "PA",
+      "lat": -1.679444,
+      "lng": -50.047778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/piria"
+    },
+    {
+      "name": "Pitimbu",
+      "state": "PB",
+      "lat": -7.476389,
+      "lng": -34.799444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/pitimbu"
+    },
+    {
+      "name": "Pititinga",
+      "state": "RN",
+      "lat": -5.378889,
+      "lng": -35.336389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/pititinga"
+    },
+    {
+      "name": "Piúma",
+      "state": "ES",
+      "lat": -20.848611,
+      "lng": -40.729167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/piuma"
+    },
+    {
+      "name": "Ponta da Cruz",
+      "state": "BA",
+      "lat": -13.055556,
+      "lng": -38.689167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/ponta-da-cruz"
+    },
+    {
+      "name": "Ponta de Matos",
+      "state": "PB",
+      "lat": -6.969444,
+      "lng": -34.845556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/ponta-de-matos"
+    },
+    {
+      "name": "Ponta de Pedras",
+      "state": "PE",
+      "lat": -7.627778,
+      "lng": -34.803889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/ponta-de-pedras"
+    },
+    {
+      "name": "Ponta do Félix",
+      "state": "PR",
+      "lat": -25.455,
+      "lng": -48.678333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/ponta-do-felix"
+    },
+    {
+      "name": "Ponta do Ubu",
+      "state": "ES",
+      "lat": -20.786667,
+      "lng": -40.57,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/ponta-do-ubu"
+    },
+    {
+      "name": "Ponta Negra",
+      "state": "PA",
+      "lat": -1.6275,
+      "lng": -49.224444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/ponta-negra"
+    },
+    {
+      "name": "Ponta Negra",
+      "state": "RN",
+      "lat": -5.878889,
+      "lng": -35.1725,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/ponta-negra"
+    },
+    {
+      "name": "Pontal de Maceió",
+      "state": "CE",
+      "lat": -4.400556,
+      "lng": -37.781667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/pontal-de-maceio"
+    },
+    {
+      "name": "Pontal do Paraná",
+      "state": "PR",
+      "lat": -25.561944,
+      "lng": -48.503889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/pontal-do-parana"
+    },
+    {
+      "name": "Pontal do Peba",
+      "state": "AL",
+      "lat": -10.354722,
+      "lng": -36.294167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/pontal-do-peba"
+    },
+    {
+      "name": "Ponto do Mangue",
+      "state": "AL",
+      "lat": -8.933056,
+      "lng": -35.164444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/ponta-do-mangue"
+    },
+    {
+      "name": "Porto Belo",
+      "state": "SC",
+      "lat": -27.157222,
+      "lng": -48.553611,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Porto Canoa",
+      "state": "CE",
+      "lat": -4.538056,
+      "lng": -37.684722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/porto-canoa"
+    },
+    {
+      "name": "Porto da Praia",
+      "state": "PA",
+      "lat": -0.671667,
+      "lng": -47.199722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/porto-da-praia"
+    },
+    {
+      "name": "Pôrto das Cabras",
+      "state": "SE",
+      "lat": -10.833333,
+      "lng": -36.928333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/sergipe/porto-das-cabras"
+    },
+    {
+      "name": "Porto de Galinhas",
+      "state": "PE",
+      "lat": -8.502778,
+      "lng": -35.003889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/porto-de-galinhas"
+    },
+    {
+      "name": "Porto de Pedras",
+      "state": "AL",
+      "lat": -9.163056,
+      "lng": -35.294722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/porto-de-pedras"
+    },
+    {
+      "name": "Porto de Sauipe",
+      "state": "BA",
+      "lat": -12.374167,
+      "lng": -37.868611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/porto-de-sauipe"
+    },
+    {
+      "name": "Porto do Itaqui",
+      "state": "MA",
+      "lat": -2.576667,
+      "lng": -44.37,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/porto-do-itaqui"
+    },
+    {
+      "name": "Porto do Mangue",
+      "state": "RN",
+      "lat": -5.067778,
+      "lng": -36.778056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/porto-do-mangue"
+    },
+    {
+      "name": "Porto Frade",
+      "state": "RJ",
+      "lat": -22.975278,
+      "lng": -44.434444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/porto-frade"
+    },
+    {
+      "name": "Porto Rico do Maranhão",
+      "state": "MA",
+      "lat": -1.911944,
+      "lng": -44.617778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/porto-rico-do-maranhao"
+    },
+    {
+      "name": "Porto Seguro",
+      "state": "BA",
+      "lat": -16.45,
+      "lng": -39.066667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/porto-seguro"
+    },
+    {
+      "name": "Portogalo",
+      "state": "RJ",
+      "lat": -23.038333,
+      "lng": -44.198889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/portogalo"
+    },
+    {
+      "name": "Poxim",
+      "state": "AL",
+      "lat": -10.062222,
+      "lng": -36.040833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/poxim"
+    },
+    {
+      "name": "Poxim do Sul",
+      "state": "BA",
+      "lat": -15.441111,
+      "lng": -38.960833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/poxim-do-sul"
+    },
+    {
+      "name": "Prado",
+      "state": "BA",
+      "lat": -17.335556,
+      "lng": -39.2175,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/prado"
+    },
+    {
+      "name": "Praia da Ferrugem",
+      "state": "SC",
+      "lat": -28.076389,
+      "lng": -48.625278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/praia-ferrugem"
+    },
+    {
+      "name": "Praia de Cumbuco",
+      "state": "CE",
+      "lat": -3.627778,
+      "lng": -38.727778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/praia-de-cumbuco"
+    },
+    {
+      "name": "Praia de Massarandupió",
+      "state": "BA",
+      "lat": -12.324722,
+      "lng": -37.836111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/praia-de-massarandupio"
+    },
+    {
+      "name": "Praia de Pipa",
+      "state": "RN",
+      "lat": -6.228056,
+      "lng": -35.045833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/praia-de-pipa"
+    },
+    {
+      "name": "Praia de Tambaba",
+      "state": "PB",
+      "lat": -7.364722,
+      "lng": -34.7975,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/praia-de-tambaba"
+    },
+    {
+      "name": "Praia do Atlantico",
+      "state": "BA",
+      "lat": -13.124167,
+      "lng": -38.795,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/praia-do-atlantico"
+    },
+    {
+      "name": "Praia do Sagi",
+      "state": "RN",
+      "lat": -6.465556,
+      "lng": -34.972222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/praia-do-sagi"
+    },
+    {
+      "name": "Praia Formosa",
+      "state": "ES",
+      "lat": -19.998611,
+      "lng": -40.146944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/praia-formosa"
+    },
+    {
+      "name": "Praia Grande",
+      "state": "SP",
+      "lat": -24.005833,
+      "lng": -46.403056,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Praia Paraíso",
+      "state": "RS",
+      "lat": -29.439167,
+      "lng": -49.800556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/praia-paraiso"
+    },
+    {
+      "name": "Praia Sababa",
+      "state": "MA",
+      "lat": -1.351667,
+      "lng": -45.3425,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/praia-sababa"
+    },
+    {
+      "name": "Prainha de Mambucaba",
+      "state": "RJ",
+      "lat": -23.044722,
+      "lng": -44.572778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/prainha-de-mambucaba"
+    },
+    {
+      "name": "Pratigi",
+      "state": "BA",
+      "lat": -13.537222,
+      "lng": -38.931667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/pratigi"
+    },
+    {
+      "name": "Preá",
+      "state": "CE",
+      "lat": -2.82,
+      "lng": -40.416389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/prea"
+    },
+    {
+      "name": "Primeira Cruz",
+      "state": "MA",
+      "lat": -2.515833,
+      "lng": -43.4575,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/primeira-cruz"
+    },
+    {
+      "name": "Prumirim",
+      "state": "SP",
+      "lat": -23.379167,
+      "lng": -44.957222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/prumirim"
+    },
+    {
+      "name": "Purumim",
+      "state": "RS",
+      "lat": -29.734444,
+      "lng": -49.997778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/purumim"
+    },
+    {
+      "name": "Quatipuru",
+      "state": "PA",
+      "lat": -0.897222,
+      "lng": -47.003333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/quatipuru"
+    },
+    {
+      "name": "Quintão",
+      "state": "RS",
+      "lat": -30.340278,
+      "lng": -50.266667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/quintao"
+    },
+    {
+      "name": "Quixabá",
+      "state": "CE",
+      "lat": -4.571389,
+      "lng": -37.656389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/quixaba"
+    },
+    {
+      "name": "Recife",
+      "state": "PE",
+      "lat": -8.047611,
+      "lng": -34.876972,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/recife"
+    },
+    {
+      "name": "Recreio dos Bandeirantes",
+      "state": "RJ",
+      "lat": -23.030278,
+      "lng": -43.466667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/recreio-dos-bandeirantes"
+    },
+    {
+      "name": "Redonda",
+      "state": "CE",
+      "lat": -4.651667,
+      "lng": -37.467778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/redonda"
+    },
+    {
+      "name": "Regência",
+      "state": "ES",
+      "lat": -19.659167,
+      "lng": -39.814167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/regencia"
+    },
+    {
+      "name": "Rio Amazonas (Ponta do Céu)",
+      "state": "AP",
+      "lat": 0.7175,
+      "lng": -50.087222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/rio-amazonas-ponta-do-ceu"
+    },
+    {
+      "name": "Rio de Janeiro",
+      "state": "RJ",
+      "lat": -22.906847,
+      "lng": -43.172897,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/rio-de-janeiro"
+    },
+    {
+      "name": "Rio do Fogo",
+      "state": "RN",
+      "lat": -5.271667,
+      "lng": -35.381389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/rio-do-fogo"
+    },
+    {
+      "name": "Rio Grande",
+      "state": "RS",
+      "lat": -32.034722,
+      "lng": -52.098611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/porto-do-rio-grande"
+    },
+    {
+      "name": "Rio Tinto",
+      "state": "PB",
+      "lat": -6.772778,
+      "lng": -34.936111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/paraiba/rio-tinto"
+    },
+    {
+      "name": "Rondinha",
+      "state": "RS",
+      "lat": -29.500556,
+      "lng": -49.848611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/rondinha"
+    },
+    {
+      "name": "Roteiro",
+      "state": "AL",
+      "lat": -9.865,
+      "lng": -35.904444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/roteiro"
+    },
+    {
+      "name": "Sabiaguaba",
+      "state": "CE",
+      "lat": -3.806111,
+      "lng": -38.416389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/sabiaguaba"
+    },
+    {
+      "name": "Sahy",
+      "state": "RJ",
+      "lat": -22.939444,
+      "lng": -43.994444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/sahy"
+    },
+    {
+      "name": "Salgado",
+      "state": "MA",
+      "lat": -2.677778,
+      "lng": -43.871389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/salgado"
+    },
+    {
+      "name": "Salinópolis",
+      "state": "PA",
+      "lat": -0.613889,
+      "lng": -47.356944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/salinopolis"
+    },
+    {
+      "name": "Salvador",
+      "state": "BA",
+      "lat": -12.971111,
+      "lng": -38.510833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/salvador"
+    },
+    {
+      "name": "Sambaituba",
+      "state": "BA",
+      "lat": -14.658889,
+      "lng": -39.070278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/sambaituba"
+    },
+    {
+      "name": "Santa Cruz Cabrália",
+      "state": "BA",
+      "lat": -16.283333,
+      "lng": -39.033333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/santa-cruz-cabralia"
+    },
+    {
+      "name": "Santa Isabel",
+      "state": "RN",
+      "lat": -5.099722,
+      "lng": -36.150278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/santa-isabel"
+    },
+    {
+      "name": "Santana",
+      "state": "AP",
+      "lat": -0.095,
+      "lng": -51.145833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/santana"
+    },
+    {
+      "name": "Santo André",
+      "state": "BA",
+      "lat": -16.190278,
+      "lng": -38.971111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/santo-andre"
+    },
+    {
+      "name": "Santos",
+      "state": "SP",
+      "lat": -23.960833,
+      "lng": -46.334167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/santos"
+    },
+    {
+      "name": "São Caetano de Odivelas",
+      "state": "PA",
+      "lat": -0.715833,
+      "lng": -48.013611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/so-caetano-de-odivelas"
+    },
+    {
+      "name": "São Francisco de Itabapoana",
+      "state": "RJ",
+      "lat": -21.480833,
+      "lng": -41.058333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/so-francisco-de-itabapoana"
+    },
+    {
+      "name": "São Francisco do Sul",
+      "state": "SC",
+      "lat": -26.242778,
+      "lng": -48.638056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/sao-francisco-do-sul"
+    },
+    {
+      "name": "São Gonzalo",
+      "state": "RJ",
+      "lat": -22.824444,
+      "lng": -43.078889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/sao-gonzalo"
+    },
+    {
+      "name": "São João da Barra",
+      "state": "RJ",
+      "lat": -21.633889,
+      "lng": -41.014444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/sao-joao-da-barra"
+    },
+    {
+      "name": "São Joao de Pirabas",
+      "state": "PA",
+      "lat": -0.758056,
+      "lng": -47.165278,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/so-joao-de-pirabas"
+    },
+    {
+      "name": "São José",
+      "state": "RN",
+      "lat": -5.136667,
+      "lng": -35.575,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/sao-jose"
+    },
+    {
+      "name": "São José da Coroa Grande",
+      "state": "PE",
+      "lat": -8.897778,
+      "lng": -35.143056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/sao-jose-da-coroa-grande"
+    },
+    {
+      "name": "São José de Ribamar",
+      "state": "MA",
+      "lat": -2.570278,
+      "lng": -44.043611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/so-jose-de-ribamar"
+    },
+    {
+      "name": "São Luís",
+      "state": "MA",
+      "lat": -2.536389,
+      "lng": -44.280556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/sao-luis"
+    },
+    {
+      "name": "São Mateus",
+      "state": "ES",
+      "lat": -18.707222,
+      "lng": -39.741111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/so-mateus"
+    },
+    {
+      "name": "São Miguel do Gostoso",
+      "state": "RN",
+      "lat": -5.124167,
+      "lng": -35.641667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/sao-miguel-do-gostoso"
+    },
+    {
+      "name": "São Miguel dos Milagres",
+      "state": "AL",
+      "lat": -9.283333,
+      "lng": -35.533333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/alagoas/sao-miguel-dos-milagres"
+    },
+    {
+      "name": "São Pedro da Aldeia",
+      "state": "RJ",
+      "lat": -22.8425,
+      "lng": -42.101667,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "São Roque",
+      "state": "RJ",
+      "lat": -23.074722,
+      "lng": -44.688333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/sao-roque"
+    },
+    {
+      "name": "São Sebastião",
+      "state": "SP",
+      "lat": -23.796111,
+      "lng": -45.406111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/sao-sebastiao"
+    },
+    {
+      "name": "São Sebastião da Boa Vista - State of Pará",
+      "state": "PA",
+      "lat": -1.723611,
+      "lng": -49.534444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/sao-sebastiao-da-boa-vista-state-of-para"
+    },
+    {
+      "name": "São Simão",
+      "state": "RS",
+      "lat": -30.930833,
+      "lng": -50.708056,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/sao-simao"
+    },
+    {
+      "name": "Saquarema",
+      "state": "RJ",
+      "lat": -22.920278,
+      "lng": -42.509722,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/saquarema"
+    },
+    {
+      "name": "Sepetiba",
+      "state": "RJ",
+      "lat": -22.975278,
+      "lng": -43.709167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/sepetiba"
+    },
+    {
+      "name": "Serebinho",
+      "state": "BA",
+      "lat": -11.738056,
+      "lng": -37.510556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/serebinho"
+    },
+    {
+      "name": "Shangrila",
+      "state": "PR",
+      "lat": -25.624722,
+      "lng": -48.416667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/parana/shangrila"
+    },
+    {
+      "name": "Sibaúma",
+      "state": "RN",
+      "lat": -6.275556,
+      "lng": -35.035,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/sibauma"
+    },
+    {
+      "name": "Sirinhaém",
+      "state": "PE",
+      "lat": -8.616944,
+      "lng": -35.051389,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/sirinhaem"
+    },
+    {
+      "name": "Sítio Bode",
+      "state": "CE",
+      "lat": -3.1375,
+      "lng": -39.480833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/sitio-bode"
+    },
+    {
+      "name": "Suape",
+      "state": "PE",
+      "lat": -8.398333,
+      "lng": -34.96,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/suape"
+    },
+    {
+      "name": "Tabatinga",
+      "state": "RN",
+      "lat": -6.066944,
+      "lng": -35.097778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/tabatinga"
+    },
+    {
+      "name": "Tabatinga",
+      "state": "SP",
+      "lat": -23.576667,
+      "lng": -45.276111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/tabatinga"
+    },
+    {
+      "name": "Taboleiro",
+      "state": "CE",
+      "lat": -2.815556,
+      "lng": -40.283611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/taboleiro"
+    },
+    {
+      "name": "Tabuba",
+      "state": "CE",
+      "lat": -3.652222,
+      "lng": -38.7025,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/tabuba"
+    },
+    {
+      "name": "Taiba",
+      "state": "CE",
+      "lat": -3.508333,
+      "lng": -38.895833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/taiba"
+    },
+    {
+      "name": "Tamandaré",
+      "state": "PE",
+      "lat": -8.751389,
+      "lng": -35.103889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/pernambuco/tamandare"
+    },
+    {
+      "name": "Tatajuba",
+      "state": "CE",
+      "lat": -2.859444,
+      "lng": -40.689444,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/tatajuba"
+    },
+    {
+      "name": "Tavares",
+      "state": "RS",
+      "lat": -31.335556,
+      "lng": -51.031667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/tavares"
+    },
+    {
+      "name": "Tibau",
+      "state": "RN",
+      "lat": -4.825833,
+      "lng": -37.247778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/tibau"
+    },
+    {
+      "name": "Tibau do Sul",
+      "state": "RN",
+      "lat": -6.183889,
+      "lng": -35.087222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/tibau-do-sul"
+    },
+    {
+      "name": "Tijucas",
+      "state": "SC",
+      "lat": -27.244722,
+      "lng": -48.614167,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/santa-catarina/tijucas"
+    },
+    {
+      "name": "Torres",
+      "state": "RS",
+      "lat": -29.338889,
+      "lng": -49.727778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/torres"
+    },
+    {
+      "name": "Tortuga",
+      "state": "SP",
+      "lat": -23.990556,
+      "lng": -46.192222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/tortuga"
+    },
+    {
+      "name": "Touros",
+      "state": "RN",
+      "lat": -5.2,
+      "lng": -35.458889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-norte/touros"
+    },
+    {
+      "name": "Trairi",
+      "state": "CE",
+      "lat": -3.2225,
+      "lng": -39.238333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/trairi"
+    },
+    {
+      "name": "Tramandaí",
+      "state": "RS",
+      "lat": -29.986944,
+      "lng": -50.13,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/tramandai"
+    },
+    {
+      "name": "Trancoso",
+      "state": "BA",
+      "lat": -16.5975,
+      "lng": -39.090833,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/trancoso"
+    },
+    {
+      "name": "Tubarão",
+      "state": "ES",
+      "lat": -20.296389,
+      "lng": -40.248333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/tubarao"
+    },
+    {
+      "name": "Turiaçu",
+      "state": "MA",
+      "lat": -1.663056,
+      "lng": -45.353333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/turiacu"
+    },
+    {
+      "name": "Tutóia",
+      "state": "MA",
+      "lat": -2.7625,
+      "lng": -42.272222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/tutoia"
+    },
+    {
+      "name": "Ubatuba",
+      "state": "SP",
+      "lat": -23.433611,
+      "lng": -45.083611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/so-paulo/ubatuba"
+    },
+    {
+      "name": "Una",
+      "state": "BA",
+      "lat": -15.231667,
+      "lng": -38.993333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/una"
+    },
+    {
+      "name": "Uruaú",
+      "state": "CE",
+      "lat": -4.222222,
+      "lng": -38.042778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/ceara/uruau"
+    },
+    {
+      "name": "Uruçuca",
+      "state": "BA",
+      "lat": -14.461667,
+      "lng": -39.023333,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/urucuca"
+    },
+    {
+      "name": "Valença",
+      "state": "BA",
+      "lat": -13.370278,
+      "lng": -38.983056,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Valha-me-Dous",
+      "state": "MA",
+      "lat": -1.441389,
+      "lng": -44.876111,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/maranhao/valha-me-dous"
+    },
+    {
+      "name": "Velha Boipeba",
+      "state": "BA",
+      "lat": -13.586389,
+      "lng": -38.913611,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/bahia/velha-boipeba"
+    },
+    {
+      "name": "Vera Cruz",
+      "state": "BA",
+      "lat": -12.957222,
+      "lng": -38.68,
+      "cptecCode": 0,
+      "tabuademaresPath": ""
+    },
+    {
+      "name": "Vigia",
+      "state": "PA",
+      "lat": -0.846944,
+      "lng": -48.146944,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/vigia"
+    },
+    {
+      "name": "Vila Velha",
+      "state": "AP",
+      "lat": 3.2775,
+      "lng": -51.057222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/amapa/vila-velha"
+    },
+    {
+      "name": "Vila Velha",
+      "state": "ES",
+      "lat": -20.329722,
+      "lng": -40.292222,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/vila-velha"
+    },
+    {
+      "name": "Viseu",
+      "state": "PA",
+      "lat": -1.18,
+      "lng": -46.096667,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/para/viseu"
+    },
+    {
+      "name": "Vitória",
+      "state": "ES",
+      "lat": -20.315556,
+      "lng": -40.312778,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/espirito-santo/vitoria"
+    },
+    {
+      "name": "Xangri-Lá",
+      "state": "RS",
+      "lat": -29.803889,
+      "lng": -50.033889,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-grande-do-sul/xangri-la"
+    },
+    {
+      "name": "Xexé",
+      "state": "RJ",
+      "lat": -21.985,
+      "lng": -40.980556,
+      "cptecCode": 0,
+      "tabuademaresPath": "/br/rio-de-janeiro/xexe"
+    }
+  ]
+}

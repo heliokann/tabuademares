@@ -1,45 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:isScrollContainer="true"
     android:fitsSystemWindows="true"
+    android:isScrollContainer="true"
     tools:context="com.novoideal.tabuademares.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/toolbar_height"
             android:background="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
+            android:theme="@style/AppTheme.Toolbar"
+            app:titleTextAppearance="@style/AppTheme.Toolbar.Title"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-        </android.support.v7.widget.Toolbar>
+            <ImageView
+                android:id="@+id/img_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_marginRight="@dimen/refresh_marginRight"
+                app:srcCompat="@drawable/ic_logo" />
 
-    </android.support.design.widget.AppBarLayout>
+            <LinearLayout
+                android:id="@+id/city_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp">
 
-    <android.support.v4.view.ViewPager
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_location_pin"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/spin_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="180dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_arrow_drop_down"
+                    android:layout_marginStart="2dp" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_layout_height"
+            android:background="@drawable/tab_layout"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="@color/tabIndicatorColor"
+            app:tabSelectedTextColor="@color/tabSelectedTextColor"
+            app:tabTextColor="@color/tabTextColor" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/container_view_marginBottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/stat_notify_sync" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/font_panel_height"
+        android:background="@color/fontPanelBackground"
+        android:layout_gravity="bottom|center">
 
-</android.support.design.widget.CoordinatorLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            style="@style/AppTheme.textFontFamily"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="@dimen/font_marginLeft"
+            android:textColor="@color/fontTextColor"
+            android:text="@string/font_references"
+            android:textSize="@dimen/font_textSize" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_refresh"
+                style="@style/AppTheme.textFontFamily"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="@dimen/font_date_marginRight"
+                android:text="12/12/2017"
+                android:textColor="@color/fontTextColor"
+                android:textSize="@dimen/font_dateSize" />
+
+            <ImageView
+                android:id="@+id/btn_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="@dimen/refresh_marginRight"
+                android:tint="@color/fontTextColor"
+                app:srcCompat="@drawable/refresh" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

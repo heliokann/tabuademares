@@ -35,9 +35,20 @@ public class LocationParam {
     private Double latWeather;
     @DatabaseField
     private Double longWeather;
+    @DatabaseField
+    private Date updated;
+    @DatabaseField
+    private boolean selected;
+    @DatabaseField
+    private String tabuademaresPath;
     private int days = 0;
 
-    public static final LocationParam defaultCity = new LocationParam(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
+    public static final LocationParam defaultCity;
+
+    static {
+        defaultCity = new LocationParam(1059, 426480, "Cabo Frio", 0, -22.87944, -42.018608);
+        defaultCity.tabuademaresPath = "/br/rio-de-janeiro/cabo-frio";
+    }
 
     public LocationParam() {
 
@@ -155,13 +166,18 @@ public class LocationParam {
         clone.longExtreme = this.longExtreme;
         clone.latWeather = this.latWeather;
         clone.longWeather = this.longWeather;
+        clone.tabuademaresPath = this.tabuademaresPath;
         return clone;
     }
 
 
     @Override
     public String toString() {
-        return name + " - " + new DateTime(getDate()).toString("dd/MM/yyyy");
+        return name;// + " - " + new DateTime(getDate()).toString("dd/MM/yyyy");
+    }
+
+    public String getTodayStr() {
+        return new DateTime(getDate()).toString("dd/MM/yyyy");
     }
 
     public void setDate(Date date) {
@@ -171,4 +187,40 @@ public class LocationParam {
     public int getId() {
         return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+    public String getStrUpdatedDate() {
+        return new DateTime(updated).toString("yyyy-MM-dd HH:mm:ss.SSSSSS");
+    }
+
+    public boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public String getTabuademaresPath() {
+        return tabuademaresPath;
+    }
+
+    public void setTabuademaresPath(String tabuademaresPath) {
+        this.tabuademaresPath = tabuademaresPath;
+    }
+
+//    public boolean isSelected() {
+//        return Boolean.TRUE.equals(selected);
+//    }
 }

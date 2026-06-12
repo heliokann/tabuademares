@@ -100,6 +100,7 @@ public class SeaConditionDao extends OrmLiteSqliteOpenHelper {
         m.put("city", city.getName());
         m.put("date", city.getDate());
         return getRuntimeDao().queryForFieldValues(m);
+//        return getRuntimeDao().queryRawValue("select count(*) from seacondition where city=? and date=? and (period='12' or period='18' or period='21'",city.getName(), city.getFullDateStr());
     }
 
     public boolean contains(SeaCondition condition) {

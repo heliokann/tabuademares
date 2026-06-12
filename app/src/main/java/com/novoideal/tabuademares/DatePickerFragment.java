@@ -3,7 +3,7 @@ package com.novoideal.tabuademares;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.DatePicker;
@@ -33,6 +33,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, day);
-        ((TextView)getActivity().findViewById(R.id.section_label)).setText(getString(R.string.sessionTitle, c.getTime()));
+//        ((TextView)getActivity().findViewById(R.id.section_label)).setText(getString(R.string.sessionTitle, c.getTime()));
     }
 }

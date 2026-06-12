@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_tide_bg_corner"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/extreme_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:maxLines="1"
+        android:text="Baixa"
+        android:textAlignment="center"
+        android:textColor="@color/tideTextColor"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeMinTextSize="9sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/extreme_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:maxLines="1"
+        android:text="00:32"
+        android:textAlignment="center"
+        android:textColor="@color/tideTextColor"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeMinTextSize="9sp"
+        app:autoSizeTextType="uniform" />
+
+    <ImageView
+        android:id="@+id/extreme_type_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/tide_down" />
+
+    <TextView
+        android:id="@+id/extreme_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:maxLines="1"
+        android:text="-0,15m"
+        android:textAlignment="center"
+        android:textColor="@color/tideTextColor"
+        app:autoSizeMaxTextSize="18sp"
+        app:autoSizeMinTextSize="9sp"
+        app:autoSizeTextType="uniform" />
+
+</LinearLayout>

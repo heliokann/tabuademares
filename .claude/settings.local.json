@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew assembleDebug *)",
+      "Bash(.\\\\gradlew assembleDebug)",
+      "PowerShell(& \"C:\\\\Android\\\\sdk\\\\platform-tools\\\\adb.exe\" install -r \"C:\\\\Users\\\\helio\\\\RiderProjects\\\\tabuademares\\\\app\\\\build\\\\outputs\\\\apk\\\\debug\\\\app-debug.apk\")",
+      "PowerShell(& \"C:\\\\Android\\\\sdk\\\\platform-tools\\\\adb.exe\" logcat -d -s AndroidRuntime:E 2>&1 | Select-Object -Last 50)",
+      "PowerShell(& \"C:\\\\Android\\\\sdk\\\\platform-tools\\\\adb.exe\" logcat -d -s AndroidRuntime:E 2>&1 | Select-Object -Last 60)",
+      "Bash(.\\\\gradlew.bat connectedAndroidTest *)",
+      "PowerShell(.\\\\gradlew.bat connectedAndroidTest 2>&1)",
+      "Bash(adb uninstall *)",
+      "Bash(adb install *)",
+      "PowerShell(adb *)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(git checkout *)",
+      "PowerShell(git merge *)",
+      "PowerShell(git *)",
+      "PowerShell(.\\\\gradlew.bat compileDebugJavaWithJavac 2>&1 | Where-Object { $_ -match \"error:|BUILD|What went wrong|Caused by\" } | Select-Object -First 40)",
+      "PowerShell($adb = \"C:\\\\Android\\\\sdk\\\\platform-tools\\\\adb.exe\"; & $adb devices)"
+    ]
+  }
+}

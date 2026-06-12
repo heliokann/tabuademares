@@ -16,7 +16,7 @@
 //
 //public class WindController extends AbstractController implements BaseController {
 //
-//    private String url = "http://api.openweathermap.org/data/2.5/weather?APPID=774a44e054ada12ca9a45c2eabd53aa6&id=3468615";
+//    private String url = "http://api.openweathermap.org/data/2.5/weather?APPID=<REMOVED>&id=3468615";
 //
 //    public WindController(View view) {
 //        super(view);

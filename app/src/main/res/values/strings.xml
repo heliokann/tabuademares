@@ -2,9 +2,9 @@
     <string name="app_name">Tábua de marés</string>
     <string name="action_settings">Configurações</string>
     <string name="moon_phase">Fase da lua: %1$s (%2$.2f dias)</string>
-    <string name="moon_hold">Influência da lua: %1$s</string>
-    <string name="low_water">Baixa-mar: %1$s</string>
-    <string name="hight_tide">Preamar: %1$s</string>
+    <string name="moon_hold">Influência: %1$s</string>
+    <string name="low_water">Baixa</string>
+    <string name="hight_tide">Alta</string>
     <string name="wind">Vento: %1$s (%2$d graus), %3$.1f nós</string>
     <string name="swell">Swell: %1$s</string>
     <string name="doing">Swell: Doing</string>
@@ -17,6 +17,9 @@
     <string name="action_about">Sobre</string>
     <string name="author">Desenvolvedor: Kann</string>
     <string name="pick_time">Data</string>
+    <string name="city_search_hint">Buscar cidade…</string>
+    <string name="city_no_results">Nenhuma cidade encontrada</string>
+    <string name="city_select_title">Selecionar cidade</string>
     <string name="lbl_wind">Vento</string>
     <string name="morning_12h">Manhã (12h)</string>
     <string name="afternoon_18h">Tarde (18h)</string>
@@ -24,4 +27,24 @@
     <string name="agitation">Agitação</string>
     <string name="lbl_swell">Swell</string>
     <string name="weather_narrative">Tempo: %1$s</string>
+    <string name="font_references">Fontes: weather.com, CPTEC/INPE</string>
+    <string name="title_activity_search_location">SearchLocation</string>
+    <string name="no_tide_data_city">Dados de marés não disponíveis para esta cidade</string>
+    <string name="no_tide_data_date">Sem dados de maré para esta data</string>
+    <string name="no_tide_data_scrape_error">Não foi possível carregar dados de maré</string>
+    <string name="retry_tide_data">Tentar novamente</string>
+
+    <string name="title_activity_settings">Configurações</string>
+    <string name="pref_theme_title">Tema</string>
+
+    <string-array name="pref_theme_entries">
+        <item>Sistema</item>
+        <item>Claro</item>
+        <item>Escuro</item>
+    </string-array>
+    <string-array name="pref_theme_values">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
 </resources>

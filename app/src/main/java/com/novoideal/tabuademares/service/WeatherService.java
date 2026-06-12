@@ -8,7 +8,6 @@ import com.novoideal.tabuademares.dao.WeatherDao;
 import com.novoideal.tabuademares.model.LocationParam;
 import com.novoideal.tabuademares.model.Weather;
 
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,42 +47,51 @@ public class WeatherService extends BaseRequestService{
         List<Weather> weathers = new ArrayList<>();
         try {
             LocationParam city = controller.getCity();
-            String[] latLong = response.getString("id").split(",");
-            Double lat = Double.parseDouble((latLong[0]));
-            Double lon = Double.parseDouble((latLong[1]));
+            double lat = response.getDouble("latitude");
+            double lon = response.getDouble("longitude");
 
             city.setLatWeather(lat);
             city.setLongWeather(lon);
             locationParamDao.updateWeatherParams(city);
 
-            JSONObject vt1dailyforecast = response.getJSONObject("vt1dailyforecast");
-            JSONObject day = vt1dailyforecast.getJSONObject("day");
-            JSONArray windSpeed = day.getJSONArray("windSpeed");
-            JSONArray windDirDegrees = day.getJSONArray("windDirDegrees");
-            JSONArray windDirCompass = day.getJSONArray("windDirCompass");
-            JSONArray validDate = vt1dailyforecast.getJSONArray("validDate");
-            JSONArray temperature = day.getJSONArray("temperature");
-            JSONArray narrative = day.getJSONArray("narrative");
-            JSONArray phrase = day.getJSONArray("phrase");
+            JSONObject daily = response.getJSONObject("daily");
+            JSONArray times = daily.getJSONArray("time");
+            JSONArray codes = daily.getJSONArray("weathercode");
+            JSONArray temperatures = daily.getJSONArray("temperature_2m_max");
+            JSONArray minTemperatures = daily.getJSONArray("temperature_2m_min");
+            JSONArray windSpeeds = daily.getJSONArray("windspeed_10m_max");
+            JSONArray windDirs = daily.getJSONArray("winddirection_10m_dominant");
 
-            for (int i = 1; i < validDate.length(); i++) {
-                DateTime exDate = new DateTime(validDate.getString(i));
+            LocalDate nowDate = new LocalDate();
+
+            for (int i = 0; i < times.length(); i++) {
+                LocalDate localDate = LocalDate.parse(times.getString(i));
+                int code = codes.getInt(i);
+                int temp = (int) temperatures.getDouble(i);
+                int minTemp = (int) minTemperatures.getDouble(i);
+                int speed = (int) Math.round(windSpeeds.getDouble(i));
+                int degree = windDirs.getInt(i);
+                String dir = degreesToCompass(degree);
+                String[] parts = wmoCondition(code);
+
                 Weather weather = new Weather();
-                // TODO pensar em uma forma melhor
-                weather.setCity("PENSAR");
+                weather.setCity("--");
                 weather.setLat(lat);
                 weather.setLon(lon);
-                weather.setTemperature(temperature.getInt(i));
-                weather.setNarrative(narrative.getString(i));
-                weather.setWindDegree(windDirDegrees.getInt(i));
-                weather.setWindSpeed(windSpeed.getInt(i));
-                weather.setWindDir(windDirCompass.getString(i));
-                weather.setDate(new LocalDate(exDate).toDate());
-                weather.setTime(exDate.toDate());
+                weather.setTemperature(temp);
+                weather.setMinTemperature(minTemp);
+                weather.setWindSpeed(speed);
+                weather.setWindDegree(degree);
+                weather.setWindDir(dir);
+                weather.setCondition(parts[0]);
+                weather.setNarrative(buildNarrative(parts[1], temp, minTemp, dir, speed));
                 weather.setType("day");
-                weather.setCondition(phrase.getString(i));
+                weather.setDate(localDate.toDate());
+                weather.setTime(localDate.toDateTimeAtStartOfDay().toDate());
 
-
+                if (nowDate.getDayOfMonth() == localDate.getDayOfMonth()) {
+                    locationParamDao.touch(city);
+                }
                 weathers.add(weather);
             }
         } catch (JSONException e) {
@@ -91,8 +99,34 @@ public class WeatherService extends BaseRequestService{
         }
 
         saveSeaCondiction(weathers);
-
         controller.populateView(weathers);
+    }
+
+    private static String[] wmoCondition(int code) {
+        if (code == 0) return new String[]{"Ensolarado", "Céu limpo e ensolarado."};
+        if (code == 1) return new String[]{"Ensolarado", "Predominantemente céu limpo."};
+        if (code == 2) return new String[]{"Parcialmente nublado", "Céu parcialmente nublado."};
+        if (code == 3) return new String[]{"Nublado", "Céu nublado."};
+        if (code == 45 || code == 48) return new String[]{"Nublado", "Nevoeiro."};
+        if (code == 51) return new String[]{"Parcialmente nublado", "Chuvisco leve."};
+        if (code == 53) return new String[]{"Parcialmente nublado", "Chuvisco moderado."};
+        if (code == 55) return new String[]{"Nublado", "Chuvisco intenso."};
+        if (code == 61) return new String[]{"Chuva leve", "Chuva leve."};
+        if (code == 63) return new String[]{"Chuva", "Chuva moderada."};
+        if (code == 65) return new String[]{"Chuva", "Chuva intensa."};
+        if (code >= 71 && code <= 77) return new String[]{"Nublado", "Precipitação sólida."};
+        if (code == 80) return new String[]{"Chuva leve", "Pancadas de chuva leve."};
+        if (code == 81) return new String[]{"Chuva", "Pancadas de chuva."};
+        if (code == 82) return new String[]{"Chuva", "Pancadas de chuva fortes."};
+        if (code >= 85 && code <= 86) return new String[]{"Nublado", "Neve com rajadas."};
+        if (code == 95) return new String[]{"Tempestade", "Tempestade com trovões."};
+        if (code == 96 || code == 99) return new String[]{"Tempestade", "Tempestade com granizo."};
+        return new String[]{"Parcialmente nublado", "Condição não disponível."};
+    }
+
+    private static String degreesToCompass(int degrees) {
+        String[] dirs = {"N", "NE", "E", "SE", "S", "SW", "W", "NW"};
+        return dirs[(int) Math.round(((double) (degrees % 360)) / 45) % 8];
     }
 
     @Override
@@ -111,6 +145,10 @@ public class WeatherService extends BaseRequestService{
         return conditions;
 
 
+    }
+
+    public static String buildNarrative(String condition, int maxTemp, int minTemp, String windDir, int windSpeed) {
+        return condition + " Máxima: " + maxTemp + "°C. Mínima: " + minTemp + "°C. Vento " + windDir + " a " + windSpeed + " km/h.";
     }
 
     private void saveSeaCondiction(List<Weather> conditions) {

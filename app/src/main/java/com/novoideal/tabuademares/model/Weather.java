@@ -32,6 +32,8 @@ public class Weather {
     @DatabaseField
     private int temperature;
     @DatabaseField
+    private int minTemperature;
+    @DatabaseField
     private String windDir;
     @DatabaseField
     private String condition;
@@ -124,6 +126,14 @@ public class Weather {
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
+    }
+
+    public int getMinTemperature() {
+        return minTemperature;
+    }
+
+    public void setMinTemperature(int minTemperature) {
+        this.minTemperature = minTemperature;
     }
 
     public String getWindDir() {
